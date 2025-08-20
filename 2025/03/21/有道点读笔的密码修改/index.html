@@ -122,19 +122,16 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/orgs/PenUniverse/discussions/277">https://github.com/orgs/PenUniverse/discussions/277</a></li>
 </ul>
 <p><strong>本文用到的全部工具：</strong><br><a target="_blank" rel="noopener" href="https://www.123684.com/s/sE1hjv-mklwd?%E6%8F%90%E5%8F%96%E7%A0%81:0m8B">https://www.123684.com/s/sE1hjv-mklwd?提取码:0m8B</a></p>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>**首先，通过抓包抓取系统全量包</p>
-<p> 使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包</p>
-<p>**重新发送更新请求，获取全量包链接</p>
-<pre><code>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：
-</code></pre>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="首先，通过抓包抓取系统全量包"><a href="#首先，通过抓包抓取系统全量包" class="headerlink" title="首先，通过抓包抓取系统全量包"></a>首先，通过抓包抓取系统全量包</h3><p>使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包。</p>
+<h3 id="重新发送更新请求，获取全量包链接"><a href="#重新发送更新请求，获取全量包链接" class="headerlink" title="重新发送更新请求，获取全量包链接"></a>重新发送更新请求，获取全量包链接</h3><p>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：</p>
 <p>请将以下JSON数据用于HTTP请求：</p>
 <pre><code class="language-json">&#123;
-   &quot;timestamp&quot;: &quot;这里填你WireShark获得的timestamp&quot;,
-   &quot;sign&quot;: &quot;这里填你WireShark获得的sign&quot;,
-   &quot;mid&quot;: &quot;这里填你WireShark获得的mid&quot;,
-   &quot;productId&quot;: &quot;这里填你WireShark获得的productID&quot;,
-   &quot;version&quot;: &quot;99.99.90&quot;,
-   &quot;networkType&quot;: &quot;WIFI&quot;
+    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,
+    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,
+    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, 
+    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,
+    &quot;version&quot;: &quot;99.99.90&quot;,
+    &quot;networkType&quot;: &quot;WIFI&quot;
 &#125;
 
 请求完毕我们会获得一个包含完整包链接的json
