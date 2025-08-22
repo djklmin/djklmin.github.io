@@ -12,31 +12,36 @@
 <li><a href="https://github.com/orgs/PenUniverse/discussions/250">https://github.com/orgs/PenUniverse/discussions/250</a></li>
 <li><a href="https://github.com/orgs/PenUniverse/discussions/277">https://github.com/orgs/PenUniverse/discussions/277</a></li>
 </ul>
-<p><strong>本文用到的全部工具：</strong><br><a href="https://www.123684.com/s/sE1hjv-mklwd?%E6%8F%90%E5%8F%96%E7%A0%81:0m8B">https://www.123684.com/s/sE1hjv-mklwd?提取码:0m8B</a></p>
+<p><strong>本文用到的全部工具：</strong></p>
+<p><a href="https://www.123684.com/s/sE1hjv-mklwd">https://www.123684.com/s/sE1hjv-mklwd</a> 提取码:0m8B</p>
 <h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="首先，通过抓包抓取系统全量包"><a href="#首先，通过抓包抓取系统全量包" class="headerlink" title="首先，通过抓包抓取系统全量包"></a>首先，通过抓包抓取系统全量包</h3><p>使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包。</p>
+<p><img src="/images/2.png"></p>
 <h3 id="重新发送更新请求，获取全量包链接"><a href="#重新发送更新请求，获取全量包链接" class="headerlink" title="重新发送更新请求，获取全量包链接"></a>重新发送更新请求，获取全量包链接</h3><p>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：</p>
 <p>请将以下JSON数据用于HTTP请求：</p>
-<p>json<br>{<br>    “timestamp”: “这里你Wireshark获得的timestamp”,<br>    “sign”: “这里你Wireshark获得的sign”,<br>    “mid”: “这里你Wireshark获得的mid”,<br>    “productId”: “这里你Wireshark获得的productID”,<br>    “version”: “99.99.90”,<br>    “networkType”: “WIFI”<br>}</p>
-<p>请求完毕我们会获得一个包含完整包链接的json</p>
-<p>通过这个链接下载文件</p>
-<p>**使用winhex替换md5值<br>    打开winhex并打开你的完整包img，开启搜索，搜索echo $PASSWD | md5sum<br>    千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败<br>    这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。<br>    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</p>
-<pre><code>注意：此时文件大小未发生改变 大小一个字节也没变！
-</code></pre>
-<p>**计算修改后的文件校验码</p>
-<p>   编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，<br>   每个机器值可能是不一样多的，然后在cmd中执行’python getnewmd5.py {修改后的img路径}’，并紧跟着执行’certutil -hashfile {修改后的img路径} md5’,<br>   随后我们会获得分片md5和整体md5</p>
-<p>   还需要计算一个img的sha256值，我这边使用的是7zip 得到修改后的img的sha256值 留存备用</p>
-<p>**搭建更新服务器</p>
-<p>   首先自行安装nodejs 然后编辑YDPen.js，将”JsonData”的内容全部替换为前面抓包抓到的内容，<br>然后手动修改’segmentMd5’中每一个分块的md5值为前面计算得到的md5值，<br>并修改bakUrl和deltaUrl为”http:&#x2F;&#x2F;{本机局域网ip}:14514&#x2F;你修改的完整包.img”，随后修改’md5sum’为前面计算的完整img的md5，sha修改为计算的sha256值</p>
-<pre><code>下拉到js下方部分，修改&#39;/product/1717746496/*********/ota/checkVersion&#39;为你自己抓到的请求url，保存文件。
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-开启两个cmd，一个执行&#39;python httpserver.py &#123;img路径&#125;&#39;，另一个执行&#39;node YDPen.js&#39;，同时修改一下host，把&#39;iotapi.abupdate.com&#39;劫持到本机ip，并执行ipconfig /flushdns来刷新dns 
-</code></pre>
-<p>**更新自定义固件</p>
-<pre><code>在词典笔连接电脑热点的情况下检查更新，会检测到一个很大的更新包，直接更新即可
-</code></pre>
+<p><img src="/images/3.png"></p>
+<p>请求完毕我们会获得一个包含完整包链接的json</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   &quot;status&quot;: 1000,</span><br><span class="line">   &quot;msg&quot;: &quot;success&quot;,</span><br><span class="line">   &quot;data&quot;: &#123;</span><br><span class="line">      &quot;releaseNotes&quot;: &#123;</span><br><span class="line">            &quot;publishDate&quot;: &quot;2023-06-26&quot;,</span><br><span class="line">            &quot;version&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;content&quot;: &quot;[&#123;\&quot;country\&quot;:\&quot;zh_CN\&quot;,\&quot;content\&quot;:\&quot;1.优化系统.修复错误\&quot;&#125;]&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      //&quot;sha256&quot;: &quot;xxxxxxxxxx&quot;,</span><br><span class="line">      &quot;safe&quot;: &#123;</span><br><span class="line">            &quot;encKey&quot;: null,</span><br><span class="line">            &quot;isEncrypt&quot;: 0</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;version&quot;: &#123;</span><br><span class="line">            &quot;segmentMd5&quot;: &quot;[&#123;\&quot;num\&quot;:0,\&quot;startpos\&quot;:0,\&quot;md5\&quot;:\&quot;6afb51af609d5ab205620f2020ed964e\&quot;,\&quot;endpos\&quot;:104857600&#125;,&#123;\&quot;num\&quot;:1,\&quot;startpos\&quot;:104857600,\&quot;md5\&quot;:\&quot;42c6e6b88c0603783765c403b0ed7914\&quot;,\&quot;endpos\&quot;:209715200&#125;,&#123;\&quot;num\&quot;:2,\&quot;startpos\&quot;:209715200,\&quot;md5\&quot;:\&quot;a2d297d5cc33eca65777d2bdcbe98293\&quot;,\&quot;endpos\&quot;:314572800&#125;,&#123;\&quot;num\&quot;:3,\&quot;startpos\&quot;:314572800,\&quot;md5\&quot;:\&quot;5bb85fc4e9539131ff471cf7e1488718\&quot;,\&quot;endpos\&quot;:419430400&#125;,&#123;\&quot;num\&quot;:4,\&quot;startpos\&quot;:419430400,\&quot;md5\&quot;:\&quot;4c5f5f95d49719a23aef3d127f884c1f\&quot;,\&quot;endpos\&quot;:524288000&#125;,&#123;\&quot;num\&quot;:5,\&quot;startpos\&quot;:524288000,\&quot;md5\&quot;:\&quot;b6028cbf53490ff8a72d6b03da64bfdb\&quot;,\&quot;endpos\&quot;:629145600&#125;,&#123;\&quot;num\&quot;:6,\&quot;startpos\&quot;:629145600,\&quot;md5\&quot;:\&quot;4f6d7a683825afdb57291c651fcf0a4c\&quot;,\&quot;endpos\&quot;:734003200&#125;,&#123;\&quot;num\&quot;:7,\&quot;startpos\&quot;:734003200,\&quot;md5\&quot;:\&quot;51441a5ab6fc37076104de26d8d74092\&quot;,\&quot;endpos\&quot;:838860800&#125;,&#123;\&quot;num\&quot;:8,\&quot;startpos\&quot;:838860800,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:943718400&#125;,&#123;\&quot;num\&quot;:9,\&quot;startpos\&quot;:943718400,\&quot;md5\&quot;:\&quot;4c48a4078df31327fda7845123a4cb2b\&quot;,\&quot;endpos\&quot;:1048576000&#125;,&#123;\&quot;num\&quot;:10,\&quot;startpos\&quot;:1048576000,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1153433600&#125;,&#123;\&quot;num\&quot;:11,\&quot;startpos\&quot;:1153433600,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1258291200&#125;,&#123;\&quot;num\&quot;:12,\&quot;startpos\&quot;:1258291200,\&quot;md5\&quot;:\&quot;c81029b9c4e0ecf7cbcf1d1afb881f20\&quot;,\&quot;endpos\&quot;:1363148800&#125;,&#123;\&quot;num\&quot;:13,\&quot;startpos\&quot;:1363148800,\&quot;md5\&quot;:\&quot;586c523c54bc9f1042bb92022ac87183\&quot;,\&quot;endpos\&quot;:1397088268&#125;]&quot;,</span><br><span class="line">            &quot;bakUrl&quot;: &quot;http://iotdownbak.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;versionAlias&quot;: &quot;&quot;,</span><br><span class="line">            &quot;deltaUrl&quot;: &quot;http://iotdown.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;deltaID&quot;: &quot;xxxxxxx&quot;,</span><br><span class="line">            &quot;fileSize&quot;: 1397088268,</span><br><span class="line">            &quot;md5sum&quot;: &quot;5c668394fa2779eada86601292ff877b&quot;,</span><br><span class="line">            &quot;versionName&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;sha&quot;: &quot;6fdd26798679e5cb1e877051c7970a89307e303&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;policy&quot;: &#123;</span><br><span class="line">            &quot;download&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;wifi&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;仅wifi下载&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;optional&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;storageSize&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;存储空间不足&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1397088268&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;forceDownload&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;install&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;battery&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;电量不足，请充电后重试！&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;30&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;rebootUpgrade&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;force&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;&#123;\&quot;from\&quot;: \&quot;00:00\&quot;, \&quot;to\&quot;: \&quot;00:00\&quot;,\&quot;gap\&quot;: \&quot;00:00\&quot;&#125;&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;check&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;cycle&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1500&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p>应该类似于以上这个文本 通过bakUrl或deltaUrl链接下载文件</p>
+<h2 id="使用winhex替换md5值"><a href="#使用winhex替换md5值" class="headerlink" title="使用winhex替换md5值"></a>使用winhex替换md5值</h2><p>​    打开winhex并打开你的完整包img，开启搜索，搜索</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $PASSWD | md5sum</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/4.png"></p>
+<p>​    千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。<br>​    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</p>
+<p>注意：此时文件大小未发生改变 大小一个字节也没变！</p>
+<h2 id="计算修改后的文件校验码"><a href="#计算修改后的文件校验码" class="headerlink" title="计算修改后的文件校验码"></a>计算修改后的文件校验码</h2><p>   编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，</p>
+<p>每个机器值可能是不一样多的，然后在cmd中执行’python getnewmd5.py {修改后的img路径}’，并紧跟着执行’certutil -hashfile {修改后的img路径} md5’,<br>   随后我们会获得分片md5和整体md5</p>
+<p>   还需要计算一个img的sha256值 得到修改后的img的sha256值 留存备用</p>
+<h2 id="搭建更新服务器"><a href="#搭建更新服务器" class="headerlink" title="搭建更新服务器"></a>搭建更新服务器</h2><p>   首先自行安装nodejs 然后编辑YDPen.js，将”JsonData”的内容全部替换为前面抓包抓到的内容，然后手动修改’segmentMd5’中每一个分块的md5值为前面计算得到的md5值，并修改bakUrl和deltaUrl为”http:&#x2F;&#x2F;{本机局域网ip}:14514&#x2F;你修改的完整包.img”，随后修改’md5sum’为前面计算的完整img的md5，sha修改为计算的sha256值</p>
+<p>  下拉到js下方部分，修改’&#x2F;product&#x2F;1717746496&#x2F;*********&#x2F;ota&#x2F;checkVersion’为你自己抓到的请求url，保存文件。</p>
+<img src="/images/5.png" style="zoom:80%;" />
+
+<p><img src="/images/6.png"></p>
+<h2 id="更新自定义固件"><a href="#更新自定义固件" class="headerlink" title="更新自定义固件"></a>更新自定义固件</h2><p>在词典笔连接电脑热点的情况下检查更新，会检测到一个很大的更新包，直接更新即可</p>
 <p>**获得adb权限，美美折腾</p>
-<pre><code>更新完毕后，待设备重启，再次去法律监管里面连击打开adb，此时连接电脑执行adb shell auth并输入前面转换为md5的密码明文，回车，见证奇迹
-</code></pre>
+<p>更新完毕后，待设备重启，再次去法律监管里面连击打开adb，此时连接电脑执行adb shell auth并输入前面转换为md5的密码明文，回车，见证奇迹</p>
 <p>**教程结束<br>   本文转载于bilibili听秋念大佬的文章<a href="https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0">https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0</a><br>   本文只是加以改进</p>
 <p>**结束！</p>
 ]]></content>
@@ -57,8 +62,59 @@
     <content><![CDATA[<!-- 文章正文开头... -->
 
 <span id="more"></span>
-<pre><code>
-</code></pre>
+
+<h1 id="Hexo-命令大全"><a href="#Hexo-命令大全" class="headerlink" title="Hexo 命令大全"></a>Hexo 命令大全</h1><h2 id="初始化命令"><a href="#初始化命令" class="headerlink" title="初始化命令"></a>初始化命令</h2><h3 id="hexo-init-folder"><a href="#hexo-init-folder" class="headerlink" title="hexo init [folder]"></a>hexo init [folder]</h3><p>初始化Hexo到指定目录。如果文件夹不存在，会自动创建。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init myblog  # 在当前目录创建myblog文件夹并初始化Hexo</span><br></pre></td></tr></table></figure>
+
+<h3 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h3><p>安装Hexo所需的依赖包。在初始化后的目录中运行此命令。</p>
+<h2 id="内容创建命令"><a href="#内容创建命令" class="headerlink" title="内容创建命令"></a>内容创建命令</h2><h3 id="hexo-new-layout-“标题”"><a href="#hexo-new-layout-“标题”" class="headerlink" title="hexo new [layout] “标题”"></a>hexo new [layout] “标题”</h3><p>创建新文章。layout可以是post、page或draft，默认为post。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new post &quot;Hello World&quot;  # 创建一篇名为Hello World的文章</span><br><span class="line">hexo new page &quot;about&quot;       # 创建一个关于页面</span><br><span class="line">hexo new draft &quot;new-idea&quot;   # 创建一个草稿</span><br></pre></td></tr></table></figure>
+
+<h3 id="hexo-publish-layout-“文件名”"><a href="#hexo-publish-layout-“文件名”" class="headerlink" title="hexo publish [layout] “文件名”"></a>hexo publish [layout] “文件名”</h3><p>将草稿移动到post目录，即发布草稿。</p>
+<p>示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo publish draft &quot;new-idea&quot;  # 发布名为new-idea的草稿</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成与预览命令"><a href="#生成与预览命令" class="headerlink" title="生成与预览命令"></a>生成与预览命令</h2><h3 id="hexo-generate"><a href="#hexo-generate" class="headerlink" title="hexo generate"></a>hexo generate</h3><p>生成静态文件。使用简写 <code>hexo g</code> 效果相同。</p>
+<p>常用选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo generate --watch  # 监视文件变动并重新生成</span><br><span class="line">hexo generate --draft  # 包含草稿</span><br></pre></td></tr></table></figure>
+
+<h3 id="hexo-server"><a href="#hexo-server" class="headerlink" title="hexo server"></a>hexo server</h3><p>启动本地服务器预览。使用简写 <code>hexo s</code> 效果相同。</p>
+<p>常用选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo server -p 5000    # 指定端口5000</span><br><span class="line">hexo server -i 0.0.0.0 # 指定IP地址</span><br><span class="line">hexo server --draft    # 包含草稿</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署命令"><a href="#部署命令" class="headerlink" title="部署命令"></a>部署命令</h2><h3 id="hexo-deploy"><a href="#hexo-deploy" class="headerlink" title="hexo deploy"></a>hexo deploy</h3><p>部署网站到服务器。使用简写 <code>hexo d</code> 效果相同。</p>
+<p>常用选项：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo deploy --generate  # 部署前先生成，等同于 hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h3 id="hexo-clean"><a href="#hexo-clean" class="headerlink" title="hexo clean"></a>hexo clean</h3><p>清除缓存文件(db.json)和已生成的静态文件(public)。</p>
+<p>提示：遇到奇怪的问题时，先执行此命令清除缓存，然后再重新生成和部署。</p>
+<h2 id="其他实用命令"><a href="#其他实用命令" class="headerlink" title="其他实用命令"></a>其他实用命令</h2><h3 id="hexo-list-type"><a href="#hexo-list-type" class="headerlink" title="hexo list [type]"></a>hexo list [type]</h3><p>列出网站中的所有文件。type可以是page、post、route、tag或category。</p>
+<h3 id="hexo-version"><a href="#hexo-version" class="headerlink" title="hexo version"></a>hexo version</h3><p>显示Hexo版本信息。</p>
+<h3 id="hexo-–draft"><a href="#hexo-–draft" class="headerlink" title="hexo –draft"></a>hexo –draft</h3><p>显示草稿中的文章（在generate或server命令中使用）。</p>
+<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><ol>
+<li>组合使用命令可以提高效率，例如：<code>hexo g -d</code> 可以一次性完成生成和部署。</li>
+<li>在服务器运行时，可以边修改边预览效果，Hexo会自动检测更改并刷新页面。</li>
+<li>使用草稿功能可以保存尚未完成的文章，避免未完成的内容被发布。</li>
+<li>部署前建议先使用 <code>hexo s</code> 在本地预览效果，确认无误后再部署。</li>
+</ol>
+<h2 id="常用命令组合"><a href="#常用命令组合" class="headerlink" title="常用命令组合"></a>常用命令组合</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 清理、生成并部署</span><br><span class="line">hexo clean &amp;&amp; hexo g -d</span><br><span class="line"></span><br><span class="line"># 生成包含草稿并在本地预览</span><br><span class="line">hexo g --draft &amp;&amp; hexo s --draft</span><br><span class="line"></span><br><span class="line"># 创建文章并立即启动服务器</span><br><span class="line">hexo new post &quot;新文章&quot; &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="插件相关命令"><a href="#插件相关命令" class="headerlink" title="插件相关命令"></a>插件相关命令</h2><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-plugin-name --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="卸载插件"><a href="#卸载插件" class="headerlink" title="卸载插件"></a>卸载插件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-plugin-name --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="调试命令"><a href="#调试命令" class="headerlink" title="调试命令"></a>调试命令</h2><h3 id="显示详细生成信息"><a href="#显示详细生成信息" class="headerlink" title="显示详细生成信息"></a>显示详细生成信息</h3><p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo generate --debug</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示部署详细信息"><a href="#显示部署详细信息" class="headerlink" title="显示部署详细信息"></a>显示部署详细信息</h3><p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo deploy --debug</span><br></pre></td></tr></table></figure>
+
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 设置环境为生产环境</span><br><span class="line">hexo generate --production</span><br><span class="line"></span><br><span class="line"># 设置环境为开发环境（默认）</span><br><span class="line">hexo generate --development</span><br></pre></td></tr></table></figure>
+
+<p>更多信息请参考 <a href="https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
 ]]></content>
       <categories>
         <category>命令</category>
@@ -83,6 +139,30 @@
         <tag>ADB</tag>
         <tag>教程</tag>
         <tag>科技</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试Ayer主题显示</title>
+    <url>/2025/08/22/%E9%9D%92%E5%B9%B4%E4%B8%8E%E6%B8%85%E5%BB%89%E5%90%8C%E8%A1%8C%E4%B8%BB%E9%A2%98%E4%BD%9C%E6%96%87/</url>
+    <content><![CDATA[<!-- 文章正文开头... -->
+
+<span id="more"></span>
+
+<h2 id="1-测试文本"><a href="#1-测试文本" class="headerlink" title="1.测试文本"></a>1.测试文本</h2><p>《我的世界》<em>（Minecraft）<em>是一款<a href="https://baike.baidu.com/item/%E6%B2%99%E7%9B%92/18364354?fromModule=lemma_inlink">沙盒</a>类<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F/195750?fromModule=lemma_inlink">电子游戏</a>，开创者为<a href="https://baike.baidu.com/item/%E9%A9%AC%E5%BA%93%E6%96%AF%C2%B7%E9%98%BF%E5%88%97%E5%85%8B%E8%B0%A2%C2%B7%E6%B3%8A%E6%9D%BE/6980057?fromModule=lemma_inlink">马库斯·阿列克谢·泊松</a></em>（Notch）</em>。游戏由<a href="https://baike.baidu.com/item/Mojang/2253597?fromModule=lemma_inlink">Mojang</a> Studios维护，现隶属于<a href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF/124767?fromModule=lemma_inlink">微软</a><a href="https://baike.baidu.com/item/Xbox/19680933?fromModule=lemma_inlink">Xbox</a>游戏工作室。游戏最初于2009年5月17日作为Classic版本发布，并于2011年11月18日发布<a href="https://baike.baidu.com/item/Java/85979?fromModule=lemma_inlink">Java</a>正式版。游戏平台囊括桌面设备、移动设备和游戏主机。中国版于2016年5月20日在<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86/5944925?fromModule=lemma_inlink">中国大陆</a>运营 [32]，由<a href="https://baike.baidu.com/item/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/1918119?fromModule=lemma_inlink">网易游戏</a>代理 [7]。</p>
+<p>游戏以玩家在一个充满着方块的三维空间中自由地创造和破坏不同种类的方块为主题。玩家在游戏中可以在单人或多人模式中通过摧毁或创造精妙绝伦的建筑物和艺术，或者收集物品探索地图以完成游戏的<a href="https://baike.baidu.com/item/%E6%88%90%E5%B0%B1/19928754?fromModule=lemma_inlink">成就</a>（<a href="https://baike.baidu.com/item/%E8%BF%9B%E5%BA%A6/24472016?fromModule=lemma_inlink">进度</a>）。玩家也可以尝试在创造模式下（打开作弊）<a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E7%94%B5%E8%B7%AF/6384512?fromModule=lemma_inlink">红石电路</a>和<a href="https://baike.baidu.com/item/%E6%8C%87%E4%BB%A4/18765029?fromModule=lemma_inlink">指令</a>等玩法。</p>
+<p>2019年5月，《我的世界》击败《俄罗斯方块》，以售出1.76亿份的成绩，成为有史以来最畅销的电子游戏 [46]。2020年，荣获 “2020年儿童选择奖” [42]。2023年10月，销量超过3亿份 [47]。2024年11月，获得2024金摇杆奖持续游玩奖（PC&#x2F;主机）</p>
+<h2 id="2-代码区块-以下是一个代码块"><a href="#2-代码区块-以下是一个代码块" class="headerlink" title="2.代码区块 以下是一个代码块"></a>2.代码区块 以下是一个代码块</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-图片显示"><a href="#3-图片显示" class="headerlink" title="3.图片显示"></a>3.图片显示</h2><p><img src="/%5Cimages%5C1.jpg"></p>
+<h2 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h2><p><a href="">www.deepseek.com</a></p>
+<p><a href="deepseek.com">deepseek</a></p>
+<p><a href="http://localhost:4000/">博客</a></p>
+<h1 id="测试结束！"><a href="#测试结束！" class="headerlink" title="测试结束！"></a>测试结束！</h1>]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
       </tags>
   </entry>
 </search>
