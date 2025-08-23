@@ -120,7 +120,8 @@
         <category>命令</category>
       </categories>
       <tags>
-        <tag>部署 命令</tag>
+        <tag>部署</tag>
+        <tag>命令</tag>
       </tags>
   </entry>
   <entry>
@@ -192,10 +193,12 @@
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>通过将<em>GitHub</em>与<em>WordPress</em>结合，开发者可以有效管理网站的代码，提升协作效率，并保证数据的安全性。无论是个人项目还是团队合作，利用这些工具都能极大地优化开发流程。希望本文能帮助您在WordPress项目中成功集成<em>GitHub</em>，实现更高效的开发和管理。</p>
 ]]></content>
       <categories>
-        <category>GitHub</category>
+        <category>技术教程</category>
       </categories>
       <tags>
-        <tag>GitHub，WordPress，网站</tag>
+        <tag>GitHub</tag>
+        <tag>WordPress</tag>
+        <tag>网站</tag>
       </tags>
   </entry>
   <entry>
