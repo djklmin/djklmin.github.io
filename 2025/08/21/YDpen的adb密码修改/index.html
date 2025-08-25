@@ -54,6 +54,9 @@
   <div id="app">
     
       
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
     <main class="content on">
       <section class="outer">
   <article
@@ -156,6 +159,12 @@
  
       <!-- reward -->
       
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
     </div>
     
 
@@ -255,33 +264,12 @@
     <div id="twikoo" class="twikoo"></div>
     <script>
         twikoo.init({
-            envId: "https://twikoo.vercel.app"
+            envId: "https://twikoo-mu-ecru.vercel.app"
         })
     </script>
  
 </article>
 
-  
-  <!-- Giscus 评论系统 -->
-  
-    <div class="giscus-container">
-        <script src="https://giscus.app/client.js"
-            data-repo="DJKLMIN/djklmin.github.io"
-            data-repo-id="R_kgDOPhEEAQ"
-            data-category="Announcements"
-            data-category-id="DIC_kwDOPhEEAc4CugAr"
-            data-mapping="title"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="preferred_color_scheme"
-            data-lang="zh-CN"
-            crossorigin="anonymous"
-            async>
-        </script>
-    </div>
-  
 </section>
       <footer class="footer">
   <div class="outer">
@@ -318,6 +306,8 @@
     <ul>
       <li>
         <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
         
       </li>
     </ul>
@@ -361,7 +351,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
+      <a class="nav-item-link" href="/2019/about">关于我</a>
     </li>
     
   </ul>
@@ -562,7 +552,9 @@
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
-
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
 <!-- CodeCopy -->
  
 <link rel="stylesheet" href="/css/clipboard.css">
@@ -625,7 +617,7 @@
 
 <script>
   if (window.mermaid) {
-    mermaid.initialize({ theme: "" });
+    mermaid.initialize({ theme: "forest" });
   }
 </script>
 
