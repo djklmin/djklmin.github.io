@@ -1,0 +1,25 @@
+backend:
+  name: netlify # 使用 Netlify 的身份认证和 Git Gateway
+  repo: djklmin/djklmin.github.io # 你的 GitHub 用户名/仓库名
+  branch: main # 你的仓库主分支名称
+  site_domain: flymin.netlify.app # 你的 Netlify 应用域名
+
+# 媒体文件（图片）设置
+media_folder: "source/images" # 上传的图片会保存到这个目录
+public_folder: "/images" # 在文章中引用图片的路径
+
+# 内容的集合（定义你要管理的内容类型，这里先配置文章）
+collections:
+  - name: "posts" # 集合标识符
+    label: "Posts" # 后台显示的名称（复数）
+    label_singular: "Post" # 后台显示的名称（单数）
+    folder: "source/_posts" # 这个集合对应的文件目录（Hexo博文目录）
+    create: true # 允许创建新文件
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # 新文件的文件名格式
+    fields: # 定义编辑表单里有哪些字段
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["日记"] }
+      - { label: "Categories", name: "categories", widget: "list", default: ["默认分类"] }
+      - { label: "Permalink", name: "permalink", widget: "string", required: false }
