@@ -98,7 +98,7 @@
 </li>
 <li><p>twitter：<a target="_blank" rel="noopener" href="https://x.com/mindjkl">X账号</a></p>
 </li>
-<li><p>常用邮箱：<a href="mailto:&#70;&#108;&#121;&#x6d;&#x69;&#110;&#49;&#49;&#53;&#x40;&#x6f;&#117;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#99;&#111;&#109;">Flymin115@outlook.com</a></p>
+<li><p>常用邮箱：<a href="mailto:&#70;&#108;&#x79;&#109;&#105;&#x6e;&#x31;&#49;&#x35;&#64;&#x6f;&#117;&#116;&#108;&#111;&#x6f;&#x6b;&#x2e;&#x63;&#x6f;&#x6d;">Flymin115@outlook.com</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="http://www.xiaozhang.com.cn/xuexiao/school_info.aspx?id=345">重庆江北中学</a>在校学生！</p>
 </li>
@@ -204,14 +204,33 @@
       </li>
     </ul>
     
-    <!-- 添加本地统计信息 -->
+    <!-- 优化后的统计信息显示 -->
     <ul>
-      <li>
-        <i class="ri-time-line"></i> 网站已稳定运行 <span id="site-running-days">0</span> 天
-        <span class="division">|</span>
-        <i class="ri-eye-line"></i> 总访问量: <span id="site-total-pv">0</span>
-        <span class="division">|</span>
-        <i class="ri-user-line"></i> 总访客数: <span id="site-total-uv">0</span>
+      <li style="margin: 4px 0; line-height: 1.2;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; align-items: center; font-size: 0.9em;">
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-time-line" style="color: #ff6b6b; font-size: 0.95em;"></i>
+            <span style="color: #666;">稳定运行</span>
+            <span id="site-running-days" style="color: #ff6b6b; font-weight: 600;">0</span>
+            <span style="color: #666;">天</span>
+          </span>
+          
+          <span style="color: #ddd;">•</span>
+          
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-eye-line" style="color: #4ecdc4; font-size: 0.95em;"></i>
+            <span style="color: #666;">访问量</span>
+            <span id="site-total-pv" style="color: #4ecdc4; font-weight: 600;">0</span>
+          </span>
+          
+          <span style="color: #ddd;">•</span>
+          
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-user-line" style="color: #45b7d1; font-size: 0.95em;"></i>
+            <span style="color: #666;">访客数</span>
+            <span id="site-total-uv" style="color: #45b7d1; font-weight: 600;">0</span>
+          </span>
+        </div>
       </li>
     </ul>
     
@@ -233,22 +252,13 @@
     
     <ul>
       
-    </ul>
-    
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
     </ul>
   </div>
 </footer>
 
 
 
-<!-- 添加本地统计脚本 -->
+<!-- 本地统计脚本 -->
 <script>
 // 本地访问统计系统
 (function() {
@@ -322,7 +332,37 @@
   pvElement.textContent = stats.totalPV;
   uvElement.textContent = stats.totalUV;
 })();
-</script>    
+</script>
+
+<!-- 响应式样式调整 -->
+<style>
+@media (max-width: 768px) {
+  .footer .outer ul li {
+    margin: 3px 0;
+  }
+  
+  .footer .outer ul li div {
+    gap: 8px;
+    font-size: 0.85em;
+  }
+  
+  .footer .outer ul li span {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer .outer ul li div {
+    gap: 6px;
+    font-size: 0.8em;
+  }
+  
+  .footer .outer ul li span {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>    
     </main>
     <div class="float_btns">
       <div class="totop" id="totop">
