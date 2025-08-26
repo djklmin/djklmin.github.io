@@ -3,78 +3,122 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flymin 内容管理系统</title>
+  <title>Flymin 博客管理系统</title>
+  <!-- 使用 jsDelivr CDN - 非常稳定可靠 -->
   <script src="/decap-cms.js"></script>
   <style>
-    /* 基本样式 */
     body {
       margin: 0;
-      padding: 0;
+      padding: 20px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #f5f5f5;
-    }
-    #cms-root {
-      /* 确保CMS容器占据整个视口 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
     }
-    #loading {
+    #status {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 50px;
+      max-width: 500px;
+    }
+    .loading {
       color: #666;
+    }
+    .error {
+      color: #d32f2f;
+    }
+    .success {
+      color: #2e7d32;
     }
   </style>
 </head>
 <body>
-  <!-- 为CMS提供明确的挂载点 -->
-  <div id="cms-root">
-    <div id="loading">
-      <h2>内容管理系统加载中...</h2>
-      <p>请稍候</p>
+  <div id="status">
+    <div id="message" class="loading">
+      <h2>🔄 正在初始化内容管理系统...</h2>
+      <p>请耐心等待，这可能需要几秒钟</p>
     </div>
   </div>
 
   <script>
-    // 等待文档和CMS都加载完成
-    window.addEventListener('load', function() {
-      console.log('Window loaded, checking for CMS...');
+    // 主要初始化函数
+    function initializeCMS() {
+      const messageElement = document.getElementById('message');
       
       if (typeof CMS !== 'undefined') {
-        console.log('CMS found, initializing...');
+        console.log('✅ CMS 脚本已加载');
+        messageElement.innerHTML = '<h2 class="success">✅ 核心加载成功</h2><p>正在启动管理界面...</p>';
         
-        // 移除加载提示
-        const loadingElement = document.getElementById('loading');
-        if (loadingElement) {
-          loadingElement.remove();
-        }
-        
-        // 初始化CMS
         try {
-          CMS.init();
-          console.log('CMS initialized successfully');
+          // 给CMS一点时间完成内部初始化
+          setTimeout(() => {
+            CMS.init();
+            console.log('✅ CMS 初始化完成');
+          }, 100);
         } catch (error) {
-          console.error('CMS initialization failed:', error);
-          document.getElementById('cms-root').innerHTML = 
-            '<div style="padding: 20px; color: red;">' +
-            '<h2>初始化失败</h2>' +
-            '<p>' + error.message + '</p>' +
-            '</div>';
+          console.error('❌ CMS 初始化错误:', error);
+          messageElement.innerHTML = `
+            <h2 class="error">❌ 初始化错误</h2>
+            <p>${error.message}</p>
+            <details style="text-align: left; margin-top: 20px;">
+              <summary>技术详情</summary>
+              <pre style="font-size: 12px;">${error.stack}</pre>
+            </details>
+          `;
+          messageElement.className = 'error';
         }
       } else {
-        console.error('CMS object not available');
-        document.getElementById('cms-root').innerHTML = 
-          '<div style="padding: 20px; color: red;">' +
-          '<h2>加载失败</h2>' +
-          '<p>核心脚本未正确加载</p>' +
-          '</div>';
+        console.error('❌ CMS 未定义');
+        messageElement.innerHTML = `
+          <h2 class="error">❌ 加载失败</h2>
+          <p>无法加载核心脚本文件</p>
+          <p>可能的原因：</p>
+          <ul style="text-align: left;">
+            <li>网络连接问题</li>
+            <li>CDN 访问限制</li>
+            <li>浏览器插件阻止</li>
+          </ul>
+          <p style="margin-top: 20px;">
+            <button onclick="window.location.reload()" style="padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer;">
+              重试加载
+            </button>
+          </p>
+        `;
+        messageElement.className = 'error';
       }
-    });
+    }
 
-    // 备用超时检查
-    setTimeout(function() {
+    // 页面加载完成后执行
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeCMS);
+    } else {
+      initializeCMS();
+    }
+
+    // 设置超时检查
+    setTimeout(() => {
       if (typeof CMS === 'undefined') {
-        console.warn('CMS loading timeout');
+        const messageElement = document.getElementById('message');
+        if (messageElement.className === 'loading') {
+          console.warn('⚠️ CMS 加载超时');
+          messageElement.innerHTML = `
+            <h2 class="error">⚠️ 加载时间过长</h2>
+            <p>正在尝试重新连接...</p>
+          `;
+          messageElement.className = 'error';
+          
+          // 尝试重新加载脚本
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/decap-cms@3.8.3/dist/decap-cms.js';
+          script.onload = initializeCMS;
+          document.head.appendChild(script);
+        }
       }
-    }, 5000);
+    }, 8000);
   </script>
 </body>
 </html>
