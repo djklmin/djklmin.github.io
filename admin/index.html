@@ -3,15 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content Manager</title>
-  <!-- 这是最关键的一行：从 CDN 引入 Decap CMS -->
+  <title>Flymin Content Manager</title>
+  <!-- 引入 Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
 <body>
   <!-- 脚本会将 CMS 界面注入到这个容器中 -->
   <script>
-    // 初始化 Decap CMS
-    CMS.init();
+    // 解决方案：等待 Decap CMS 脚本完全加载后再初始化
+    document.addEventListener('DOMContentLoaded', function() {
+      // 进一步检查 CMS 对象是否已加载完成
+      if (typeof CMS !== 'undefined') {
+        CMS.init();
+      } else {
+        // 如果还未定义，则监听其加载完成事件
+        window.addEventListener('load', function() {
+          CMS.init();
+        });
+      }
+    });
   </script>
 </body>
 </html>
