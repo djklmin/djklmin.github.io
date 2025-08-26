@@ -4,31 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Flymin Content Manager</title>
-  <!-- 引入 Decap CMS - 使用 defer 属性确保顺序 -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" defer></script>
+  <!-- 官方推荐的标准引入方式 -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <style>
+    /* 添加一些基本样式以避免白屏时的困惑 */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    #cms-loading {
+      text-align: center;
+      margin-top: 50px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-  <!-- 脚本会将 CMS 界面注入到这个容器中 -->
-  <script>
-    // 终极解决方案：使用 defer 并监听脚本加载事件
-    // 方法一：直接使用 defer，简单可靠
-    // 方法二：更明确的事件监听
-    function initCMS() {
-      if (window.CMS) {
-        console.log('CMS object is ready, initializing...');
-        window.CMS.init();
-      } else {
-        console.error('CMS object is not available');
-      }
-    }
+  <!-- 加载状态提示 -->
+  <div id="cms-loading">
+    <h2>正在加载内容管理系统...</h2>
+    <p>如果长时间停留在此页面，请检查控制台错误信息。</p>
+  </div>
 
-    // 如果脚本已经加载完成（比如从缓存快速加载）
-    if (window.CMS) {
-      initCMS();
-    } else {
-      // 监听全局加载事件
-      window.addEventListener('load', initCMS);
-    }
+  <!-- 最简单的初始化方式 -->
+  <script>
+    // 方法1：直接使用 onload 事件
+    window.addEventListener('load', function() {
+      console.log('Window loaded, checking for CMS...');
+      
+      if (typeof CMS !== 'undefined') {
+        console.log('CMS found, initializing...');
+        document.getElementById('cms-loading').style.display = 'none';
+        CMS.init();
+      } else {
+        console.error('CMS object is still not defined after window load');
+        document.getElementById('cms-loading').innerHTML = 
+          '<h2 style="color: red;">加载失败</h2>' +
+          '<p>请检查浏览器控制台的具体错误信息。</p>';
+      }
+    });
+
+    // 方法2：备用方案 - 延迟检查
+    setTimeout(function() {
+      if (typeof CMS === 'undefined') {
+        console.warn('CMS not loaded after timeout');
+      }
+    }, 3000);
   </script>
 </body>
 </html>
