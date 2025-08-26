@@ -164,6 +164,52 @@
     
     
     <article
+  id="post-YDpen的adb密码修改"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/"
+    >YDpen的adb密码修改</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/" class="article-date">
+  <time datetime="2025-08-21T09:49:03.000Z" itemprop="datePublished">2025-08-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+  </div>
+   
+    </div>
+       
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ADB/" rel="tag">ADB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94/" rel="tag">有道词典笔</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A0%B4%E8%A7%A3/" rel="tag">破解</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%91%E6%8A%80/" rel="tag">科技</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-miniapp"
   class="article article-type-post"
   itemscope
@@ -272,43 +318,58 @@
     <ul>
       <li>
         Copyrights &copy;
-        2025
-        <i class="ri-heart-fill heart_icon"></i> Fly
+        <% if (theme.since && !isNaN(theme.since) && theme.since < date(new Date(), 'YYYY')) { %><%- theme.since%>-<% } %><%= date(new Date(), 'YYYY') %>
+        <i class="ri-heart-fill heart_icon"></i> <%= config.author || config.title %>
       </li>
     </ul>
     <ul>
       <li>
-        
+        <% if (theme.pageFooter){ %>
+        <% var hexoLink = '<a href="https://hexo.io" target="_blank">Hexo</a>'; %>
+        <% var themeLink = '<a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>'; %>
+        <%- __('powered_by', hexoLink) %>
+        <span class="division">|</span>
+        <%- __('theme', themeLink) %>
+        <% } %>
       </li>
     </ul>
     <ul>
       <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
+        <% if (theme.busuanzi && theme.busuanzi.enable){ %>
+        <%# "不蒜子统计" %>
+        <%- partial('post/busuanzi') %>
+        <% } %>
       </li>
     </ul>
     <ul>
-      
+      <% if (theme.icp&&theme.icp.enable){ %>
+        <li>
+          <a href="<%= theme.icp.url %>" target="_black" rel="nofollow"><%= theme.icp.text %></a>
+        </li>
+        <% } %>
     </ul>
     <ul>
-      
+      <% if (theme.gongan&&theme.gongan.enable){ %>
+      <li>
+          <img src="<%= theme.gongan.img %>"></img>
+          <a href="<%= theme.gongan.url %>" target="_black" rel="nofollow"><%= theme.gongan.text %></a>
+      </li>
+        <% } %>
     </ul>
     <ul>
       <li>
         <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
+        <% if (theme.cnzz&&theme.cnzz.enable){ %>
+        <script type="text/javascript" src='<%= theme.cnzz.url%>'></script>
+        <% } %>
       </li>
     </ul>
   </div>
-</footer>    
+</footer>
+
+<% if (theme.busuanzi && theme.busuanzi.enable){ %>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% } %>    
     </main>
     <div class="float_btns">
       <div class="totop" id="totop">
@@ -347,7 +408,15 @@
     </li>
     
     <li class="nav-item">
+      <a class="nav-item-link" href="/web">个人空间</a>
+    </li>
+    
+    <li class="nav-item">
       <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/admin">后台管理</a>
     </li>
     
   </ul>
@@ -524,9 +593,7 @@
 <!-- Katex -->
 
 <!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
+
 <!-- ClickLove -->
 
 <!-- ClickBoom1 -->
