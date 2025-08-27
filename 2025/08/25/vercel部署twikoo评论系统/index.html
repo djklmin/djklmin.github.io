@@ -237,15 +237,17 @@
   
    
   
-   <% if (!index && theme.twikoo && theme.twikoo.enable){ %>
+   
     <script src="https://cdn.staticfile.org/twikoo/1.6.44/twikoo.all.min.js"></script>
     <div id="twikoo" class="twikoo"></div>
     <script>
         twikoo.init({
-            envId: "<%- theme.twikoo.envId %>"
+            envId: "https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo",
+            el: '#twikoo',
+            lang: 'zh-CN'
         })
     </script>
-<% } %> 
+ 
 </article>
 
 </section>
@@ -461,10 +463,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/about">关于我</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/admin">后台管理</a>
     </li>
     
   </ul>
