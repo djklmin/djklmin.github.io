@@ -249,17 +249,15 @@
   
    
   
-   
+   <% if (!index && theme.twikoo && theme.twikoo.enable){ %>
     <script src="https://cdn.staticfile.org/twikoo/1.6.44/twikoo.all.min.js"></script>
     <div id="twikoo" class="twikoo"></div>
     <script>
         twikoo.init({
-            envId: "https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo",
-            el: '#twikoo',
-            lang: 'zh-CN'
+            envId: "<%- theme.twikoo.envId %>"
         })
     </script>
- 
+<% } %> 
 </article>
 
 </section>
