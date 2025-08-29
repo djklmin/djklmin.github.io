@@ -28,12 +28,10 @@
 <p>应该类似于以上这个文本 通过bakUrl或deltaUrl链接下载文件</p>
 <h2 id="使用winhex替换md5值"><a href="#使用winhex替换md5值" class="headerlink" title="使用winhex替换md5值"></a>使用winhex替换md5值</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开winhex并打开你的完整包img，开启搜索，搜索</span><br></pre></td></tr></table></figure>
 
-
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $PASSWD | md5sum</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/4.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。</span><br><span class="line">    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</span><br></pre></td></tr></table></figure>
-
 
 <p>注意：此时文件大小未发生改变 大小一个字节也没变！</p>
 <h2 id="计算修改后的文件校验码"><a href="#计算修改后的文件校验码" class="headerlink" title="计算修改后的文件校验码"></a>计算修改后的文件校验码</h2><p>编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，</p>
@@ -92,24 +90,6 @@
       </categories>
       <tags>
         <tag>博客管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>miniapp</title>
-    <url>/2025/08/21/miniapp/</url>
-    <content><![CDATA[<p>*有道词典笔miniapp安装</p>
-<p>**1.安装工具</p>
-<p>摆烂中…</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>有道词典笔</tag>
-        <tag>破解</tag>
-        <tag>ADB</tag>
-        <tag>教程</tag>
-        <tag>科技</tag>
       </tags>
   </entry>
   <entry>
@@ -178,6 +158,24 @@
       <tags>
         <tag>部署</tag>
         <tag>命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>miniapp</title>
+    <url>/2025/08/21/miniapp/</url>
+    <content><![CDATA[<p>*有道词典笔miniapp安装</p>
+<p>**1.安装工具</p>
+<p>摆烂中…</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>有道词典笔</tag>
+        <tag>破解</tag>
+        <tag>ADB</tag>
+        <tag>教程</tag>
+        <tag>科技</tag>
       </tags>
   </entry>
   <entry>
