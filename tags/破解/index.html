@@ -148,180 +148,190 @@
     <ul>
       <li>
         Copyrights &copy;
-        2025
-        <i class="ri-heart-fill heart_icon"></i> Fly
+        <% if (theme.since && !isNaN(theme.since) && theme.since < date(new Date(), 'YYYY')) { %><%- theme.since%>-<% } %><%= date(new Date(), 'YYYY') %>
+        <i class="ri-heart-fill heart_icon"></i> <%= config.author || config.title %>
       </li>
     </ul>
+    
+    <!-- 优化后的统计信息显示 -->
+    <ul>
+      <li style="margin: 4px 0; line-height: 1.2;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; align-items: center; font-size: 0.9em;">
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-time-line" style="color: #ff6b6b; font-size: 0.95em;"></i>
+            <span style="color: #666;">稳定运行</span>
+            <span id="site-running-days" style="color: #ff6b6b; font-weight: 600;">0</span>
+            <span style="color: #666;">天</span>
+          </span>
+          
+          <span style="color: #ddd;">•</span>
+          
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-eye-line" style="color: #4ecdc4; font-size: 0.95em;"></i>
+            <span style="color: #666;">访问量</span>
+            <span id="site-total-pv" style="color: #4ecdc4; font-weight: 600;">0</span>
+          </span>
+          
+          <span style="color: #ddd;">•</span>
+          
+          <span style="display: inline-flex; align-items: center; gap: 3px;">
+            <i class="ri-user-line" style="color: #45b7d1; font-size: 0.95em;"></i>
+            <span style="color: #666;">访客数</span>
+            <span id="site-total-uv" style="color: #45b7d1; font-weight: 600;">0</span>
+          </span>
+        </div>
+      </li>
+    </ul>
+    
     <ul>
       <li>
-        
+        <% if (theme.pageFooter){ %>
+        <% var hexoLink = '<a href="https://hexo.io" target="_blank">Hexo</a>'; %>
+        <% var themeLink = '<a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>'; %>
+        <%- __('powered_by', hexoLink) %>
+        <span class="division">|</span>
+        <%- __('theme', themeLink) %>
+        <% } %>
       </li>
     </ul>
+    
     <ul>
       <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
+        <% if (theme.busuanzi && theme.busuanzi.enable){ %>
+        <%# "不蒜子统计" %>
+        <%- partial('post/busuanzi') %>
+        <% } %>
       </li>
     </ul>
+    
     <ul>
-      
+      <% if (theme.icp&&theme.icp.enable){ %>
+        <li>
+          <a href="<%= theme.icp.url %>" target="_black" rel="nofollow"><%= theme.icp.text %></a>
+        </li>
+        <% } %>
     </ul>
+    
     <ul>
-      
-    </ul>
-    <ul>
+      <% if (theme.gongan&&theme.gongan.enable){ %>
       <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
+          <img src="<%= theme.gongan.img %>" style="height: 16px; vertical-align: middle; margin-right: 5px;">
+          <a href="<%= theme.gongan.url %>" target="_black" rel="nofollow" style="font-size: 0.9em;"><%= theme.gongan.text %></a>
       </li>
+        <% } %>
     </ul>
   </div>
 </footer>
 
-<!-- Live2D 看板娘代码开始 -->
-<!-- 使用本地路径加载 Live2D 资源 -->
-<link rel="stylesheet" href="/js/waifu.css"/>
-<script src="/js/waifu-tips.js"></script>
-<script src="/js/live2d.js"></script>
-
-<script>
-// 初始化看板娘
-function initWidget() {
-    console.log('🔄 开始初始化看板娘...');
-    
-    // 配置设置
-    window.live2d_settings = {
-        model: { 
-            scale: 1,
-            // 使用本地路径指向 LSS 模型
-            jsonPath: '/live2d_models/lss/LSS.model3.json',
-        },
-        display: {
-            position: 'right',
-            width: 220,
-            height: 400,
-            hOffset: 0,
-            vOffset: -20,
-            superSample: 2,
-        },
-        mobile: { 
-            show: true,        // 在移动设备上显示
-            scale: 0.6,        // 移动设备上的缩放比例
-            motion: true       // 移动设备上是否启用触摸动作
-        },
-        react: { 
-            opacity: 0.9, 
-            opacityDefault: 0.7,
-            opacityOnHover: 0.9
-        },
-        dialog: {
-            enable: true,
-            script: {
-                // 点击身体时的对话
-                click: [
-                    "嘿！欢迎来到我的小窝！✧(≖ ◡ ≖✿)",
-                    "这是一个用 Hexo + Ayer 主题搭建的博客~",
-                    "欢迎来到这个博客，请多指教！",
-                    "希望你能在这里找到有趣的内容！",
-                    "有什么想说的可以给我留言哦！"
-                ],
-                // 空闲时的随机对话
-                idle: [
-                    "今天天气真不错呢...",
-                    "好无聊啊，陪我玩会儿嘛~",
-                    "你说，我为什么会在这里呢？",
-                    "偷偷告诉你，博主最近又在折腾新东西了",
-                    "嗯...我在想今晚吃什么好呢？"
-                ]
-            }
-        },
-        tools: {
-            enable: true,
-            items: ["switch-model", "switch-texture", "photo", "info", "quit"]
-        }
-    };
-    
-    // 初始化看板娘
-    if (typeof initLive2dWidget !== 'undefined') {
-        initLive2dWidget();
-        console.log('✅ 看板娘初始化成功');
-    } else {
-        console.error('❌ initLive2dWidget 函数未定义');
-        // 3秒后重试
-        setTimeout(function() {
-            if (typeof initLive2dWidget !== 'undefined') {
-                initLive2dWidget();
-            }
-        }, 3000);
-    }
-}
-
-// 资源加载检查
-function checkResourcesLoaded() {
-    const resources = ['/js/waifu.css', '/js/waifu-tips.js', '/js/live2d.js'];
-    let allLoaded = true;
-    
-    resources.forEach(resource => {
-        const elements = document.querySelectorAll(`[href="${resource}"], [src="${resource}"]`);
-        if (elements.length === 0) {
-            console.warn(`⚠️ 资源未找到: ${resource}`);
-            allLoaded = false;
-        }
-    });
-    
-    return allLoaded;
-}
-
-// 页面加载完成后延迟加载看板娘
-window.addEventListener('load', function() {
-    console.log('📄 页面加载完成，准备初始化看板娘');
-    
-    if (checkResourcesLoaded()) {
-        setTimeout(initWidget, 1000);
-    } else {
-        console.log('⏳ 资源未完全加载，3秒后重试...');
-        setTimeout(initWidget, 3000);
-    }
-});
-
-// 移动设备适配
-function checkMobile() {
-    if (screen.width <= 768) {
-        console.log('📱 移动设备检测');
-        // 为移动设备添加触摸事件支持
-        document.addEventListener('touchstart', function() {
-            if (window.live2d_widget) {
-                window.live2d_widget.initMobile();
-            }
-        });
-    }
-}
-
-// 初始化移动设备检测
-checkMobile();
-
-// 备用加载方案
-setTimeout(function() {
-    if (typeof initLive2dWidget === 'undefined') {
-        console.log('🔄 尝试备用加载方案...');
-        // 可以在这里添加其他备选方案
-    }
-}, 5000);
-</script>
-<!-- Live2D 看板娘代码结束 -->
-
-
+<% if (theme.busuanzi && theme.busuanzi.enable){ %>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% } %>
 
-    
+<!-- 本地统计脚本 -->
+<script>
+// 本地访问统计系统
+(function() {
+  // 获取显示元素
+  const daysElement = document.getElementById('site-running-days');
+  const pvElement = document.getElementById('site-total-pv');
+  const uvElement = document.getElementById('site-total-uv');
+  
+  if (!daysElement || !pvElement || !uvElement) return;
+  
+  // 初始化统计数据
+  let stats = {
+    firstVisit: null,
+    totalPV: 0,
+    totalUV: 0,
+    lastVisit: null
+  };
+  
+  // 尝试从LocalStorage获取现有数据
+  try {
+    const savedStats = localStorage.getItem('site_stats');
+    if (savedStats) {
+      stats = JSON.parse(savedStats);
+    }
+  } catch (e) {
+    console.log('LocalStorage读取失败，初始化新统计');
+  }
+  
+  // 处理当前访问
+  const now = new Date();
+  const today = now.toDateString();
+  
+  // 如果是第一次访问
+  if (!stats.firstVisit) {
+    stats.firstVisit = new Date('2025-08-20').getTime();
+  }
+  
+  // 更新PV（页面访问量）
+  stats.totalPV += 1;
+  
+  // 更新UV（独立访客）- 基于当天是否访问过
+  try {
+    const lastVisitDate = localStorage.getItem('last_visit_date');
+    if (lastVisitDate !== today) {
+      stats.totalUV += 1;
+      localStorage.setItem('last_visit_date', today);
+    }
+  } catch (e) {
+    // LocalStorage可能被禁用
+    stats.totalUV += 1;
+  }
+  
+  stats.lastVisit = now.getTime();
+  
+  // 保存更新后的统计数据
+  try {
+    localStorage.setItem('site_stats', JSON.stringify(stats));
+  } catch (e) {
+    console.log('LocalStorage存储失败');
+  }
+  
+  // 计算运行天数（从固定的2025年8月20日开始计算）
+  const siteCreationDate = new Date('2025-08-20');
+  const runningDays = Math.floor((now - siteCreationDate) / (1000 * 60 * 60 * 24)) + 1;
+  
+  // 确保天数不为负数
+  const finalRunningDays = Math.max(1, runningDays);
+  
+  // 更新显示
+  daysElement.textContent = finalRunningDays;
+  pvElement.textContent = stats.totalPV;
+  uvElement.textContent = stats.totalUV;
+})();
+</script>
+
+<!-- 响应式样式调整 -->
+<style>
+@media (max-width: 768px) {
+  .footer .outer ul li {
+    margin: 3px 0;
+  }
+  
+  .footer .outer ul li div {
+    gap: 8px;
+    font-size: 0.85em;
+  }
+  
+  .footer .outer ul li span {
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer .outer ul li div {
+    gap: 6px;
+    font-size: 0.8em;
+  }
+  
+  .footer .outer ul li span {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>    
     </main>
     <div class="float_btns">
       <div class="totop" id="totop">
