@@ -227,15 +227,19 @@
   
    
   
-   <% if (!index && theme.twikoo && theme.twikoo.enable){ %>
-    <script src="https://cdn.staticfile.org/twikoo/1.6.44/twikoo.all.min.js"></script>
+   
+    <script src="https://registry.npmmirror.com/twikoo/1.6.44/files/dist/twikoo.min.js"></script>
     <div id="twikoo" class="twikoo"></div>
     <script>
         twikoo.init({
-            envId: "<%- theme.twikoo.envId %>"
+            envId: "https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo",
+            el: '#twikoo',
+            lang: 'zh-CN'
         })
     </script>
-<% } %> 
+
+
+ 
 </article>
 
 </section>
