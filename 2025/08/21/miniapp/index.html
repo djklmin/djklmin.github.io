@@ -207,11 +207,11 @@
    
   <nav class="article-nav">
     
-      <a href="/2025/08/22/%E5%A6%82%E4%BD%95%E5%B0%86GitHub%E4%B8%8EWordPress%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/" class="article-nav-link">
+      <a href="/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            如何将GitHub与WordPress结合使用
+            YDpen的adb密码修改
           
         </div>
       </a>
@@ -237,8 +237,6 @@
             lang: 'zh-CN'
         })
     </script>
-
-
  
 </article>
 
@@ -252,39 +250,55 @@
         <i class="ri-heart-fill heart_icon"></i> Fly
       </li>
     </ul>
+    
+    <!-- 网站运行时间统计 -->
+    <ul>
+      <li>
+        <span id="sitetime"></span>
+        <script>
+          function siteTime() {
+            window.setTimeout("siteTime()", 1000);
+            var today = new Date();
+            var t1 = Date.UTC(2025, 8, 20, 15, 12, 00); // 网站创建时间
+            var t2 = Date.UTC(today.getFullYear(), today.getMonth()+1, today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+            var diff = t2 - t1;
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("sitetime").innerHTML = "本站已运行 " + days + " 天 " + hours + " 小时 " + minutes + " 分 " + seconds + " 秒";
+          }
+          siteTime();
+        </script>
+      </li>
+    </ul>
+    
+    <!-- 访问统计 -->
+    <ul>
+      <li>
+        <span class="footer-stat">
+          <i class="ri-user-line"></i> 访客数: <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+          <span class="division">|</span>
+          <i class="ri-eye-line"></i> 访问量: <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+        </span>
+      </li>
+    </ul>
+    
     <ul>
       <li>
         
       </li>
     </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
+    
+    
+    
+    
   </div>
 </footer>
+
+
+  <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
     
     </main>
     <div class="float_btns">
