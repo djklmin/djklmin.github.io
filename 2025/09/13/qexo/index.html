@@ -15,7 +15,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>About Me |  Fly的博客</title>
+      <title>title |  Fly的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -68,8 +68,8 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="about-"
-  class="article article-type-about"
+  id="post-qexo"
+  class="article article-type-post"
   itemscope
   itemprop="blogPost"
   data-scroll-reveal
@@ -79,40 +79,128 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  About Me
+  title
 </h1>
  
 
       
     </header>
-       
+     
+    <div class="article-meta">
+      <a href="/2025/09/13/qexo/" class="article-date">
+  <time datetime="2025-09-13T16:13:14.136Z" itemprop="datePublished">2025-09-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">869</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">3 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
     <div class="article-entry" itemprop="articleBody">
        
-  <p>一个热爱科技的初中生，专注于探索新技术和创造有趣的东西。</p>
-<div style="float: right; margin: 0 0 20px 20px; text-align: center;">
-  <img src="/images/avatar.jpg" style="width: 150px; border-radius: 8px;" />
-  <br />
-  <small>我的社交头像</small>
-</div>
-
-
-<h3 id="📧-联系我"><a href="#📧-联系我" class="headerlink" title="📧 联系我"></a>📧 联系我</h3><ul>
-<li>QQ：3139437826</li>
-<li>GitHub：<a target="_blank" rel="noopener" href="https://github.com/djklmin">GitHub账号</a></li>
-<li>twitter：<a target="_blank" rel="noopener" href="https://x.com/mindjkl">X账号</a></li>
-<li>常用邮箱：<a href="mailto:&#70;&#108;&#121;&#109;&#105;&#110;&#49;&#x31;&#53;&#64;&#111;&#117;&#x74;&#x6c;&#x6f;&#111;&#x6b;&#46;&#99;&#111;&#109;">Flymin115@outlook.com</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.xiaozhang.com.cn/xuexiao/school_info.aspx?id=345">重庆江北中学</a>在校学生！</li>
-</ul>
-<blockquote>
-<p>保持好奇，持续学习！</p>
-<p>永远相信美好的事情即将发生</p>
-</blockquote>
-<p>本站主域名：<a target="_blank" rel="noopener" href="https://djklmin.github.io/">https://djklmin.github.io/</a></p>
-<p>本站加速域名：<a target="_blank" rel="noopener" href="https://flymin.netlify.app/">https://flymin.netlify.app/</a></p>
-<p>本站加速域名：<a target="_blank" rel="noopener" href="https://djklmin-github-io.vercel.app/">https://djklmin-github-io.vercel.app/</a></p>
-<blockquote>
-<p>注：推荐在中国境内访问netlify域名</p>
-</blockquote>
+  <h1 id="Qexo的安装"><a href="#Qexo的安装" class="headerlink" title="Qexo的安装"></a>Qexo的安装</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！</strong></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>Qexo可以通过docker或vercel来安装，我这边用的是vercel，你可以通过 Vercel 提供的免费数据库。但请注意这是个 Beta 功能</strong> <a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">vercel一键部署</a> <strong>首次部署会报错, 请无视并进行接下来的步骤。</strong></p>
+<h3 id="申请-Vercel-数据库"><a href="#申请-Vercel-数据库" class="headerlink" title="申请 Vercel 数据库"></a>申请 Vercel 数据库</h3><p><strong>进入Vercel Storage 界面 然后点击右上角的 Create Database 并选择 Postgres 创建免费 PostgreSQL 数据库, 在 Connect 页面获取数据库连接信息。请注意在地区选择的位置选择与你上一步项目对应的地区（通常为 Washington, D.C., USA (East) - iad1）。</strong></p>
+<h3 id="绑定项目"><a href="#绑定项目" class="headerlink" title="绑定项目"></a>绑定项目</h3><p><strong>在左侧边栏选择 Projects 点击 Connect Project 连接到你第一步创建的项目</strong></p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p><strong>回到你的项目页面，在 Deployments 点击 Redeploy 开始部署, 若没有 Error 信息即可打开域名进入初始化引导</strong></p>
+<p><strong>当然，你也可以使用其他数据库如:PlanetScale，SupaBase，MongoDB等。参考</strong><a target="_blank" rel="noopener" href="https://oplog.cn/qexo/start/build.html">原文档</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>**这一步需要你把你的Hexo博客源文件上传到GitHub 如果部署中遇到问题, 可以访问 **<a target="_blank" rel="noopener" href="https://hexoplusplus.cronfly.workers.dev/?step=start">检查助手</a> 自检配置 仅支持Github, 若确认无误, 可检查仓库内是否有已经发布的文章。</p>
+<p>**这里还需要一个token来让Qexo可以访问我们的仓库，于 **<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">GitHub设置</a> 生成的 Token (建议使用 Classical) 需要 Repo &amp; Workflow 下的权限 不建议给出所有权限。其他啥的就看<a target="_blank" rel="noopener" href="https://oplog.cn/qexo/configs/provider.html">这个</a>。</p>
+<h3 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h3><p><strong>VERCEL_TOKEN</strong> **您的 Vercel 账户密钥 在 **<a target="_blank" rel="noopener" href="https://oplog.cn/qexo/configs/vercel.html">此处</a> 生成</p>
+<p><strong>PROJECT_ID</strong> <strong>您 Qexo 部署所在项目的 ID 位于 Project Settings -&gt; General -&gt; Project ID🆔</strong></p>
+<h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><strong>至此如果没有问题的话，你就可以正常的进入Qexo的管理界面了</strong></p>
+<h1 id="Qexo的配置"><a href="#Qexo的配置" class="headerlink" title="Qexo的配置"></a>Qexo的配置</h1><h2 id="图床配置（GitHub）"><a href="#图床配置（GitHub）" class="headerlink" title="图床配置（GitHub）"></a>图床配置（GitHub）</h2><p><strong>我这边用的是GitHub图床</strong></p>
+<p>![](<a target="_blank" rel="noopener" href="https://github.com/djklmin/Picture/raw/main/Qexo/25/9/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">https://github.com/djklmin/Picture/raw/main/Qexo/25/9/屏幕截图</a> 2025-09-14 081536_6af1be139a99c837a1c4130972779b4c.png)</p>
+<p><strong>(不建议)将图片上传至 Github 仓库以借助 Github Action 进行进一步操作</strong></p>
+<h3 id="Github仓库"><a href="#Github仓库" class="headerlink" title="Github仓库"></a>Github仓库</h3><p><strong>您图片上传到的仓库</strong></p>
+<p><code>username/repo</code></p>
+<h3 id="项目分支"><a href="#项目分支" class="headerlink" title="项目分支"></a>项目分支</h3><p><strong>您图片需要上传仓库的分支</strong></p>
+<p><code>master</code></p>
+<h3 id="Github-密钥"><a href="#Github-密钥" class="headerlink" title="Github 密钥"></a>Github 密钥</h3><p>**于 **<a target="_blank" rel="noopener" href="https://github.com/settings/tokens">GitHub设置</a>生成的 Token 需要 Repo 下的至少读取和写入权限 不建议给出所有权限</p>
+<p><code>wrq_P8sYPlYA9fjMlOPEYSKA84xxxxxxxxxxxxxx</code></p>
+<h3 id="保存路径"><a href="#保存路径" class="headerlink" title="保存路径"></a>保存路径</h3><p><strong>文件上传后保存的路径 包含文件名</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>关键词</strong></th>
+<th><strong>意义</strong></th>
+<th><strong>示例</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>{year}</em></td>
+<td><strong>当前年份</strong></td>
+<td><strong>21</strong></td>
+</tr>
+<tr>
+<td><em>{month}</em></td>
+<td><strong>当前月份</strong></td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td><em>{day}</em></td>
+<td><strong>当前日份</strong></td>
+<td><strong>2</strong></td>
+</tr>
+<tr>
+<td><em>{YEAR}</em></td>
+<td><strong>当前年份</strong></td>
+<td><strong>2021</strong></td>
+</tr>
+<tr>
+<td><em>{MONTH}</em></td>
+<td><strong>当前月份</strong></td>
+<td><strong>01</strong></td>
+</tr>
+<tr>
+<td><em>{DAY}</em></td>
+<td><strong>当前日份</strong></td>
+<td><strong>02</strong></td>
+</tr>
+<tr>
+<td><em>{filename}</em></td>
+<td><strong>无后缀的文件名</strong></td>
+<td><strong>image</strong></td>
+</tr>
+<tr>
+<td><em>{time}</em></td>
+<td><strong>时间戳</strong></td>
+<td><strong>1640186955.4339228</strong></td>
+</tr>
+<tr>
+<td><em>{md5}</em></td>
+<td><strong>文件 MD5-Hash</strong></td>
+<td><strong>0c8bfe6821a91c3d96b25e2ea2dcf827</strong></td>
+</tr>
+</tbody></table>
+<h3 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h3><p><strong>返回文件链接的 URL 最终返回的链接, 支持关键词同上</strong></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/username/repo/raw/master/Qexo/">https://github.com/username/repo/raw/master/Qexo/</a>{year}&#x2F;{month}&#x2F;{filename}_{md5}.{extName}</p>
+<h1 id="完成✅"><a href="#完成✅" class="headerlink" title="完成✅"></a>完成✅</h1><p><strong>如果没有问题的话，那现在就成了，你现在就可以正常的在Qexo里写✍🏻文章了！</strong></p>
  
       <!-- reward -->
       
@@ -183,18 +271,41 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:4000/about/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:4000/2025/09/13/qexo/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/" rel="tag">博客管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a></li></ul>
+
     </footer>
   </div>
 
    
+  <nav class="article-nav">
+    
+    
+      <a href="/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">vercel部署twikoo评论系统</div>
+      </a>
+    
+  </nav>
+
   
    
   
+   
+    <script src="https://registry.npmmirror.com/twikoo/1.6.44/files/dist/twikoo.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: "https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo",
+            el: '#twikoo',
+            lang: 'zh-CN'
+        })
+    </script>
+ 
 </article>
 
 </section>
@@ -358,6 +469,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
