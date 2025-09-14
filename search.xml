@@ -177,7 +177,7 @@
       </tags>
   </entry>
   <entry>
-    <title>title</title>
+    <title>Qexo的安装与配置</title>
     <url>/2025/09/13/qexo/</url>
     <content><![CDATA[<h1 id="Qexo的安装"><a href="#Qexo的安装" class="headerlink" title="Qexo的安装"></a>Qexo的安装</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！</strong></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>Qexo可以通过docker或vercel来安装，我这边用的是vercel，你可以通过 Vercel 提供的免费数据库。但请注意这是个 Beta 功能</strong> <a href="https://vercel.com/new/clone?repository-url=https://github.com/am-abudu/Qexo">vercel一键部署</a> <strong>首次部署会报错, 请无视并进行接下来的步骤。</strong></p>
@@ -190,8 +190,7 @@
 <h3 id="Vercel"><a href="#Vercel" class="headerlink" title="Vercel"></a>Vercel</h3><p><strong>VERCEL_TOKEN</strong> **您的 Vercel 账户密钥 在 **<a href="https://oplog.cn/qexo/configs/vercel.html">此处</a> 生成</p>
 <p><strong>PROJECT_ID</strong> <strong>您 Qexo 部署所在项目的 ID 位于 Project Settings -&gt; General -&gt; Project ID🆔</strong></p>
 <h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p><strong>至此如果没有问题的话，你就可以正常的进入Qexo的管理界面了</strong></p>
-<h1 id="Qexo的配置"><a href="#Qexo的配置" class="headerlink" title="Qexo的配置"></a>Qexo的配置</h1><h2 id="图床配置（GitHub）"><a href="#图床配置（GitHub）" class="headerlink" title="图床配置（GitHub）"></a>图床配置（GitHub）</h2><p><strong>我这边用的是GitHub图床</strong></p>
-<p>![](<a href="https://github.com/djklmin/Picture/raw/main/Qexo/25/9/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE">https://github.com/djklmin/Picture/raw/main/Qexo/25/9/屏幕截图</a> 2025-09-14 081536_6af1be139a99c837a1c4130972779b4c.png)</p>
+<h1 id="Qexo的配置"><a href="#Qexo的配置" class="headerlink" title="Qexo的配置"></a>Qexo的配置</h1><h2 id="图床配置（GitHub）"><a href="#图床配置（GitHub）" class="headerlink" title="图床配置（GitHub）"></a>图床配置（GitHub）</h2><p><strong>我这边用的是GitHub图床</strong><br><strong><img src="https://img.cdn1.vip/i/68c6152d35ea2_1757812013.png"></strong></p>
 <p><strong>(不建议)将图片上传至 Github 仓库以借助 Github Action 进行进一步操作</strong></p>
 <h3 id="Github仓库"><a href="#Github仓库" class="headerlink" title="Github仓库"></a>Github仓库</h3><p><strong>您图片上传到的仓库</strong></p>
 <p><code>username/repo</code></p>
