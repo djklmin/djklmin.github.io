@@ -310,6 +310,40 @@
       </tags>
   </entry>
   <entry>
+    <title>vercel部署twikoo评论系统</title>
+    <url>/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<!-- 文章正文开头... -->
+
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本站评论系统曾一直使用Giscus，但是朋友们似乎大部分都没有GitHub账号，所以交流非常不方便，于是找到了<a href="https://twikoo.js.org/">Twikoo</a>评论系统，部署过程参考本文</p>
+<h1 id="2-Twikoo简介"><a href="#2-Twikoo简介" class="headerlink" title="2 Twikoo简介"></a>2 Twikoo简介</h1><p><a href="https://twikoo.js.org/">Twikoo</a>是一个简洁、安全、免费的静态网站评论系统。</p>
+<p>与waline相比，<br>优势：差不多；<br>不足：不支持IE，私有部署需要配置图床。</p>
+<h1 id="3-Vercel部署Twikoo评论系统"><a href="#3-Vercel部署Twikoo评论系统" class="headerlink" title="3 Vercel部署Twikoo评论系统"></a>3 Vercel部署Twikoo评论系统</h1><h2 id="3-1-创建MongoDB-Cloud数据库"><a href="#3-1-创建MongoDB-Cloud数据库" class="headerlink" title="3.1 创建MongoDB Cloud数据库"></a>3.1 创建MongoDB Cloud数据库</h2><p><strong>（1）添加User</strong><br>登录<a href="https://cloud.mongodb.com/">MongoDB Cloud</a>官网（没账号需要先<a href="https://www.mongodb.com/cloud/atlas/register">注册</a>），在<code>Database Access</code>页面点击<code>Add New Database User</code>创建数据库用户，<code>Authentication Method</code>选<code>Password</code>，在<code>Password Authentication</code>下设置数据库用户名和密码，用户名和密码可包含数字和大小写字母，不能包含特殊符号。点击<code>Database User Privileges</code>下方的<code>Add Built In Role</code>，<code>elect Role</code>选择<code>Atlas Admin</code>，最后点击<code>Add User</code></p>
+<p><strong>（2）添加Network Access</strong><br>在<code>Network Access</code>页面点击<code>Add IP Address</code>，<code>Access List Entry</code>输入<code>0.0.0.0/0</code>（允许所有IP地址的连接），点击<code>Confirm</code></p>
+<p><strong>(3) 获取数据库连接字符串</strong><br>在<code>Database</code>页面点击<code>Connect</code>，连接方式选择<code>Drivers</code>，记录数据库连接字符串，将连接字符串中的<code>&lt;password&gt;</code>修改为刚刚创建的数据库密码</p>
+<h2 id="3-2-Vercel部署Twikoo"><a href="#3-2-Vercel部署Twikoo" class="headerlink" title="3.2 Vercel部署Twikoo"></a>3.2 Vercel部署Twikoo</h2><p><strong>(1) 一键部署</strong><br>点击<a href="https://vercel.com/import/project?template=https://github.com/twikoojs/twikoo/tree/main/src/server/vercel-min"><strong>此处</strong></a>，一键部署到Vercel</p>
+<p><strong>(2) 配置环境变量</strong><br>选择新建的Twikoo项目，进入<code>Settings -&gt; Environment Variables</code>，添加环境变量<code>MONGODB_URI</code>，值为前面的MongoDB数据库连接字符串（注意替换<code>&lt;Password&gt;</code>）。</p>
+<p><strong>(3) redeploy</strong><br>进入<code>Deployments</code>，进行<code>Redeploy</code></p>
+<p>等待重新部署完成后，进入<code>Project</code>，查看<code>Overview</code>或者点击<code>visit</code>，可以看见“Twikoo 云函数运行正常”的提示，部署成功</p>
+<p><strong>(4) 绑定域名</strong><br>进入<code>Settings -&gt; Domains</code>，在此处填写要绑定的域名，并在域名服务商配置中添加cname类型解析记录。</p>
+<h1 id="4-在Hexo-Ayer主题中使用Twikoo（配置Twikoo前端）"><a href="#4-在Hexo-Ayer主题中使用Twikoo（配置Twikoo前端）" class="headerlink" title="4 在Hexo Ayer主题中使用Twikoo（配置Twikoo前端）"></a>4 在Hexo Ayer主题中使用Twikoo（配置Twikoo前端）</h1><h2 id="4-1-修改主题配置文件"><a href="#4-1-修改主题配置文件" class="headerlink" title="4.1 修改主题配置文件"></a>4.1 修改主题配置文件</h2><p>编辑主题配置文件，修改Twikoo评论相关配置，envId为部署的访问地址（或绑定域名），基于vercel部署<code>region</code>和<code>path</code>不必填写</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">twikoo:</span><br><span class="line">  enable: true</span><br><span class="line">  envId: ‘your twikoo url’</span><br><span class="line">  region: </span><br><span class="line">  path: </span><br><span class="line">  lang: zh-CN</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-初始化Twikoo"><a href="#4-2-初始化Twikoo" class="headerlink" title="4.2 初始化Twikoo"></a>4.2 初始化Twikoo</h2><p>启动Hexo，如果配置没有问题，在开启评论的页面可以看见Twikoo的评论界面，点击配置图案进行初始化配置</p>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><p>一番折腾下来，我发现Twikoo还是存在亿点不足。通过Vercel部署的Twikoo不能上传图片，还需要自己配置图床（且支持的图床也不多），访问速度和流畅性也一般。</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>博客管理</tag>
+        <tag>hexo</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何将GitHub与WordPress结合使用</title>
     <url>/2025/08/22/%E5%A6%82%E4%BD%95%E5%B0%86GitHub%E4%B8%8EWordPress%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<!-- 文章正文开头... -->
@@ -366,40 +400,6 @@
         <tag>GitHub</tag>
         <tag>网站</tag>
         <tag>WordPress</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>vercel部署twikoo评论系统</title>
-    <url>/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<!-- 文章正文开头... -->
-
-<span id="more"></span>
-
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本站评论系统曾一直使用Giscus，但是朋友们似乎大部分都没有GitHub账号，所以交流非常不方便，于是找到了<a href="https://twikoo.js.org/">Twikoo</a>评论系统，部署过程参考本文</p>
-<h1 id="2-Twikoo简介"><a href="#2-Twikoo简介" class="headerlink" title="2 Twikoo简介"></a>2 Twikoo简介</h1><p><a href="https://twikoo.js.org/">Twikoo</a>是一个简洁、安全、免费的静态网站评论系统。</p>
-<p>与waline相比，<br>优势：差不多；<br>不足：不支持IE，私有部署需要配置图床。</p>
-<h1 id="3-Vercel部署Twikoo评论系统"><a href="#3-Vercel部署Twikoo评论系统" class="headerlink" title="3 Vercel部署Twikoo评论系统"></a>3 Vercel部署Twikoo评论系统</h1><h2 id="3-1-创建MongoDB-Cloud数据库"><a href="#3-1-创建MongoDB-Cloud数据库" class="headerlink" title="3.1 创建MongoDB Cloud数据库"></a>3.1 创建MongoDB Cloud数据库</h2><p><strong>（1）添加User</strong><br>登录<a href="https://cloud.mongodb.com/">MongoDB Cloud</a>官网（没账号需要先<a href="https://www.mongodb.com/cloud/atlas/register">注册</a>），在<code>Database Access</code>页面点击<code>Add New Database User</code>创建数据库用户，<code>Authentication Method</code>选<code>Password</code>，在<code>Password Authentication</code>下设置数据库用户名和密码，用户名和密码可包含数字和大小写字母，不能包含特殊符号。点击<code>Database User Privileges</code>下方的<code>Add Built In Role</code>，<code>elect Role</code>选择<code>Atlas Admin</code>，最后点击<code>Add User</code></p>
-<p><strong>（2）添加Network Access</strong><br>在<code>Network Access</code>页面点击<code>Add IP Address</code>，<code>Access List Entry</code>输入<code>0.0.0.0/0</code>（允许所有IP地址的连接），点击<code>Confirm</code></p>
-<p><strong>(3) 获取数据库连接字符串</strong><br>在<code>Database</code>页面点击<code>Connect</code>，连接方式选择<code>Drivers</code>，记录数据库连接字符串，将连接字符串中的<code>&lt;password&gt;</code>修改为刚刚创建的数据库密码</p>
-<h2 id="3-2-Vercel部署Twikoo"><a href="#3-2-Vercel部署Twikoo" class="headerlink" title="3.2 Vercel部署Twikoo"></a>3.2 Vercel部署Twikoo</h2><p><strong>(1) 一键部署</strong><br>点击<a href="https://vercel.com/import/project?template=https://github.com/twikoojs/twikoo/tree/main/src/server/vercel-min"><strong>此处</strong></a>，一键部署到Vercel</p>
-<p><strong>(2) 配置环境变量</strong><br>选择新建的Twikoo项目，进入<code>Settings -&gt; Environment Variables</code>，添加环境变量<code>MONGODB_URI</code>，值为前面的MongoDB数据库连接字符串（注意替换<code>&lt;Password&gt;</code>）。</p>
-<p><strong>(3) redeploy</strong><br>进入<code>Deployments</code>，进行<code>Redeploy</code></p>
-<p>等待重新部署完成后，进入<code>Project</code>，查看<code>Overview</code>或者点击<code>visit</code>，可以看见“Twikoo 云函数运行正常”的提示，部署成功</p>
-<p><strong>(4) 绑定域名</strong><br>进入<code>Settings -&gt; Domains</code>，在此处填写要绑定的域名，并在域名服务商配置中添加cname类型解析记录。</p>
-<h1 id="4-在Hexo-Ayer主题中使用Twikoo（配置Twikoo前端）"><a href="#4-在Hexo-Ayer主题中使用Twikoo（配置Twikoo前端）" class="headerlink" title="4 在Hexo Ayer主题中使用Twikoo（配置Twikoo前端）"></a>4 在Hexo Ayer主题中使用Twikoo（配置Twikoo前端）</h1><h2 id="4-1-修改主题配置文件"><a href="#4-1-修改主题配置文件" class="headerlink" title="4.1 修改主题配置文件"></a>4.1 修改主题配置文件</h2><p>编辑主题配置文件，修改Twikoo评论相关配置，envId为部署的访问地址（或绑定域名），基于vercel部署<code>region</code>和<code>path</code>不必填写</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">twikoo:</span><br><span class="line">  enable: true</span><br><span class="line">  envId: ‘your twikoo url’</span><br><span class="line">  region: </span><br><span class="line">  path: </span><br><span class="line">  lang: zh-CN</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-2-初始化Twikoo"><a href="#4-2-初始化Twikoo" class="headerlink" title="4.2 初始化Twikoo"></a>4.2 初始化Twikoo</h2><p>启动Hexo，如果配置没有问题，在开启评论的页面可以看见Twikoo的评论界面，点击配置图案进行初始化配置</p>
-<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><p>一番折腾下来，我发现Twikoo还是存在亿点不足。通过Vercel部署的Twikoo不能上传图片，还需要自己配置图床（且支持的图床也不多），访问速度和流畅性也一般。</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>博客管理</tag>
-        <tag>hexo</tag>
-        <tag>网站</tag>
       </tags>
   </entry>
   <entry>
