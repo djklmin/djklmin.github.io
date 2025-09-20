@@ -344,6 +344,30 @@
       </tags>
   </entry>
   <entry>
+    <title>测试Ayer主题显示</title>
+    <url>/2025/08/22/%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<!-- 文章正文开头... -->
+
+<span id="more"></span>
+
+<h2 id="1-测试文本"><a href="#1-测试文本" class="headerlink" title="1.测试文本"></a>1.测试文本</h2><p>《我的世界》<em>（Minecraft）<em>是一款<a href="https://baike.baidu.com/item/%E6%B2%99%E7%9B%92/18364354?fromModule=lemma_inlink">沙盒</a>类<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F/195750?fromModule=lemma_inlink">电子游戏</a>，开创者为<a href="https://baike.baidu.com/item/%E9%A9%AC%E5%BA%93%E6%96%AF%C2%B7%E9%98%BF%E5%88%97%E5%85%8B%E8%B0%A2%C2%B7%E6%B3%8A%E6%9D%BE/6980057?fromModule=lemma_inlink">马库斯·阿列克谢·泊松</a></em>（Notch）</em>。游戏由<a href="https://baike.baidu.com/item/Mojang/2253597?fromModule=lemma_inlink">Mojang</a> Studios维护，现隶属于<a href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF/124767?fromModule=lemma_inlink">微软</a><a href="https://baike.baidu.com/item/Xbox/19680933?fromModule=lemma_inlink">Xbox</a>游戏工作室。游戏最初于2009年5月17日作为Classic版本发布，并于2011年11月18日发布<a href="https://baike.baidu.com/item/Java/85979?fromModule=lemma_inlink">Java</a>正式版。游戏平台囊括桌面设备、移动设备和游戏主机。中国版于2016年5月20日在<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86/5944925?fromModule=lemma_inlink">中国大陆</a>运营 [32]，由<a href="https://baike.baidu.com/item/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/1918119?fromModule=lemma_inlink">网易游戏</a>代理 [7]。</p>
+<p>游戏以玩家在一个充满着方块的三维空间中自由地创造和破坏不同种类的方块为主题。玩家在游戏中可以在单人或多人模式中通过摧毁或创造精妙绝伦的建筑物和艺术，或者收集物品探索地图以完成游戏的<a href="https://baike.baidu.com/item/%E6%88%90%E5%B0%B1/19928754?fromModule=lemma_inlink">成就</a>（<a href="https://baike.baidu.com/item/%E8%BF%9B%E5%BA%A6/24472016?fromModule=lemma_inlink">进度</a>）。玩家也可以尝试在创造模式下（打开作弊）<a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E7%94%B5%E8%B7%AF/6384512?fromModule=lemma_inlink">红石电路</a>和<a href="https://baike.baidu.com/item/%E6%8C%87%E4%BB%A4/18765029?fromModule=lemma_inlink">指令</a>等玩法。</p>
+<p>2019年5月，《我的世界》击败《俄罗斯方块》，以售出1.76亿份的成绩，成为有史以来最畅销的电子游戏 [46]。2020年，荣获 “2020年儿童选择奖” [42]。2023年10月，销量超过3亿份 [47]。2024年11月，获得2024金摇杆奖持续游玩奖（PC&#x2F;主机）</p>
+<h2 id="2-代码区块-以下是一个代码块"><a href="#2-代码区块-以下是一个代码块" class="headerlink" title="2.代码区块 以下是一个代码块"></a>2.代码区块 以下是一个代码块</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-图片显示"><a href="#3-图片显示" class="headerlink" title="3.图片显示"></a>3.图片显示</h2><p><img src="/%5Cimages%5C1.jpg"></p>
+<h2 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h2><p><a href="baidu.com">百度</a></p>
+<p><a href="bing.com">必应</a></p>
+<p><a href="http://localhost:4000/">博客</a></p>
+<h1 id="测试结束！"><a href="#测试结束！" class="headerlink" title="测试结束！"></a>测试结束！</h1>]]></content>
+      <categories>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>测试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何将GitHub与WordPress结合使用</title>
     <url>/2025/08/22/%E5%A6%82%E4%BD%95%E5%B0%86GitHub%E4%B8%8EWordPress%E7%BB%93%E5%90%88%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<!-- 文章正文开头... -->
@@ -400,30 +424,6 @@
         <tag>GitHub</tag>
         <tag>网站</tag>
         <tag>WordPress</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试Ayer主题显示</title>
-    <url>/2025/08/22/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<!-- 文章正文开头... -->
-
-<span id="more"></span>
-
-<h2 id="1-测试文本"><a href="#1-测试文本" class="headerlink" title="1.测试文本"></a>1.测试文本</h2><p>《我的世界》<em>（Minecraft）<em>是一款<a href="https://baike.baidu.com/item/%E6%B2%99%E7%9B%92/18364354?fromModule=lemma_inlink">沙盒</a>类<a href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E6%B8%B8%E6%88%8F/195750?fromModule=lemma_inlink">电子游戏</a>，开创者为<a href="https://baike.baidu.com/item/%E9%A9%AC%E5%BA%93%E6%96%AF%C2%B7%E9%98%BF%E5%88%97%E5%85%8B%E8%B0%A2%C2%B7%E6%B3%8A%E6%9D%BE/6980057?fromModule=lemma_inlink">马库斯·阿列克谢·泊松</a></em>（Notch）</em>。游戏由<a href="https://baike.baidu.com/item/Mojang/2253597?fromModule=lemma_inlink">Mojang</a> Studios维护，现隶属于<a href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF/124767?fromModule=lemma_inlink">微软</a><a href="https://baike.baidu.com/item/Xbox/19680933?fromModule=lemma_inlink">Xbox</a>游戏工作室。游戏最初于2009年5月17日作为Classic版本发布，并于2011年11月18日发布<a href="https://baike.baidu.com/item/Java/85979?fromModule=lemma_inlink">Java</a>正式版。游戏平台囊括桌面设备、移动设备和游戏主机。中国版于2016年5月20日在<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86/5944925?fromModule=lemma_inlink">中国大陆</a>运营 [32]，由<a href="https://baike.baidu.com/item/%E7%BD%91%E6%98%93%E6%B8%B8%E6%88%8F/1918119?fromModule=lemma_inlink">网易游戏</a>代理 [7]。</p>
-<p>游戏以玩家在一个充满着方块的三维空间中自由地创造和破坏不同种类的方块为主题。玩家在游戏中可以在单人或多人模式中通过摧毁或创造精妙绝伦的建筑物和艺术，或者收集物品探索地图以完成游戏的<a href="https://baike.baidu.com/item/%E6%88%90%E5%B0%B1/19928754?fromModule=lemma_inlink">成就</a>（<a href="https://baike.baidu.com/item/%E8%BF%9B%E5%BA%A6/24472016?fromModule=lemma_inlink">进度</a>）。玩家也可以尝试在创造模式下（打开作弊）<a href="https://baike.baidu.com/item/%E7%BA%A2%E7%9F%B3%E7%94%B5%E8%B7%AF/6384512?fromModule=lemma_inlink">红石电路</a>和<a href="https://baike.baidu.com/item/%E6%8C%87%E4%BB%A4/18765029?fromModule=lemma_inlink">指令</a>等玩法。</p>
-<p>2019年5月，《我的世界》击败《俄罗斯方块》，以售出1.76亿份的成绩，成为有史以来最畅销的电子游戏 [46]。2020年，荣获 “2020年儿童选择奖” [42]。2023年10月，销量超过3亿份 [47]。2024年11月，获得2024金摇杆奖持续游玩奖（PC&#x2F;主机）</p>
-<h2 id="2-代码区块-以下是一个代码块"><a href="#2-代码区块-以下是一个代码块" class="headerlink" title="2.代码区块 以下是一个代码块"></a>2.代码区块 以下是一个代码块</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-图片显示"><a href="#3-图片显示" class="headerlink" title="3.图片显示"></a>3.图片显示</h2><p><img src="/%5Cimages%5C1.jpg"></p>
-<h2 id="4-超链接"><a href="#4-超链接" class="headerlink" title="4.超链接"></a>4.超链接</h2><p><a href="baidu.com">百度</a></p>
-<p><a href="bing.com">必应</a></p>
-<p><a href="http://localhost:4000/">博客</a></p>
-<h1 id="测试结束！"><a href="#测试结束！" class="headerlink" title="测试结束！"></a>测试结束！</h1>]]></content>
-      <categories>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>测试</tag>
       </tags>
   </entry>
 </search>
