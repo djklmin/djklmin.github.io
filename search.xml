@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>title</title>
+    <title>邮件模板</title>
     <url>/2026/01/07/New%20Me/</url>
-    <content><![CDATA[<p><strong>主题：新年祝福与真诚聆听 🌟</strong></p>
-<p>亲爱的朋友：</p>
+    <content><![CDATA[<p>亲爱的朋友：</p>
 <p>新年好！</p>
 <p>在这辞旧迎新的美好时刻，我衷心祝福您和家人新年快乐、万事顺遂。感谢您在过去一年中的支持与陪伴，让我收获了许多宝贵的成长与记忆。</p>
 <p>新的一年，我希望持续精进自己，更好地与您协作、为您提供支持。为此，我准备了一份简单的匿名问卷，真诚希望听到您最真实的看法和建议。您的反馈对我至关重要，它将帮助我厘清方向、改进不足，成为更值得信赖的伙伴。</p>
@@ -46,12 +45,6 @@ a:hover {
 }  
 </style>
 ]]></content>
-      <categories>
-        <category>未分类</category>
-      </categories>
-      <tags>
-        <tag>暂无标签</tag>
-      </tags>
   </entry>
   <entry>
     <title>YDpen的adb密码修改</title>
