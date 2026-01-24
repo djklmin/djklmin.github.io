@@ -1,52 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>邮件模板</title>
-    <url>/2026/01/07/New%20Me/</url>
-    <content><![CDATA[<p>亲爱的朋友：</p>
-<p>新年好！</p>
-<p>在这辞旧迎新的美好时刻，我衷心祝福您和家人新年快乐、万事顺遂。感谢您在过去一年中的支持与陪伴，让我收获了许多宝贵的成长与记忆。</p>
-<p>新的一年，我希望持续精进自己，更好地与您协作、为您提供支持。为此，我准备了一份简单的匿名问卷，真诚希望听到您最真实的看法和建议。您的反馈对我至关重要，它将帮助我厘清方向、改进不足，成为更值得信赖的伙伴。</p>
-<hr>
-<h3 id="📮-问卷入口"><a href="#📮-问卷入口" class="headerlink" title="📮 问卷入口"></a>📮 <strong>问卷入口</strong></h3><p>请您点击下方按钮，即可进入反馈页面（约需 3-5 分钟）：</p>
-<div style="text-align: center; margin: 30px 0;">  
-<a href="https://v.wjx.cn/vm/OLDeQ5N.aspx#" style="display: inline-block; background: linear-gradient(135deg, #ff7a7a, #ff4d4d); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 6px 20px rgba(255, 77, 77, 0.25); transition: all 0.3s ease;">  
-📝 点击填写问卷  
-</a>  
-</div>
-
-<hr>
-<p>问卷全程<strong>匿名</strong>，所有内容仅用于我个人反思与提升。若您愿意留下姓名，我将不胜感激，并可在后续向您致谢或进一步请教。</p>
-<p>如果您更习惯直接沟通，也欢迎随时通过邮件或微信与我交流。</p>
-<p>再次感谢您愿意花时间帮助我进步。期待在新的一年，与您继续携手，共赴更美好的旅程！</p>
-<p>祝您新年快乐，心想事成，阖家幸福！</p>
-<p><strong>诚挚致意</strong></p>
-<p>潘飞</p>
-<p>2025年1月8日</p>
-<style>  
-body {  
-  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;  
-  line-height: 1.7;  
-  color: #333;  
-  background: linear-gradient(to bottom right, #fff9f9, #f0f8ff);  
-  padding: 40px 20px;  
-  max-width: 600px;  
-  margin: 0 auto;  
-  border-radius: 20px;  
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);  
-}  
-a {  
-  color: #ff4d4d;  
-  text-decoration: none;  
-  font-weight: 500;  
-}  
-a:hover {  
-  text-decoration: underline;  
-}  
-</style>
-]]></content>
-  </entry>
-  <entry>
     <title>YDpen的adb密码修改</title>
     <url>/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道词典笔早期好像使用的是安卓系统，但后面出的笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
