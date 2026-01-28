@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Fly的博客</title>
+  <icon>http://localhost:4000/img/avatar.png</icon>
+  
+  <link href="http://localhost:4000/atom.xml" rel="self"/>
+  
+  <link href="http://localhost:4000/"/>
+  <updated>2026-01-28T03:43:10.590Z</updated>
+  <id>http://localhost:4000/</id>
+  
+  <author>
+    <name>Fly</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一次重大过失</title>
+    <link href="http://localhost:4000/2025/09/19/first/"/>
+    <id>http://localhost:4000/2025/09/19/first/</id>
+    <published>2025-09-19T01:40:27.258Z</published>
+    <updated>2026-01-28T03:43:10.590Z</updated>
+    
+    
+    <summary type="html">本文被加密了，需要密码</summary>
+    
+    
+    
+    <category term="过错" scheme="http://localhost:4000/categories/%E8%BF%87%E9%94%99/"/>
+    
+    
+    <category term="反思" scheme="http://localhost:4000/tags/%E5%8F%8D%E6%80%9D/"/>
+    
+    <category term="学校" scheme="http://localhost:4000/tags/%E5%AD%A6%E6%A0%A1/"/>
+    
+    <category term="错误" scheme="http://localhost:4000/tags/%E9%94%99%E8%AF%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Qexo的安装与配置</title>
+    <link href="http://localhost:4000/2025/09/13/qexo/"/>
+    <id>http://localhost:4000/2025/09/13/qexo/</id>
+    <published>2025-09-13T16:13:14.136Z</published>
+    <updated>2025-09-13T17:00:17.082Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Qexo的安装&quot;&gt;&lt;a href=&quot;#Qexo的安装&quot; class=&quot;headerlink&quot; title=&quot;Qexo的安装&quot;&gt;&lt;/a&gt;Qexo的安装&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术教程" scheme="http://localhost:4000/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="http://localhost:4000/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="GitHub" scheme="http://localhost:4000/tags/GitHub/"/>
+    
+    <category term="hexo" scheme="http://localhost:4000/tags/hexo/"/>
+    
+    <category term="网站" scheme="http://localhost:4000/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vercel部署twikoo评论系统</title>
+    <link href="http://localhost:4000/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://localhost:4000/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</id>
+    <published>2025-08-25T05:14:41.000Z</published>
+    <updated>2025-08-25T05:14:41.000Z</updated>
+    
+    
+    <summary type="html">这里填写文章摘要，Ayer主题依赖此字段显示预览。</summary>
+    
+    
+    
+    <category term="技术教程" scheme="http://localhost:4000/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="http://localhost:4000/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="hexo" scheme="http://localhost:4000/tags/hexo/"/>
+    
+    <category term="网站" scheme="http://localhost:4000/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客添加评论系统</title>
+    <link href="http://localhost:4000/2025/08/23/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/"/>
+    <id>http://localhost:4000/2025/08/23/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</id>
+    <published>2025-08-23T05:37:04.000Z</published>
+    <updated>2025-08-23T05:37:04.000Z</updated>
+    
+    
+    <summary type="html">这里填写文章摘要，Ayer主题依赖此字段显示预览。</summary>
+    
+    
+    
+    <category term="技术教程" scheme="http://localhost:4000/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>YDpen的adb密码修改</title>
+    <link href="http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/"/>
+    <id>http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</id>
+    <published>2025-08-21T09:49:03.000Z</published>
+    <updated>2025-08-21T09:49:03.000Z</updated>
+    
+    
+    <summary type="html">一篇详尽的教程，指导如何通过修改ADB密码来破解有道词典笔。</summary>
+    
+    
+    
+    <category term="技术教程" scheme="http://localhost:4000/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="有道词典笔" scheme="http://localhost:4000/tags/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94/"/>
+    
+    <category term="破解" scheme="http://localhost:4000/tags/%E7%A0%B4%E8%A7%A3/"/>
+    
+    <category term="ADB" scheme="http://localhost:4000/tags/ADB/"/>
+    
+    <category term="教程" scheme="http://localhost:4000/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="科技" scheme="http://localhost:4000/tags/%E7%A7%91%E6%8A%80/"/>
+    
+  </entry>
+  
+</feed>
