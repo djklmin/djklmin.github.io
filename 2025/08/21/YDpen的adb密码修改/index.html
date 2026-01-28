@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>YDpen的adb密码修改 | Fly的博客</title><meta name="author" content="Fly"><meta name="copyright" content="Fly"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一篇详尽的教程，指导如何通过修改ADB密码来破解有道词典笔。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YDpen的adb密码修改">
+<meta property="og:url" content="http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/index.html">
+<meta property="og:site_name" content="Fly的博客">
+<meta property="og:description" content="一篇详尽的教程，指导如何通过修改ADB密码来破解有道词典笔。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp">
+<meta property="article:published_time" content="2025-08-21T09:49:03.000Z">
+<meta property="article:modified_time" content="2025-08-21T09:49:03.000Z">
+<meta property="article:author" content="Fly">
+<meta property="article:tag" content="有道词典笔">
+<meta property="article:tag" content="破解">
+<meta property="article:tag" content="ADB">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="科技">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "YDpen的adb密码修改",
+  "url": "http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/",
+  "image": "https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp",
+  "datePublished": "2025-08-21T09:49:03.000Z",
+  "dateModified": "2025-08-21T09:49:03.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Fly",
+      "url": "http://localhost:4000"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp"><link rel="canonical" href="http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'YDpen的adb密码修改',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Fly的博客" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://img.cdn1.vip/i/6943695bef192_1766025563.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://flyminos.qzz.io/login/?next=/"><i class="fa-fw fas fa-tools"></i><span> 后台管理</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://img.cdn1.vip/i/69799fbcbaba4_1769578428.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://img.cdn1.vip/i/697706e55a48b_1769408229.webp" alt="Logo"><span class="site-name">Fly的博客</span></a><a class="nav-page-title" href="/"><span class="site-name">YDpen的adb密码修改</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://flyminos.qzz.io/login/?next=/"><i class="fa-fw fas fa-tools"></i><span> 后台管理</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">YDpen的adb密码修改</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-21T09:49:03.000Z" title="发表于 2025-08-21 17:49:03">2025-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-21T09:49:03.000Z" title="更新于 2025-08-21 17:49:03">2025-08-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道词典笔早期好像使用的是安卓系统，但后面出的笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
+<p><strong>⚠️ 操作有风险，玩机需谨慎</strong><br>因任何操作造成的包括但不限于变砖、炸App等损失作者均不承担任何责任，也没有义务帮你修复。如有侵权联系删除。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>有道词典笔一直都带有ADB开启入口，只需多次点击”法律监管”中的文本即可打开。</p>
+<h2 id="破解方案"><a href="#破解方案" class="headerlink" title="破解方案"></a>破解方案</h2><p>本文采用大佬SkySight-666的方案加以改进，靠中间人攻击劫持更新请求从而替换更新包。</p>
+<p><strong>参考链接：</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/orgs/PenUniverse/discussions/250">https://github.com/orgs/PenUniverse/discussions/250</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/orgs/PenUniverse/discussions/277">https://github.com/orgs/PenUniverse/discussions/277</a></li>
+</ul>
+<p><strong>本文用到的全部工具：</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.123684.com/s/sE1hjv-mklwd">https://www.123684.com/s/sE1hjv-mklwd</a> 提取码:0m8B</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="首先，通过抓包抓取系统全量包"><a href="#首先，通过抓包抓取系统全量包" class="headerlink" title="首先，通过抓包抓取系统全量包"></a>首先，通过抓包抓取系统全量包</h3><p>使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包。</p>
+<p><img src="/images/2.png"></p>
+<h3 id="重新发送更新请求，获取全量包链接"><a href="#重新发送更新请求，获取全量包链接" class="headerlink" title="重新发送更新请求，获取全量包链接"></a>重新发送更新请求，获取全量包链接</h3><p>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：</p>
+<p>请将以下JSON数据用于HTTP请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/3.png"></p>
+<p>请求完毕我们会获得一个包含完整包链接的json</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   &quot;status&quot;: 1000,</span><br><span class="line">   &quot;msg&quot;: &quot;success&quot;,</span><br><span class="line">   &quot;data&quot;: &#123;</span><br><span class="line">      &quot;releaseNotes&quot;: &#123;</span><br><span class="line">            &quot;publishDate&quot;: &quot;2023-06-26&quot;,</span><br><span class="line">            &quot;version&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;content&quot;: &quot;[&#123;\&quot;country\&quot;:\&quot;zh_CN\&quot;,\&quot;content\&quot;:\&quot;1.优化系统.修复错误\&quot;&#125;]&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      //&quot;sha256&quot;: &quot;xxxxxxxxxx&quot;,</span><br><span class="line">      &quot;safe&quot;: &#123;</span><br><span class="line">            &quot;encKey&quot;: null,</span><br><span class="line">            &quot;isEncrypt&quot;: 0</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;version&quot;: &#123;</span><br><span class="line">            &quot;segmentMd5&quot;: &quot;[&#123;\&quot;num\&quot;:0,\&quot;startpos\&quot;:0,\&quot;md5\&quot;:\&quot;6afb51af609d5ab205620f2020ed964e\&quot;,\&quot;endpos\&quot;:104857600&#125;,&#123;\&quot;num\&quot;:1,\&quot;startpos\&quot;:104857600,\&quot;md5\&quot;:\&quot;42c6e6b88c0603783765c403b0ed7914\&quot;,\&quot;endpos\&quot;:209715200&#125;,&#123;\&quot;num\&quot;:2,\&quot;startpos\&quot;:209715200,\&quot;md5\&quot;:\&quot;a2d297d5cc33eca65777d2bdcbe98293\&quot;,\&quot;endpos\&quot;:314572800&#125;,&#123;\&quot;num\&quot;:3,\&quot;startpos\&quot;:314572800,\&quot;md5\&quot;:\&quot;5bb85fc4e9539131ff471cf7e1488718\&quot;,\&quot;endpos\&quot;:419430400&#125;,&#123;\&quot;num\&quot;:4,\&quot;startpos\&quot;:419430400,\&quot;md5\&quot;:\&quot;4c5f5f95d49719a23aef3d127f884c1f\&quot;,\&quot;endpos\&quot;:524288000&#125;,&#123;\&quot;num\&quot;:5,\&quot;startpos\&quot;:524288000,\&quot;md5\&quot;:\&quot;b6028cbf53490ff8a72d6b03da64bfdb\&quot;,\&quot;endpos\&quot;:629145600&#125;,&#123;\&quot;num\&quot;:6,\&quot;startpos\&quot;:629145600,\&quot;md5\&quot;:\&quot;4f6d7a683825afdb57291c651fcf0a4c\&quot;,\&quot;endpos\&quot;:734003200&#125;,&#123;\&quot;num\&quot;:7,\&quot;startpos\&quot;:734003200,\&quot;md5\&quot;:\&quot;51441a5ab6fc37076104de26d8d74092\&quot;,\&quot;endpos\&quot;:838860800&#125;,&#123;\&quot;num\&quot;:8,\&quot;startpos\&quot;:838860800,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:943718400&#125;,&#123;\&quot;num\&quot;:9,\&quot;startpos\&quot;:943718400,\&quot;md5\&quot;:\&quot;4c48a4078df31327fda7845123a4cb2b\&quot;,\&quot;endpos\&quot;:1048576000&#125;,&#123;\&quot;num\&quot;:10,\&quot;startpos\&quot;:1048576000,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1153433600&#125;,&#123;\&quot;num\&quot;:11,\&quot;startpos\&quot;:1153433600,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1258291200&#125;,&#123;\&quot;num\&quot;:12,\&quot;startpos\&quot;:1258291200,\&quot;md5\&quot;:\&quot;c81029b9c4e0ecf7cbcf1d1afb881f20\&quot;,\&quot;endpos\&quot;:1363148800&#125;,&#123;\&quot;num\&quot;:13,\&quot;startpos\&quot;:1363148800,\&quot;md5\&quot;:\&quot;586c523c54bc9f1042bb92022ac87183\&quot;,\&quot;endpos\&quot;:1397088268&#125;]&quot;,</span><br><span class="line">            &quot;bakUrl&quot;: &quot;http://iotdownbak.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;versionAlias&quot;: &quot;&quot;,</span><br><span class="line">            &quot;deltaUrl&quot;: &quot;http://iotdown.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;deltaID&quot;: &quot;xxxxxxx&quot;,</span><br><span class="line">            &quot;fileSize&quot;: 1397088268,</span><br><span class="line">            &quot;md5sum&quot;: &quot;5c668394fa2779eada86601292ff877b&quot;,</span><br><span class="line">            &quot;versionName&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;sha&quot;: &quot;6fdd26798679e5cb1e877051c7970a89307e303&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;policy&quot;: &#123;</span><br><span class="line">            &quot;download&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;wifi&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;仅wifi下载&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;optional&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;storageSize&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;存储空间不足&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1397088268&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;forceDownload&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;install&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;battery&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;电量不足，请充电后重试！&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;30&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;rebootUpgrade&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;force&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;&#123;\&quot;from\&quot;: \&quot;00:00\&quot;, \&quot;to\&quot;: \&quot;00:00\&quot;,\&quot;gap\&quot;: \&quot;00:00\&quot;&#125;&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;check&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;cycle&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1500&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p>应该类似于以上这个文本 通过bakUrl或deltaUrl链接下载文件</p>
+<h2 id="使用winhex替换md5值"><a href="#使用winhex替换md5值" class="headerlink" title="使用winhex替换md5值"></a>使用winhex替换md5值</h2><p>​    打开winhex并打开你的完整包img，开启搜索，搜索</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PASSWD | md5sum</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/4.png"></p>
+<p>​    千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。<br>​    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</p>
+<p>注意：此时文件大小未发生改变 大小一个字节也没变！</p>
+<h2 id="计算修改后的文件校验码"><a href="#计算修改后的文件校验码" class="headerlink" title="计算修改后的文件校验码"></a>计算修改后的文件校验码</h2><p>   编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，</p>
+<p>每个机器值可能是不一样多的，然后在cmd中执行’python getnewmd5.py {修改后的img路径}’，并紧跟着执行’certutil -hashfile {修改后的img路径} md5’,<br>   随后我们会获得分片md5和整体md5</p>
+<p>   还需要计算一个img的sha256值 得到修改后的img的sha256值 留存备用</p>
+<h2 id="搭建更新服务器"><a href="#搭建更新服务器" class="headerlink" title="搭建更新服务器"></a>搭建更新服务器</h2><p>   首先自行安装nodejs 然后编辑YDPen.js，将”JsonData”的内容全部替换为前面抓包抓到的内容，然后手动修改’segmentMd5’中每一个分块的md5值为前面计算得到的md5值，并修改bakUrl和deltaUrl为”http:&#x2F;&#x2F;{本机局域网ip}:14514&#x2F;你修改的完整包.img”，随后修改’md5sum’为前面计算的完整img的md5，sha修改为计算的sha256值</p>
+<p>  下拉到js下方部分，修改’&#x2F;product&#x2F;1717746496&#x2F;*********&#x2F;ota&#x2F;checkVersion’为你自己抓到的请求url，保存文件。</p>
+<img src="/images/5.png" style="zoom:80%;" />
+
+<p><img src="/images/6.png"></p>
+<h2 id="更新自定义固件"><a href="#更新自定义固件" class="headerlink" title="更新自定义固件"></a>更新自定义固件</h2><p>在词典笔连接电脑热点的情况下检查更新，会检测到一个很大的更新包，直接更新即可</p>
+<p>**获得adb权限，美美折腾</p>
+<p>更新完毕后，待设备重启，再次去法律监管里面连击打开adb，此时连接电脑执行adb shell auth并输入前面转换为md5的密码明文，回车，见证奇迹</p>
+<p>**教程结束<br>   本文转载于bilibili听秋念大佬的文章<a target="_blank" rel="noopener" href="https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0">https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0</a><br>   本文只是加以改进</p>
+<p>**结束！</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://localhost:4000">Fly</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/">http://localhost:4000/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://localhost:4000" target="_blank">Fly的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94/">有道词典笔</a><a class="post-meta__tags" href="/tags/%E7%A0%B4%E8%A7%A3/">破解</a><a class="post-meta__tags" href="/tags/ADB/">ADB</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/%E7%A7%91%E6%8A%80/">科技</a></div><div class="post-share"><div class="social-share" data-image="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/08/23/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" title="hexo博客添加评论系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">hexo博客添加评论系统</div></div><div class="info-2"><div class="info-item-1">    hexo博客添加评论系统在Hexo框架下的博客有很多种实现评论系统的方式。我这里采用了Giscus实现评论系统，这是利用GitHub Discussions实现的评论系统，优点包括但不限于： - 开源、无广告、永久免费 - 无需自建数据库（数据储存在项目仓库的Discussions中） - 用户通过GitHub账户登录，简化注册流程，也增强了评论者的身份可信度、便于评论的及时回复与管理 - 支持自定义主题样式、评论排序、过滤等功能 - 配置简单，几分钟就能搞定 安装进入在GitHub账户中对Giscus的安装界面点击install进行安装。 官网配置选择一个GitHub仓库用于储存评论数据，可以是博客项目仓库，也可以是专门用于储存评论数据的仓库。但要确保仓库满足3个条件：  该仓库是公开的，否则访客将无法查看评论信息；  giscus app 已安装，否则访客将无法评论和回应（上一步已完成这一条件）；  Discussions 功能已在你的仓库中启用。 进入对应的仓库，点击右上角的 Settings，往下翻到Features，勾选Discussions。 输入仓库（用户名...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" title="vercel部署twikoo评论系统"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-25</div><div class="info-item-2">vercel部署twikoo评论系统</div></div><div class="info-2"><div class="info-item-1">    前言本站评论系统曾一直使用Giscus，但是朋友们似乎大部分都没有GitHub账号，所以交流非常不方便，于是找到了Twikoo评论系统，部署过程参考本文 2 Twikoo简介Twikoo是一个简洁、安全、免费的静态网站评论系统。 与waline相比，优势：差不多；不足：不支持IE，私有部署需要配置图床。 3 Vercel部署Twikoo评论系统3.1 创建MongoDB Cloud数据库（1）添加User登录MongoDB Cloud官网（没账号需要先注册），在Database Access页面点击Add New Database User创建数据库用户，Authentication Method选Password，在Password Authentication下设置数据库用户名和密码，用户名和密码可包含数字和大小写字母，不能包含特殊符号。点击Database User Privileges下方的Add Built In Role，elect Role选择Atlas Admin，最后点击Add User （2）添加Network Access在Network Acces...</div></div></div></a><a class="pagination-related" href="/2025/09/13/qexo/" title="Qexo的安装与配置"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">Qexo的安装与配置</div></div><div class="info-2"><div class="info-item-1">Qexo的安装前言最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！ 安装Qexo可以通过docker或vercel来安装，我这边用的是vercel，你可以通过 Vercel 提供的免费数据库。但请注意这是个 Beta 功能 vercel一键部署 首次部署会报错, 请无视并进行接下来的步骤。 申请 Vercel 数据库进入Vercel Storage 界面 然后点击右上角的 Create Database 并选择 Postgres 创建免费 PostgreSQL 数据库, 在 Connect 页面获取数据库连接信息。请注意在地区选择的位置选择与你上一步项目对应的地区（通常为 Washington, D.C., USA (East) - iad1）。 绑定项目在左侧边栏选择 Proj...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://img.cdn1.vip/i/694f7184adbe0_1766814084.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Fly</div><div class="author-info-description">一个热爱科技的初中生</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/djklmin"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">破解方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.</span> <span class="toc-text">详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%85%88%EF%BC%8C%E9%80%9A%E8%BF%87%E6%8A%93%E5%8C%85%E6%8A%93%E5%8F%96%E7%B3%BB%E7%BB%9F%E5%85%A8%E9%87%8F%E5%8C%85"><span class="toc-number">4.1.</span> <span class="toc-text">首先，通过抓包抓取系统全量包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%8F%91%E9%80%81%E6%9B%B4%E6%96%B0%E8%AF%B7%E6%B1%82%EF%BC%8C%E8%8E%B7%E5%8F%96%E5%85%A8%E9%87%8F%E5%8C%85%E9%93%BE%E6%8E%A5"><span class="toc-number">4.2.</span> <span class="toc-text">重新发送更新请求，获取全量包链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8winhex%E6%9B%BF%E6%8D%A2md5%E5%80%BC"><span class="toc-number">5.</span> <span class="toc-text">使用winhex替换md5值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E6%A0%A1%E9%AA%8C%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">计算修改后的文件校验码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">搭建更新服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BA%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">更新自定义固件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/19/first/" title="第一次重大过失">第一次重大过失</a><time datetime="2025-09-19T01:40:27.258Z" title="发表于 2025-09-19 09:40:27">2025-09-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/13/qexo/" title="Qexo的安装与配置">Qexo的安装与配置</a><time datetime="2025-09-13T16:13:14.136Z" title="发表于 2025-09-14 00:13:14">2025-09-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/25/vercel%E9%83%A8%E7%BD%B2twikoo%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" title="vercel部署twikoo评论系统">vercel部署twikoo评论系统</a><time datetime="2025-08-25T05:14:41.000Z" title="发表于 2025-08-25 13:14:41">2025-08-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/23/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" title="hexo博客添加评论系统">hexo博客添加评论系统</a><time datetime="2025-08-23T05:37:04.000Z" title="发表于 2025-08-23 13:37:04">2025-08-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/21/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/" title="YDpen的adb密码修改">YDpen的adb密码修改</a><time datetime="2025-08-21T09:49:03.000Z" title="发表于 2025-08-21 17:49:03">2025-08-21</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://img.cdn1.vip/i/69799e4f00a7d_1769578063.webp);"><div class="footer-flex"></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By Fly</span><span class="framework-info"><span class="footer-separator">|</span><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div><div class="footer_custom_text"><div style="text-align: center; line-height: 1.8;">
+  <p>© 2025 <a href="/">Fly的博客</a> | 面朝大海，春暖花开</p>
+  <p>
+    <a href="/archives/">归档</a> | 
+    <a href="/tags/">标签</a> | 
+    <a href="/about/">关于</a> |
+    <a href="https://flyminos.qzz.io/login/?next=/" target="_blank">后台管理</a>
+  </p>
+  <p>遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议</p>
+</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
