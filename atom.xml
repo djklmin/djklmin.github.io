@@ -62,11 +62,11 @@
     
     <category term="教程" scheme="http://localhost:4000/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
     <category term="GitHub" scheme="http://localhost:4000/tags/GitHub/"/>
     
     <category term="hexo" scheme="http://localhost:4000/tags/hexo/"/>
+    
+    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="网站" scheme="http://localhost:4000/tags/%E7%BD%91%E7%AB%99/"/>
     
@@ -89,9 +89,9 @@
     
     <category term="教程" scheme="http://localhost:4000/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
     <category term="hexo" scheme="http://localhost:4000/tags/hexo/"/>
+    
+    <category term="博客管理" scheme="http://localhost:4000/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
     <category term="网站" scheme="http://localhost:4000/tags/%E7%BD%91%E7%AB%99/"/>
     
