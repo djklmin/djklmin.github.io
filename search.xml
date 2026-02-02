@@ -24,6 +24,122 @@
       </tags>
   </entry>
   <entry>
+    <title>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</title>
+    <url>/posts/Imgbed/</url>
+    <content><![CDATA[<h1 id="Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床"><a href="#Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床" class="headerlink" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</h1><p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg" alt="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a></p>
+<h2 id="📂-第一步：Fork-项目"><a href="#📂-第一步：Fork-项目" class="headerlink" title=":📂: 第一步：Fork 项目"></a>:📂: 第一步：Fork 项目<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#%F0%9F%93%82-%E7%AC%AC%E4%B8%80%E6%AD%A5-fork-%E9%A1%B9%E7%9B%AE"></a></h2><ol>
+<li>访问 <a href="https://github.com/MarSeventh/CloudFlare-ImgBed">CloudFlare ImgBed 项目</a></li>
+<li>点击右上角的 “Fork” 按钮</li>
+<li>选择您的 GitHub 账户</li>
+<li>确认 Fork 完成</li>
+</ol>
+<h2 id="🏗️-第二步：创建-Pages-项目"><a href="#🏗️-第二步：创建-Pages-项目" class="headerlink" title=":🏗️: 第二步：创建 Pages 项目"></a>:🏗️: 第二步：创建 Pages 项目<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#%F0%9F%8F%97%EF%B8%8F-%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%88%9B%E5%BB%BA-pages-%E9%A1%B9%E7%9B%AE"></a></h2><h3 id="2-1-访问-Cloudflare-Dashboard"><a href="#2-1-访问-Cloudflare-Dashboard" class="headerlink" title="2.1 访问 Cloudflare Dashboard"></a>2.1 访问 Cloudflare Dashboard<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_2-1-%E8%AE%BF%E9%97%AE-cloudflare-dashboard"></a></h3><ol>
+<li>登录 <a href="https://dash.cloudflare.com/">Cloudflare Dashboard</a></li>
+<li>选择左侧菜单的 “Workers &amp; Pages”</li>
+<li>点击 “创建应用程序”</li>
+<li>选择 “Pages” 选项卡</li>
+<li>点击 “连接到 Git”</li>
+</ol>
+<p><a href="https://cfbed.sanyue.de/images/deployment/pages-create.png"><img src="https://cfbed.sanyue.de/images/deployment/pages-create.png" alt="创建 Pages 项目"></a></p>
+<h3 id="2-2-连接-GitHub-仓库"><a href="#2-2-连接-GitHub-仓库" class="headerlink" title="2.2 连接 GitHub 仓库"></a>2.2 连接 GitHub 仓库<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_2-2-%E8%BF%9E%E6%8E%A5-github-%E4%BB%93%E5%BA%93"></a></h3><ol>
+<li>如果首次使用，需要授权 Cloudflare 访问 GitHub</li>
+<li>选择您 Fork 的 <code>CloudFlare-ImgBed</code> 仓库</li>
+<li>点击 “开始设置”</li>
+</ol>
+<h3 id="2-3-配置项目设置"><a href="#2-3-配置项目设置" class="headerlink" title="2.3 配置项目设置"></a>2.3 配置项目设置<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_2-3-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E8%AE%BE%E7%BD%AE"></a></h3><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>项目名称</td>
+<td><code>cloudflare-imgbed</code>（或自定义）</td>
+<td>项目标识符</td>
+</tr>
+<tr>
+<td>生产分支</td>
+<td><code>main</code></td>
+<td>生产环境分支</td>
+</tr>
+<tr>
+<td>构建命令</td>
+<td><code>npm install</code></td>
+<td><strong>重要：v2.0 新构建命令</strong></td>
+</tr>
+<tr>
+<td>构建输出目录</td>
+<td><code>/</code></td>
+<td>保持默认</td>
+</tr>
+</tbody></table>
+<p><a href="https://cfbed.sanyue.de/images/deployment/pages-build-config.png"><img src="https://cfbed.sanyue.de/images/deployment/pages-build-config.png" alt="配置项目设置"></a></p>
+<p>重要提醒</p>
+<p>v2.0 版本的构建命令已变更为 <code>npm install</code>，请确保使用正确的构建命令。</p>
+<h3 id="2-4-部署项目"><a href="#2-4-部署项目" class="headerlink" title="2.4 部署项目"></a>2.4 部署项目<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_2-4-%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE"></a></h3><ol>
+<li>点击 “保存并部署”</li>
+<li>等待首次部署完成（约 2-3 分钟）</li>
+</ol>
+<h2 id="🗄️-第三步：配置-KV-数据库"><a href="#🗄️-第三步：配置-KV-数据库" class="headerlink" title=":🗄️: 第三步：配置 KV 数据库"></a>:🗄️: 第三步：配置 KV 数据库<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#%F0%9F%97%84%EF%B8%8F-%E7%AC%AC%E4%B8%89%E6%AD%A5-%E9%85%8D%E7%BD%AE-kv-%E6%95%B0%E6%8D%AE%E5%BA%93"></a></h2><p>KV 数据库用于存储文件元数据，是必需的组件。</p>
+<h3 id="3-1-创建-KV-命名空间"><a href="#3-1-创建-KV-命名空间" class="headerlink" title="3.1 创建 KV 命名空间"></a>3.1 创建 KV 命名空间<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_3-1-%E5%88%9B%E5%BB%BA-kv-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"></a></h3><ol>
+<li>在 Cloudflare Dashboard 中选择 “Workers &amp; Pages”</li>
+<li>点击 “KV”</li>
+<li>点击 “创建命名空间”</li>
+<li>输入命名空间名称：<code>img_url</code>（建议使用此名称）</li>
+<li>点击 “添加”</li>
+</ol>
+<p><a href="https://cfbed.sanyue.de/images/deployment/kv-create.png"><img src="https://cfbed.sanyue.de/images/deployment/kv-create.png" alt="创建 KV 命名空间"></a></p>
+<p><a href="https://cfbed.sanyue.de/images/deployment/kv-create-1.png"><img src="https://cfbed.sanyue.de/images/deployment/kv-create-1.png" alt="创建 KV 命名空间"></a></p>
+<h3 id="3-2-绑定-KV-到项目"><a href="#3-2-绑定-KV-到项目" class="headerlink" title="3.2 绑定 KV 到项目"></a>3.2 绑定 KV 到项目<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#_3-2-%E7%BB%91%E5%AE%9A-kv-%E5%88%B0%E9%A1%B9%E7%9B%AE"></a></h3><ol>
+<li>返回您的 Pages 项目</li>
+<li>选择 “设置” → “绑定”</li>
+<li>点击 “添加” → “KV 命名空间”</li>
+<li>填写绑定信息：<ul>
+<li><strong>变量名称</strong>：<code>img_url</code>（必须是这个名称）</li>
+<li><strong>KV 命名空间</strong>：选择刚创建的命名空间</li>
+</ul>
+</li>
+<li>点击 “保存”</li>
+</ol>
+<p>注意</p>
+<p>绑定 KV 时，变量名称必须为 <code>img_url</code>，这是项目预设的变量名，填错会出现无法进入管理界面等情况。</p>
+<h2 id="🔄-第四步：重新部署"><a href="#🔄-第四步：重新部署" class="headerlink" title=":🔄: 第四步：重新部署"></a>:🔄: 第四步：重新部署<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#%F0%9F%94%84-%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2"></a></h2><p>绑定 KV 后需要重新部署以生效：</p>
+<ol>
+<li>进入项目的 “部署” 页面</li>
+<li>找到最新的部署记录</li>
+<li>点击右侧的 “…” 菜单</li>
+<li>选择 “重试部署”</li>
+<li>等待部署完成</li>
+</ol>
+<p><a href="https://cfbed.sanyue.de/images/deployment/redeploy.png"><img src="https://cfbed.sanyue.de/images/deployment/redeploy.png" alt="重新部署"></a></p>
+<h2 id="🚀-下一步"><a href="#🚀-下一步" class="headerlink" title=":🚀: 下一步"></a>:🚀: 下一步<a href="https://cfbed.sanyue.de/deployment/cloudflare.html#%F0%9F%9A%80-%E4%B8%8B%E4%B8%80%E6%AD%A5"></a></h2><p>至此已经完成项目在 Cloudflare Pages 的部署，但是尚未添加存储渠道。</p>
+<h2 id="第五步：添加存储渠道"><a href="#第五步：添加存储渠道" class="headerlink" title="第五步：添加存储渠道"></a>第五步：添加存储渠道</h2><p>添加Telegram存储渠道</p>
+<p>1、在Telegram搜索&#x3D;&#x3D;@BotFather&#x3D;&#x3D;机器人，发送&#x3D;&#x3D;&#x2F;newbot&#x3D;&#x3D;命令新建一个机器人，给机器人自定义昵称及用户名，用户名必需以bot结尾，保存好新创建机器人的**&#x3D;&#x3D;token&#x3D;&#x3D;**。</p>
+<p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_13-45-47.webp"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_13-45-47.webp"></a></p>
+<p>2、在Telegram创建一个频道，建议设置为私密，把刚创建的机器人添加为管理员。</p>
+<p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_14-01-03.webp"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_14-01-03.webp"></a></p>
+<p>3、在新建频道内随意发送一条信息并转发给&#x3D;&#x3D;@VersaToolsBot&#x3D;&#x3D;机器人获取ID并保存好。</p>
+<p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-04-42.jpg"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-04-42.jpg"></a></p>
+<p><strong>注：如果这个AI不行，可以尝试其他AI，自行搜索。</strong></p>
+<p>4、回到CloudFlare ImgBed，在系统设置里填入token和ID。</p>
+<p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_14-13-02.webp"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_14-13-02.webp"></a></p>
+<p>部署到这里，我们就已经可以正常使用CloudFlare ImgBed了。</p>
+<p><strong>注意：记得设置上传密码，否则其他访客都可以使用你的部署上传，这会导致资源滥用，可能会被封禁telegram账号</strong></p>
+<p>以上是部署在cloudflare上的方案，你也可以在自己的服务器上通过docker部署来使用，存储支持还cloudflareR2、S3存储。更多信息可以访问官方文档：<a href="https://cfbed.sanyue.de/deployment/docker.html">docker部署</a>、<a href="https://cfbed.sanyue.de/deployment/configuration.html">配置说明</a></p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>科技</tag>
+        <tag>博客管理</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>YDpen的adb密码修改</title>
     <url>/posts/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道的词典笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
@@ -76,11 +192,11 @@
         <category>技术教程</category>
       </categories>
       <tags>
+        <tag>教程</tag>
+        <tag>科技</tag>
         <tag>有道词典笔</tag>
         <tag>破解</tag>
         <tag>ADB</tag>
-        <tag>教程</tag>
-        <tag>科技</tag>
       </tags>
   </entry>
   <entry>
@@ -228,9 +344,9 @@
       <tags>
         <tag>教程</tag>
         <tag>博客管理</tag>
+        <tag>网站</tag>
         <tag>GitHub</tag>
         <tag>hexo</tag>
-        <tag>网站</tag>
       </tags>
   </entry>
   <entry>
@@ -263,8 +379,8 @@
       <tags>
         <tag>教程</tag>
         <tag>博客管理</tag>
-        <tag>hexo</tag>
         <tag>网站</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
