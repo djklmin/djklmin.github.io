@@ -17,7 +17,7 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>title</title>
+    <title>AI怎么才能用好？让“笨笨”AI变“聪明”的30个小妙招</title>
     <link href="https://flyblog.qzz.io/posts/AI/"/>
     <id>https://flyblog.qzz.io/posts/AI/</id>
     <published>2026-02-07T04:01:51.344Z</published>
@@ -35,10 +35,16 @@
     
     
     
-    <category term="未分类" scheme="https://flyblog.qzz.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    <category term="AI" scheme="https://flyblog.qzz.io/categories/AI/"/>
     
     
-    <category term="暂无标签" scheme="https://flyblog.qzz.io/tags/%E6%9A%82%E6%97%A0%E6%A0%87%E7%AD%BE/"/>
+    <category term="AI" scheme="https://flyblog.qzz.io/tags/AI/"/>
+    
+    <category term="科技" scheme="https://flyblog.qzz.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="优化" scheme="https://flyblog.qzz.io/tags/%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -63,15 +69,15 @@
     <category term="技术教程" scheme="https://flyblog.qzz.io/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
     
     
+    <category term="科技" scheme="https://flyblog.qzz.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
     <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="科技" scheme="https://flyblog.qzz.io/tags/%E7%A7%91%E6%8A%80/"/>
+    <category term="优化" scheme="https://flyblog.qzz.io/tags/%E4%BC%98%E5%8C%96/"/>
     
     <category term="图床" scheme="https://flyblog.qzz.io/tags/%E5%9B%BE%E5%BA%8A/"/>
     
     <category term="Cloudflare" scheme="https://flyblog.qzz.io/tags/Cloudflare/"/>
-    
-    <category term="优化" scheme="https://flyblog.qzz.io/tags/%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -96,9 +102,9 @@
     <category term="技术教程" scheme="https://flyblog.qzz.io/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="科技" scheme="https://flyblog.qzz.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="图床" scheme="https://flyblog.qzz.io/tags/%E5%9B%BE%E5%BA%8A/"/>
     
@@ -248,9 +254,9 @@
     <category term="技术教程" scheme="https://flyblog.qzz.io/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="科技" scheme="https://flyblog.qzz.io/tags/%E7%A7%91%E6%8A%80/"/>
+    
+    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="有道词典笔" scheme="https://flyblog.qzz.io/tags/%E6%9C%89%E9%81%93%E8%AF%8D%E5%85%B8%E7%AC%94/"/>
     
