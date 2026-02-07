@@ -24,6 +24,91 @@
       </tags>
   </entry>
   <entry>
+    <title>title</title>
+    <url>/posts/AI/</url>
+    <content><![CDATA[<p>不知道你有没有这种感觉：看别人用AI写得天花乱坠，自己上手一试——嚯，这写的是啥？前轱辘不转，后轱辘转思密达？正确的废话？</p>
+<p>我曾经也这样，差点给AI扣上“人工智障”的帽子。直到我意识到，问题可能不在它，而在<strong>我怎么跟它聊天</strong>。就像指挥一个知识渊博但有点死脑筋的实习生，指令模糊，它就会瞎蒙；指引清晰，它就能给你惊喜。</p>
+<p>经过大半年的折腾，我攒下了一套“驯服”AI（尤其是DeepSeek）的私藏咒语。不是什么高深技术，就是<strong>沟通的方法</strong>。今天整理出最核心的30条，分成“入门-进阶-高阶”三阶，分享给你。保证你看完就能用，用了就见效。</p>
+<h3 id="第一阶：打好基础，从“聊得通”到“聊得顺”（技巧1-10）"><a href="#第一阶：打好基础，从“聊得通”到“聊得顺”（技巧1-10）" class="headerlink" title="第一阶：打好基础，从“聊得通”到“聊得顺”（技巧1-10）"></a><strong>第一阶：打好基础，从“聊得通”到“聊得顺”（技巧1-10）</strong></h3><p>这10条是地基，能解决80%的“AI不听话”问题。</p>
+<p><strong>1. 【角色扮演法】</strong>——别把它当万能机器人，给它一个“人设”。</p>
+<blockquote>
+<p><strong>烂指令</strong>：“写个产品文案。”<br><strong>好指令</strong>：“你现在是一个在护肤品行业干了10年的文案总监，特别擅长给年轻女性种草。接下来，请你用这个身份和 expertise 来帮我。”<br><em>原理</em>：给了身份，AI才会调用对应的知识库和说话腔调。</p>
+</blockquote>
+<p><strong>2. 【情景设定法】</strong>——把AI扔进具体“场景”里。</p>
+<blockquote>
+<p><strong>烂指令</strong>：“分析下市场。”<br><strong>好指令</strong>：“假设现在是2024年双十一前一周，你是我们天猫店的运营负责人，发现新品点击率高但转化低。请分析三个可能的原因和应对策略。”<br><em>效果</em>：场景越具体，AI的思考越有针对性，越少说空话。</p>
+</blockquote>
+<p><strong>3. 【拆解指令法】</strong>——把复杂任务变成“一二三步”。</p>
+<blockquote>
+<p>别一股脑说完，试着这样：<br>“第一步，先帮我列出都市白领周末‘宅家放松’的5个核心需求点。<br>第二步，针对每个需求点，想一个我们的产品可以切入的解决方案。<br>第三步，把其中最打动人的两个点，写成一段小红书风格的种草文案。”<br><em>亲测</em>：任务拆解得越细，AI完成的质量越高，几乎不会跑偏。</p>
+</blockquote>
+<p><strong>4. 【格式指定法】</strong>——让它直接给你“成品格式”。</p>
+<blockquote>
+<p>在指令里加上：<br>“请按以下格式回复：<br><strong>标题</strong>：[15字以内，要抓人]<br><strong>亮点</strong>：分3点，用<code>•</code>列出<br><strong>正文</strong>：300字左右，口语化<br><strong>行动号召</strong>：最后一句，要促进行动”<br><em>好处</em>：拿到的结果几乎不用调整排版，直接能用。</p>
+</blockquote>
+<p><strong>5. 【喂参考法】</strong>——给它看“优秀范文”。</p>
+<blockquote>
+<p>这是我最爱用的技巧！直接粘贴2-3篇你觉得风格对路的文章，然后说：<br>“请分析上面这几篇文案的<strong>结构、语气和叙事节奏</strong>，然后模仿这种风格，为我们的新产品写一篇类似感觉的。”<br><em>相当于</em>：让AI临摹大师，事半功倍。</p>
+</blockquote>
+<p><strong>6. 【反着说法】</strong>——告诉它“不要什么”。</p>
+<blockquote>
+<p>有时候，说“要什么”很难，但说“不要什么”很简单：<br>“不要用夸张的广告词，不要用‘顶级’‘至尊’这种词，不要写成硬广。要像朋友私下安利好东西那样，真诚、带点个人体验感。”<br><em>奇效</em>：通过排除错误选项，能更快锁定你想要的风格。</p>
+</blockquote>
+<p><strong>7-10. 其他基础利器：</strong></p>
+<ul>
+<li><strong>多角度检查</strong>：让AI自己以“用户&#x2F;专家&#x2F;对手”的视角挑自己文章的毛病。</li>
+<li><strong>语气调音台</strong>：“这次要<strong>专业但不死板，热情但不浮夸</strong>”——像调音一样精确控制它的语调。</li>
+<li><strong>长度控制器</strong>：“写500字左右，如果不够就深化例子，如果超了就删掉最不重要的部分。”</li>
+<li><strong>连续追问术</strong>：一次不行就两次。“不错，但第二段例子不够生动，换个更接地气的。”“结尾力度不够，加一点紧迫感。”——通过对话迭代出最佳结果。</li>
+</ul>
+<p>掌握这10条，你已经能超过90%的AI使用者了。但如果你想让它从“助手”变“智囊”，请进入下一阶。</p>
+<h3 id="第二阶：注入思维，让AI成为你的“专业外援”（技巧11-20）"><a href="#第二阶：注入思维，让AI成为你的“专业外援”（技巧11-20）" class="headerlink" title="第二阶：注入思维，让AI成为你的“专业外援”（技巧11-20）"></a><strong>第二阶：注入思维，让AI成为你的“专业外援”（技巧11-20）</strong></h3><p>这部分的核心是：<strong>把你的思维框架，“教”给AI。</strong></p>
+<p><strong>11. 【竞品分析术】</strong>——让AI当你的市场侦察兵。</p>
+<blockquote>
+<p>“先扒一扒A、B、C三个竞品最近一个月小红书笔记的内容方向、主推卖点和评论区高频词。然后告诉我们，哪个细分话题是他们还没覆盖透的，我们能不能打？”</p>
+</blockquote>
+<p><strong>12. 【用户画像具象法】</strong>——从“一群人”到“一个人”。</p>
+<blockquote>
+<p>别再说“目标用户是25-30岁女性”。试试这样说：<br>“她叫小林，28岁，在上海做新媒体，经常熬夜，皮肤敏感，热衷成分研究但怕踩雷，喜欢看有真实实验数据支撑的测评。请针对‘小林’写一段话。”<br><em>效果</em>：写出来的东西立刻就有了对话感，因为对象具体了。</p>
+</blockquote>
+<p><strong>13. 【故事包装术】</strong>——万物皆可包装成故事。</p>
+<blockquote>
+<p>“不要直接说我们的书桌好用。把它包装成一个故事：‘作为一个自由职业者，我曾换了三张书桌，直到遇见它…’”<br><em>科学</em>：大脑天生爱听故事，故事比说教让人记住得多。</p>
+</blockquote>
+<p><strong>16-20. 【组合拳套路】</strong>：<br>这里提供一套可以直接抄作业的“转化漏斗”组合技：<br><code>痛点放大</code>（找到用户最痛的点）→ <code>利益分层</code>（说清功能利益、情感利益、身份利益）→ <code>社会证明</code>（加入用户评价、案例截图）→ <code>限时紧迫</code>（制造稀缺感）→ <code>行动阶梯</code>（把复杂的购买决策拆成“先点收藏”、“领个券”、“看个评测”等小步骤）。<br>这一套打下来，AI生成的营销文案会非常有说服力。</p>
+<h3 id="第三阶：玩出花样，开启人脑-AI脑的创意协作（技巧21-30）"><a href="#第三阶：玩出花样，开启人脑-AI脑的创意协作（技巧21-30）" class="headerlink" title="第三阶：玩出花样，开启人脑+AI脑的创意协作（技巧21-30）"></a><strong>第三阶：玩出花样，开启人脑+AI脑的创意协作（技巧21-30）</strong></h3><p>这一阶，是让AI帮你突破思维惯性。</p>
+<p><strong>24. 【风格迁移术】</strong>——复制任何你喜欢的文风。</p>
+<blockquote>
+<p>“请你仔细体会‘和菜头’公众号文章的那种<strong>旁征博引、略带调侃、结尾常有意想不到升华</strong>的特点。然后用这种调性，聊聊‘为什么现代人越来越难专注’这个话题。”<br>好玩又好用！</p>
+</blockquote>
+<p><strong>25. 【逆向工程法】</strong>——从爆款里“偷师”。</p>
+<blockquote>
+<p>扔给AI一篇你觉得爆火的文章或视频脚本，让它“反推”：<br>“分析一下这个内容为什么能火？它的结构暗藏了什么钩子？情绪曲线是怎么设计的？我们可以复制的方法论是什么？”<br>让AI成为你的首席内容分析师。</p>
+</blockquote>
+<p><strong>30. 【跨界组合法】</strong>——创造意想不到的化学反应。</p>
+<blockquote>
+<p>“请把‘户外露营’、‘中式美学’、‘智能科技’这三个风马牛不相及的概念融合一下，为我们构思一个新消费品牌的概念。”<br>AI最擅长这种信息重组，常常能给你惊喜的灵感火花。</p>
+</blockquote>
+<h3 id="写在最后：一些重要的心里话"><a href="#写在最后：一些重要的心里话" class="headerlink" title="写在最后：一些重要的心里话"></a><strong>写在最后：一些重要的心里话</strong></h3><p>折腾这么久，我最大的感悟是：<strong>调教AI，本质上是在训练我们自己的思维清晰度和沟通能力。</strong> 你越清楚自己想要什么，就越能指挥AI得到什么。</p>
+<p>这些技巧不是咒语，而是<strong>思维框架</strong>。别死记硬背，理解背后的逻辑——<strong>提供背景、限定范围、明确标准、分步指引</strong>——然后灵活混搭使用。</p>
+<p>另外，请永远记住：</p>
+<ol>
+<li><strong>你才是老板</strong>：AI是强大的协作者，但做决定、担责任的必须是你。</li>
+<li><strong>事实要核查</strong>：AI可能会“一本正经地胡说八道”，关键信息务必验证。</li>
+<li><strong>隐私要注意</strong>：别把敏感信息喂给AI。</li>
+</ol>
+<p>希望这份手记对你有用。AI的世界没有标准答案，最好的使用方式，永远是你自己探索出来的那一种。</p>
+<p><strong>最后，希望你可以用以下链接注册账号后实名认证，你将获得16元代金卷（Me too），里面超多开源模型，可调用API!  谢谢！</strong></p>
+<p><a href="https://cloud.siliconflow.cn/i/YgYBvXpG">https://cloud.siliconflow.cn/i/YgYBvXpG</a></p>
+]]></content>
+      <categories>
+        <category>未分类</category>
+      </categories>
+      <tags>
+        <tag>暂无标签</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</title>
     <url>/posts/Imgbed/</url>
     <content><![CDATA[<h1 id="Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床"><a href="#Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床" class="headerlink" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</h1><p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg" alt="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a></p>
