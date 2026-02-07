@@ -200,6 +200,97 @@
       </tags>
   </entry>
   <entry>
+    <title>Cloudflare图床缓存优化</title>
+    <url>/posts/cloudflareKV/</url>
+    <content><![CDATA[<h1 id="📚-Cloudflare-图床缓存优化实战总结"><a href="#📚-Cloudflare-图床缓存优化实战总结" class="headerlink" title="📚 Cloudflare 图床缓存优化实战总结"></a>📚 Cloudflare 图床缓存优化实战总结</h1><h2 id="🎯-项目背景"><a href="#🎯-项目背景" class="headerlink" title="🎯 项目背景"></a>🎯 项目背景</h2><p><strong>项目</strong>：Cloudflare-ImgBed（基于 Cloudflare Pages + Workers + KV + telegram 的自建图床）<br><strong>问题</strong>：免费 KV 存储的 10 万次&#x2F;日读取额度很快用完，需要付费<br><strong>目标</strong>：通过缓存优化，减少 80% 以上的 KV 读取，完全使用免费额度</p>
+<h2 id="🔍-问题分析"><a href="#🔍-问题分析" class="headerlink" title="🔍 问题分析"></a>🔍 问题分析</h2><ol>
+<li><strong>每次图片访问流程</strong>：Worker → 验证 → KV读取 → telegram读取 → 返回</li>
+<li><strong>重复访问浪费</strong>：同一张图片被多次访问时，每次都要走完整流程</li>
+<li><strong>核心问题</strong>：缺少缓存层，无法利用图片的静态特性</li>
+</ol>
+<h2 id="💡-解决方案"><a href="#💡-解决方案" class="headerlink" title="💡 解决方案"></a>💡 解决方案</h2><h3 id="核心思路：三级缓存策略"><a href="#核心思路：三级缓存策略" class="headerlink" title="核心思路：三级缓存策略"></a>核心思路：三级缓存策略</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">用户请求 → Cloudflare CDN缓存 → Worker内存缓存 → KV/telegram源站</span><br><span class="line">         (最快，免费用)    (次快)        (最慢，消耗额度)</span><br></pre></td></tr></table></figure>
+
+<h3 id="技术实现：Cloudflare-Cache-API"><a href="#技术实现：Cloudflare-Cache-API" class="headerlink" title="技术实现：Cloudflare Cache API"></a>技术实现：Cloudflare Cache API</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// /functions/_middleware.js</span><br><span class="line">export async function onRequest(context) &#123;</span><br><span class="line">  const &#123; request, next &#125; = context;</span><br><span class="line">  </span><br><span class="line">  // 1. 先执行原有逻辑</span><br><span class="line">  const response = await next();</span><br><span class="line">  </span><br><span class="line">  // 2. 如果是图片且成功，添加缓存头</span><br><span class="line">  const contentType = response.headers.get(&#x27;content-type&#x27;) || &#x27;&#x27;;</span><br><span class="line">  if (response.status === 200 &amp;&amp; contentType.startsWith(&#x27;image/&#x27;)) &#123;</span><br><span class="line">    const newHeaders = new Headers(response.headers);</span><br><span class="line">    newHeaders.set(&#x27;Cache-Control&#x27;, &#x27;public, max-age=86400&#x27;); // 1天</span><br><span class="line">    newHeaders.set(&#x27;CDN-Cache-Control&#x27;, &#x27;public, max-age=86400&#x27;);</span><br><span class="line">  </span><br><span class="line">    return new Response(response.body, &#123;</span><br><span class="line">      status: response.status,</span><br><span class="line">      statusText: response.statusText,</span><br><span class="line">      headers: newHeaders</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  return response;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="🛠️-实施步骤"><a href="#🛠️-实施步骤" class="headerlink" title="🛠️ 实施步骤"></a>🛠️ 实施步骤</h2><h3 id="步骤1：确定文件位置"><a href="#步骤1：确定文件位置" class="headerlink" title="步骤1：确定文件位置"></a>步骤1：确定文件位置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Cloudflare Pages项目结构：</span><br><span class="line">/functions/</span><br><span class="line">├── _middleware.js          # 全局中间件（添加缓存逻辑）</span><br><span class="line">├── /api/                   # API接口</span><br><span class="line">├── /file/                  # 文件处理（图片主要入口）</span><br><span class="line">└── /upload/                # 上传功能</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤2：添加缓存中间件"><a href="#步骤2：添加缓存中间件" class="headerlink" title="步骤2：添加缓存中间件"></a>步骤2：添加缓存中间件</h3><p>在 <code>/functions/_middleware.js</code> 中添加缓存逻辑，关键点：</p>
+<ul>
+<li>只缓存图片请求（.jpg, .png, .webp等）</li>
+<li>设置合适的缓存时间（7-30天）</li>
+<li>添加调试日志和响应头</li>
+</ul>
+<h3 id="步骤3：测试验证"><a href="#步骤3：测试验证" class="headerlink" title="步骤3：测试验证"></a>步骤3：测试验证</h3><ol>
+<li><strong>打开浏览器</strong>，按 <strong>F12</strong> 进入开发者工具</li>
+<li>选择 <strong>Network</strong> 标签页</li>
+<li>勾选 ** 禁用缓存**（避免浏览器缓存干扰）</li>
+<li>访问你的图片URL：<code>https://你的域名/file/xxx.jpg</code></li>
+</ol>
+<p>在Network面板点击请求，查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// Response Headers 中找：</span><br><span class="line">cf-cache-status: HIT 或 MISS      # Cloudflare缓存状态</span><br><span class="line">age: 123                         # 缓存年龄（秒）</span><br><span class="line">cache-control: max-age=2592000   # 缓存时间</span><br><span class="line">x-cache-source: xxx              # 自定义缓存标记</span><br><span class="line">server-timing: cfCacheStatus;desc=&quot;HIT&quot;  # 服务器计时</span><br></pre></td></tr></table></figure>
+
+<h3 id="步骤4：监控效果"><a href="#步骤4：监控效果" class="headerlink" title="步骤4：监控效果"></a>步骤4：监控效果</h3><p>在 Cloudflare Dashboard 查看：</p>
+<ol>
+<li><strong>KV 读取数</strong>：应该大幅下降</li>
+<li><strong>Worker 请求数</strong>：缓存命中时不计数</li>
+<li><strong>响应头</strong>：确认 <code>cf-cache-status: HIT</code></li>
+</ol>
+<h2 id="📊-效果对比"><a href="#📊-效果对比" class="headerlink" title="📊 效果对比"></a>📊 效果对比</h2><h3 id="优化前："><a href="#优化前：" class="headerlink" title="优化前："></a>优化前：</h3><ul>
+<li>KV读取：每次访问 +1</li>
+<li>响应时间：200-500ms</li>
+<li>免费额度：很快用完</li>
+</ul>
+<h3 id="优化后："><a href="#优化后：" class="headerlink" title="优化后："></a>优化后：</h3><ul>
+<li>KV读取：只有第一次访问 +1，后续 +0</li>
+<li>响应时间：缓存命中时 10-50ms（提升10倍）</li>
+<li>免费额度：完全够用</li>
+</ul>
+<h2 id="🚀-性能提升"><a href="#🚀-性能提升" class="headerlink" title="🚀 性能提升"></a>🚀 性能提升</h2><ol>
+<li><strong>速度</strong>：首次加载 300ms → 后续加载 30ms</li>
+<li><strong>成本</strong>：可能超额度 → 完全免费</li>
+<li><strong>可扩展性</strong>：支持更高并发</li>
+</ol>
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><h3 id="1-缓存时间选择"><a href="#1-缓存时间选择" class="headerlink" title="1. 缓存时间选择"></a>1. <strong>缓存时间选择</strong></h3><ul>
+<li>普通图片：7-30天</li>
+<li>头像&#x2F;Logo：30-90天</li>
+<li>临时图片：1-24小时</li>
+</ul>
+<h3 id="2-缓存清除"><a href="#2-缓存清除" class="headerlink" title="2. 缓存清除"></a>2. <strong>缓存清除</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 如果需要更新图片，清除缓存</span><br><span class="line">await caches.default.delete(cacheKey);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-缓存键设计"><a href="#3-缓存键设计" class="headerlink" title="3. 缓存键设计"></a>3. <strong>缓存键设计</strong></h3><ul>
+<li>使用完整URL作为缓存键</li>
+<li>注意查询参数的影响</li>
+<li>考虑不同尺寸版本的缓存</li>
+</ul>
+<h2 id="📈-监控指标"><a href="#📈-监控指标" class="headerlink" title="📈 监控指标"></a>📈 监控指标</h2><h3 id="关键指标："><a href="#关键指标：" class="headerlink" title="关键指标："></a>关键指标：</h3><ol>
+<li><strong>缓存命中率</strong> &#x3D; HIT次数 &#x2F; 总请求数（目标 &gt; 85%）</li>
+<li><strong>KV读取节省率</strong> &#x3D; (1 - 优化后读取&#x2F;优化前读取) × 100%</li>
+<li><strong>响应时间P95</strong>：缓存命中时应 &lt; 50ms</li>
+</ol>
+<h3 id="Cloudflare-Dashboard-查看位置："><a href="#Cloudflare-Dashboard-查看位置：" class="headerlink" title="Cloudflare Dashboard 查看位置："></a>Cloudflare Dashboard 查看位置：</h3><ol>
+<li>Workers &amp; Pages → 你的项目 → 指标</li>
+<li>Workers KV → KV实例 → 使用情况</li>
+<li>分析 → 性能</li>
+</ol>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ol>
+<li><a href="https://developers.cloudflare.com/workers/runtime-apis/cache/">Cloudflare Cache API 文档</a></li>
+<li><a href="https://developers.cloudflare.com/cache/">Cloudflare 最佳实践：缓存策略</a></li>
+<li><a href="https://developers.cloudflare.com/kv/pricing/">Workers KV 定价和限制</a></li>
+<li><a href="https://eastondev.com/blog/zh/posts/dev/20251201-workers-quota-optimization/">Workers免费额度不够用？7个优化技巧让10万次撑一个月 · 比邻</a></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>科技</tag>
+        <tag>Cloudflare</tag>
+        <tag>优化</tag>
+        <tag>图床</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一次重大过失</title>
     <url>/posts/first/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试。" data-whm="内容认证失败，但仍可尝试查看。">
