@@ -395,6 +395,82 @@
       </tags>
   </entry>
   <entry>
+    <title>Qexo的说说和友链配置</title>
+    <url>/posts/qexomin/</url>
+    <content><![CDATA[<h1 id="Qexo-说说与友链功能配置"><a href="#Qexo-说说与友链功能配置" class="headerlink" title="Qexo 说说与友链功能配置"></a>Qexo 说说与友链功能配置</h1><h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1-Qexo-后端部署"><a href="#1-Qexo-后端部署" class="headerlink" title="1. Qexo 后端部署"></a>1. Qexo 后端部署</h3><p>你需要先有一个<strong>可访问的Qexo服务端</strong></p>
+<hr>
+<h2 id="二、说说功能配置-💬"><a href="#二、说说功能配置-💬" class="headerlink" title="二、说说功能配置 💬"></a>二、说说功能配置 💬</h2><p><strong>预览效果：</strong></p>
+<p><a href="https://flyblog.qzz.io/talks/">说说 | min的小窝</a></p>
+<p><a href="https://flyblog.qzz.io/friends/">友情链接 | min的小窝</a></p>
+<h3 id="1-Qexo-后台准备"><a href="#1-Qexo-后台准备" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
+<ul>
+<li>进入 <strong>“说说”</strong> 功能模块</li>
+<li>添加几条测试说说内容</li>
+<li>确认说说已发布</li>
+</ul>
+<h3 id="2-前端配置代码"><a href="#2-前端配置代码" class="headerlink" title="2. 前端配置代码"></a>2. 前端配置代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里改成你的<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexoDaoDao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    qexoDaodao?.init(&#123;</span><br><span class="line">      el: &quot;#qexoDaoDao&quot;,</span><br><span class="line">      avatar: &quot;你的头像链接&quot;,</span><br><span class="line">      name: &quot;你的名字&quot;,</span><br><span class="line">      limit: 10,</span><br><span class="line">      useLoadingImg: false,</span><br><span class="line">      baseURL: &quot;https://链接/&quot;, #这里改成你的Qexo的访问地址</span><br><span class="line">    &#125;).then(function ()&#123;</span><br><span class="line">      console.log(&quot;qexoDaodao加载完成&quot;);</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>el</code></td>
+<td>容器的CSS选择器</td>
+<td><code>&quot;#qexoDaoDao&quot;</code></td>
+</tr>
+<tr>
+<td><code>avatar</code></td>
+<td>说说发表者的头像</td>
+<td>任何可访问的图片URL</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>显示的名字</td>
+<td><code>&quot;min&quot;</code></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>每次加载数量</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>baseURL</code></td>
+<td><strong>Qexo的完整URL</strong></td>
+<td><code>&quot;https://example.com/&quot;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、友链功能配置-🔗"><a href="#三、友链功能配置-🔗" class="headerlink" title="三、友链功能配置 🔗"></a>三、友链功能配置 🔗</h2><h3 id="1-Qexo-后台准备-1"><a href="#1-Qexo-后台准备-1" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
+<ul>
+<li>进入 <strong>“友链”</strong> 功能模块</li>
+<li>添加几个友链数据</li>
+</ul>
+<h3 id="2-显示已有友链"><a href="#2-显示已有友链" class="headerlink" title="2. 显示已有友链"></a>2. 显示已有友链</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链显示容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链显示脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,    <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址（不要斜杠）</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-友链申请表单"><a href="#3-友链申请表单" class="headerlink" title="3. 友链申请表单"></a>3. 友链申请表单</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链申请容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;friends-api&quot;</span>,          <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;&quot;</span>                     <span class="comment">// 可选：自定义样式，留空则默认</span></span></span><br><span class="line"><span class="language-javascript">    );</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、完整配置示例"><a href="#四、完整配置示例" class="headerlink" title="四、完整配置示例"></a>四、完整配置示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 显示已有友链 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;你的url&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请表单 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(<span class="string">&quot;friends-api&quot;</span>,<span class="string">&quot;你的url&quot;</span>,<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>至此，你将可以正常使用Qexo的友链与说说了。</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>科技</tag>
+        <tag>教程</tag>
+        <tag>Qexo</tag>
+        <tag>网站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qexo的安装与配置</title>
     <url>/posts/qexo/</url>
     <content><![CDATA[<h1 id="Qexo的安装"><a href="#Qexo的安装" class="headerlink" title="Qexo的安装"></a>Qexo的安装</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！</strong></p>
@@ -481,85 +557,9 @@
       <tags>
         <tag>教程</tag>
         <tag>博客管理</tag>
+        <tag>网站</tag>
         <tag>GitHub</tag>
         <tag>hexo</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Qexo的说说和友链配置</title>
-    <url>/posts/qexomin/</url>
-    <content><![CDATA[<h1 id="Qexo-说说与友链功能配置"><a href="#Qexo-说说与友链功能配置" class="headerlink" title="Qexo 说说与友链功能配置"></a>Qexo 说说与友链功能配置</h1><h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1-Qexo-后端部署"><a href="#1-Qexo-后端部署" class="headerlink" title="1. Qexo 后端部署"></a>1. Qexo 后端部署</h3><p>你需要先有一个<strong>可访问的Qexo服务端</strong></p>
-<hr>
-<h2 id="二、说说功能配置-💬"><a href="#二、说说功能配置-💬" class="headerlink" title="二、说说功能配置 💬"></a>二、说说功能配置 💬</h2><p><strong>预览效果：</strong></p>
-<p><a href="https://flyblog.qzz.io/talks/">说说 | min的小窝</a></p>
-<p><a href="https://flyblog.qzz.io/friends/">友情链接 | min的小窝</a></p>
-<h3 id="1-Qexo-后台准备"><a href="#1-Qexo-后台准备" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
-<ul>
-<li>进入 <strong>“说说”</strong> 功能模块</li>
-<li>添加几条测试说说内容</li>
-<li>确认说说已发布</li>
-</ul>
-<h3 id="2-前端配置代码"><a href="#2-前端配置代码" class="headerlink" title="2. 前端配置代码"></a>2. 前端配置代码</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里改成你的<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexoDaoDao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    qexoDaodao?.init(&#123;</span><br><span class="line">      el: &quot;#qexoDaoDao&quot;,</span><br><span class="line">      avatar: &quot;你的头像链接&quot;,</span><br><span class="line">      name: &quot;你的名字&quot;,</span><br><span class="line">      limit: 10,</span><br><span class="line">      useLoadingImg: false,</span><br><span class="line">      baseURL: &quot;https://链接/&quot;, #这里改成你的Qexo的访问地址</span><br><span class="line">    &#125;).then(function ()&#123;</span><br><span class="line">      console.log(&quot;qexoDaodao加载完成&quot;);</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>el</code></td>
-<td>容器的CSS选择器</td>
-<td><code>&quot;#qexoDaoDao&quot;</code></td>
-</tr>
-<tr>
-<td><code>avatar</code></td>
-<td>说说发表者的头像</td>
-<td>任何可访问的图片URL</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>显示的名字</td>
-<td><code>&quot;min&quot;</code></td>
-</tr>
-<tr>
-<td><code>limit</code></td>
-<td>每次加载数量</td>
-<td><code>10</code></td>
-</tr>
-<tr>
-<td><code>baseURL</code></td>
-<td><strong>Qexo的完整URL</strong></td>
-<td><code>&quot;https://example.com/&quot;</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="三、友链功能配置-🔗"><a href="#三、友链功能配置-🔗" class="headerlink" title="三、友链功能配置 🔗"></a>三、友链功能配置 🔗</h2><h3 id="1-Qexo-后台准备-1"><a href="#1-Qexo-后台准备-1" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
-<ul>
-<li>进入 <strong>“友链”</strong> 功能模块</li>
-<li>添加几个友链数据</li>
-</ul>
-<h3 id="2-显示已有友链"><a href="#2-显示已有友链" class="headerlink" title="2. 显示已有友链"></a>2. 显示已有友链</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链显示容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链显示脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,    <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址（不要斜杠）</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-友链申请表单"><a href="#3-友链申请表单" class="headerlink" title="3. 友链申请表单"></a>3. 友链申请表单</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链申请容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;friends-api&quot;</span>,          <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;&quot;</span>                     <span class="comment">// 可选：自定义样式，留空则默认</span></span></span><br><span class="line"><span class="language-javascript">    );</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="四、完整配置示例"><a href="#四、完整配置示例" class="headerlink" title="四、完整配置示例"></a>四、完整配置示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 显示已有友链 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;你的url&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请表单 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(<span class="string">&quot;friends-api&quot;</span>,<span class="string">&quot;你的url&quot;</span>,<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>至此，你将可以正常使用Qexo的友链与说说了。</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>科技</tag>
-        <tag>教程</tag>
-        <tag>网站</tag>
-        <tag>Qexo</tag>
       </tags>
   </entry>
   <entry>
@@ -592,8 +592,8 @@
       <tags>
         <tag>教程</tag>
         <tag>博客管理</tag>
-        <tag>hexo</tag>
         <tag>网站</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
