@@ -186,28 +186,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客透明背景</title>
-    <url>/posts/Transparent/</url>
-    <content><![CDATA[<h1 id="Hexo博客透明背景设置"><a href="#Hexo博客透明背景设置" class="headerlink" title="Hexo博客透明背景设置"></a>Hexo博客透明背景设置</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在不妨碍正常阅读的情况下想更好地展示背景或者一些效果，实现文章页透明是一种不错的选择。</p>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>1.在\themes\butterfly\source\css路径下创建一个1.css文件，在文件中添加如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* === Butterfly主题 - 全站透明化方案 === */</span><br><span class="line"></span><br><span class="line">/* 1. 文章内容区域透明 */</span><br><span class="line">#article-container,</span><br><span class="line">#post,</span><br><span class="line">#page &#123;</span><br><span class="line">    background: transparent !important;</span><br><span class="line">    box-shadow: none !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 2. 首页文章列表透明 */</span><br><span class="line">#recent-posts &gt; .recent-post-item &#123;</span><br><span class="line">    background: transparent !important;</span><br><span class="line">    border: 1px solid rgba(255, 255, 255, 0.1) !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 3. 侧边栏透明 */</span><br><span class="line">#aside-content .card-widget &#123;</span><br><span class="line">    background: transparent !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 4. 代码块特殊处理 - 根据主题调整 */</span><br><span class="line">/* 深色模式保持深色背景 */</span><br><span class="line">[data-theme=&quot;dark&quot;] #article-container pre,</span><br><span class="line">[data-theme=&quot;dark&quot;] #article-container figure.highlight &#123;</span><br><span class="line">    background: rgba(40, 44, 52, 0.85) !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 浅色模式用浅色背景，提高对比度 */</span><br><span class="line">[data-theme=&quot;light&quot;] #article-container pre,</span><br><span class="line">[data-theme=&quot;light&quot;] #article-container figure.highlight &#123;</span><br><span class="line">    background: rgba(248, 249, 250, 0.9) !important; /* 浅灰色半透明 */</span><br><span class="line">    border: 1px solid rgba(0, 0, 0, 0.06) !important; /* 加细边框 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2.然后将该文件引入到_config.butterfly.yml文件中inject的head处：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/1.css&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>至此，重新部署后就可以看到效果了</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>优化</tag>
-        <tag>hexo</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>YDpen的adb密码修改</title>
     <url>/posts/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道的词典笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
@@ -502,10 +480,10 @@
       </categories>
       <tags>
         <tag>教程</tag>
-        <tag>hexo</tag>
-        <tag>网站</tag>
         <tag>博客管理</tag>
         <tag>GitHub</tag>
+        <tag>hexo</tag>
+        <tag>网站</tag>
       </tags>
   </entry>
   <entry>
@@ -613,9 +591,9 @@
       </categories>
       <tags>
         <tag>教程</tag>
+        <tag>博客管理</tag>
         <tag>hexo</tag>
         <tag>网站</tag>
-        <tag>博客管理</tag>
       </tags>
   </entry>
 </search>
