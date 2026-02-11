@@ -186,6 +186,66 @@
       </tags>
   </entry>
   <entry>
+    <title>YDpen的adb密码修改</title>
+    <url>/posts/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道的词典笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
+<p><strong>⚠️ 操作有风险，玩机需谨慎</strong><br>因任何操作造成的包括但不限于变砖、炸App等损失作者均不承担任何责任，也没有义务帮你修复。如有侵权联系删除。</p>
+<h1 id="自动替换密码"><a href="#自动替换密码" class="headerlink" title="自动替换密码"></a>自动替换密码</h1><p>来自langningchen大佬的paper，实现全自动替换密码。</p>
+<p>『来自123云盘用户的分享』paper.exe<br>链接：<a href="https://www.123865.com/s/ipZ4jv-tQ7WA?pwd=mywy#">https://www.123865.com/s/ipZ4jv-tQ7WA?pwd=mywy#</a></p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>有道词典笔一直都带有ADB开启入口，只需多次点击”法律监管”中的文本即可打开。</p>
+<h2 id="破解方案"><a href="#破解方案" class="headerlink" title="破解方案"></a>破解方案</h2><p>本文采用大佬SkySight-666的方案加以改进，靠中间人攻击劫持更新请求从而替换更新包。</p>
+<p><strong>参考链接：</strong></p>
+<ul>
+<li><a href="https://github.com/orgs/PenUniverse/discussions/250">https://github.com/orgs/PenUniverse/discussions/250</a></li>
+<li><a href="https://github.com/orgs/PenUniverse/discussions/277">https://github.com/orgs/PenUniverse/discussions/277</a></li>
+</ul>
+<p><strong>本文用到的全部工具：</strong></p>
+<p><a href="https://www.123684.com/s/sE1hjv-mklwd">https://www.123684.com/s/sE1hjv-mklwd</a> 提取码:0m8B</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="首先，通过抓包抓取系统全量包"><a href="#首先，通过抓包抓取系统全量包" class="headerlink" title="首先，通过抓包抓取系统全量包"></a>首先，通过抓包抓取系统全量包</h3><p>使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包。</p>
+<p><img src="/images/2.png"></p>
+<h3 id="重新发送更新请求，获取全量包链接"><a href="#重新发送更新请求，获取全量包链接" class="headerlink" title="重新发送更新请求，获取全量包链接"></a>重新发送更新请求，获取全量包链接</h3><p>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：</p>
+<p>请将以下JSON数据用于HTTP请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/3.png"></p>
+<p>请求完毕我们会获得一个包含完整包链接的json</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   &quot;status&quot;: 1000,</span><br><span class="line">   &quot;msg&quot;: &quot;success&quot;,</span><br><span class="line">   &quot;data&quot;: &#123;</span><br><span class="line">      &quot;releaseNotes&quot;: &#123;</span><br><span class="line">            &quot;publishDate&quot;: &quot;2023-06-26&quot;,</span><br><span class="line">            &quot;version&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;content&quot;: &quot;[&#123;\&quot;country\&quot;:\&quot;zh_CN\&quot;,\&quot;content\&quot;:\&quot;1.优化系统.修复错误\&quot;&#125;]&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      //&quot;sha256&quot;: &quot;xxxxxxxxxx&quot;,</span><br><span class="line">      &quot;safe&quot;: &#123;</span><br><span class="line">            &quot;encKey&quot;: null,</span><br><span class="line">            &quot;isEncrypt&quot;: 0</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;version&quot;: &#123;</span><br><span class="line">            &quot;segmentMd5&quot;: &quot;[&#123;\&quot;num\&quot;:0,\&quot;startpos\&quot;:0,\&quot;md5\&quot;:\&quot;6afb51af609d5ab205620f2020ed964e\&quot;,\&quot;endpos\&quot;:104857600&#125;,&#123;\&quot;num\&quot;:1,\&quot;startpos\&quot;:104857600,\&quot;md5\&quot;:\&quot;42c6e6b88c0603783765c403b0ed7914\&quot;,\&quot;endpos\&quot;:209715200&#125;,&#123;\&quot;num\&quot;:2,\&quot;startpos\&quot;:209715200,\&quot;md5\&quot;:\&quot;a2d297d5cc33eca65777d2bdcbe98293\&quot;,\&quot;endpos\&quot;:314572800&#125;,&#123;\&quot;num\&quot;:3,\&quot;startpos\&quot;:314572800,\&quot;md5\&quot;:\&quot;5bb85fc4e9539131ff471cf7e1488718\&quot;,\&quot;endpos\&quot;:419430400&#125;,&#123;\&quot;num\&quot;:4,\&quot;startpos\&quot;:419430400,\&quot;md5\&quot;:\&quot;4c5f5f95d49719a23aef3d127f884c1f\&quot;,\&quot;endpos\&quot;:524288000&#125;,&#123;\&quot;num\&quot;:5,\&quot;startpos\&quot;:524288000,\&quot;md5\&quot;:\&quot;b6028cbf53490ff8a72d6b03da64bfdb\&quot;,\&quot;endpos\&quot;:629145600&#125;,&#123;\&quot;num\&quot;:6,\&quot;startpos\&quot;:629145600,\&quot;md5\&quot;:\&quot;4f6d7a683825afdb57291c651fcf0a4c\&quot;,\&quot;endpos\&quot;:734003200&#125;,&#123;\&quot;num\&quot;:7,\&quot;startpos\&quot;:734003200,\&quot;md5\&quot;:\&quot;51441a5ab6fc37076104de26d8d74092\&quot;,\&quot;endpos\&quot;:838860800&#125;,&#123;\&quot;num\&quot;:8,\&quot;startpos\&quot;:838860800,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:943718400&#125;,&#123;\&quot;num\&quot;:9,\&quot;startpos\&quot;:943718400,\&quot;md5\&quot;:\&quot;4c48a4078df31327fda7845123a4cb2b\&quot;,\&quot;endpos\&quot;:1048576000&#125;,&#123;\&quot;num\&quot;:10,\&quot;startpos\&quot;:1048576000,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1153433600&#125;,&#123;\&quot;num\&quot;:11,\&quot;startpos\&quot;:1153433600,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1258291200&#125;,&#123;\&quot;num\&quot;:12,\&quot;startpos\&quot;:1258291200,\&quot;md5\&quot;:\&quot;c81029b9c4e0ecf7cbcf1d1afb881f20\&quot;,\&quot;endpos\&quot;:1363148800&#125;,&#123;\&quot;num\&quot;:13,\&quot;startpos\&quot;:1363148800,\&quot;md5\&quot;:\&quot;586c523c54bc9f1042bb92022ac87183\&quot;,\&quot;endpos\&quot;:1397088268&#125;]&quot;,</span><br><span class="line">            &quot;bakUrl&quot;: &quot;http://iotdownbak.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;versionAlias&quot;: &quot;&quot;,</span><br><span class="line">            &quot;deltaUrl&quot;: &quot;http://iotdown.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;deltaID&quot;: &quot;xxxxxxx&quot;,</span><br><span class="line">            &quot;fileSize&quot;: 1397088268,</span><br><span class="line">            &quot;md5sum&quot;: &quot;5c668394fa2779eada86601292ff877b&quot;,</span><br><span class="line">            &quot;versionName&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;sha&quot;: &quot;6fdd26798679e5cb1e877051c7970a89307e303&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;policy&quot;: &#123;</span><br><span class="line">            &quot;download&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;wifi&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;仅wifi下载&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;optional&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;storageSize&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;存储空间不足&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1397088268&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;forceDownload&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;install&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;battery&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;电量不足，请充电后重试！&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;30&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;rebootUpgrade&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;force&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;&#123;\&quot;from\&quot;: \&quot;00:00\&quot;, \&quot;to\&quot;: \&quot;00:00\&quot;,\&quot;gap\&quot;: \&quot;00:00\&quot;&#125;&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;check&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;cycle&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1500&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+<p>应该类似于以上这个文本 通过bakUrl或deltaUrl链接下载文件</p>
+<h2 id="使用winhex替换md5值"><a href="#使用winhex替换md5值" class="headerlink" title="使用winhex替换md5值"></a>使用winhex替换md5值</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开winhex并打开你的完整包img，开启搜索，搜索</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $PASSWD | md5sum</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/4.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。</span><br><span class="line">    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</span><br></pre></td></tr></table></figure>
+
+<p>注意：此时文件大小未发生改变 大小一个字节也没变！</p>
+<h2 id="计算修改后的文件校验码"><a href="#计算修改后的文件校验码" class="headerlink" title="计算修改后的文件校验码"></a>计算修改后的文件校验码</h2><p>编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，</p>
+<p>每个机器值可能是不一样多的，然后在cmd中执行’python getnewmd5.py {修改后的img路径}’，并紧跟着执行’certutil -hashfile {修改后的img路径} md5’,<br>随后我们会获得分片md5和整体md5</p>
+<p>还需要计算一个img的sha256值 得到修改后的img的sha256值 留存备用</p>
+<h2 id="搭建更新服务器"><a href="#搭建更新服务器" class="headerlink" title="搭建更新服务器"></a>搭建更新服务器</h2><p>首先自行安装nodejs 然后编辑YDPen.js，将”JsonData”的内容全部替换为前面抓包抓到的内容，然后手动修改’segmentMd5’中每一个分块的md5值为前面计算得到的md5值，并修改bakUrl和deltaUrl为”http:&#x2F;&#x2F;{本机局域网ip}:14514&#x2F;你修改的完整包.img”，随后修改’md5sum’为前面计算的完整img的md5，sha修改为计算的sha256值</p>
+<p>下拉到js下方部分，修改’&#x2F;product&#x2F;1717746496&#x2F;*********&#x2F;ota&#x2F;checkVersion’为你自己抓到的请求url，保存文件。</p>
+<img src="/images/5.png" style="zoom:80%;" />
+
+<p><img src="/images/6.png"></p>
+<h2 id="更新自定义固件"><a href="#更新自定义固件" class="headerlink" title="更新自定义固件"></a>更新自定义固件</h2><p>在词典笔连接电脑热点的情况下检查更新，会检测到一个很大的更新包，直接更新即可</p>
+<p>**获得adb权限，美美折腾</p>
+<p>更新完毕后，待设备重启，再次去法律监管里面连击打开adb，此时连接电脑执行adb shell auth并输入前面转换为md5的密码明文，回车，见证奇迹</p>
+<p>**教程结束<br>本文转载于bilibili听秋念大佬的文章<a href="https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0">https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0</a><br>本文只是加以改进</p>
+<p>**结束！</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>科技</tag>
+        <tag>教程</tag>
+        <tag>有道词典笔</tag>
+        <tag>破解</tag>
+        <tag>ADB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Cloudflare图床缓存优化</title>
     <url>/posts/cloudflareKV/</url>
     <content><![CDATA[<h1 id="📚-Cloudflare-图床缓存优化实战总结"><a href="#📚-Cloudflare-图床缓存优化实战总结" class="headerlink" title="📚 Cloudflare 图床缓存优化实战总结"></a>📚 Cloudflare 图床缓存优化实战总结</h1><h2 id="🎯-项目背景"><a href="#🎯-项目背景" class="headerlink" title="🎯 项目背景"></a>🎯 项目背景</h2><p><strong>项目</strong>：Cloudflare-ImgBed（基于 Cloudflare Pages + Workers + KV + telegram 的自建图床）<br><strong>问题</strong>：免费 KV 存储的 10 万次&#x2F;日读取额度很快用完，需要付费<br><strong>目标</strong>：通过缓存优化，减少 80% 以上的 KV 读取，完全使用免费额度</p>
@@ -274,66 +334,6 @@
         <tag>优化</tag>
         <tag>图床</tag>
         <tag>Cloudflare</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>YDpen的adb密码修改</title>
-    <url>/posts/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有道的词典笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。</p>
-<p><strong>⚠️ 操作有风险，玩机需谨慎</strong><br>因任何操作造成的包括但不限于变砖、炸App等损失作者均不承担任何责任，也没有义务帮你修复。如有侵权联系删除。</p>
-<h1 id="自动替换密码"><a href="#自动替换密码" class="headerlink" title="自动替换密码"></a>自动替换密码</h1><p>来自langningchen大佬的paper，实现全自动替换密码。</p>
-<p>『来自123云盘用户的分享』paper.exe<br>链接：<a href="https://www.123865.com/s/ipZ4jv-tQ7WA?pwd=mywy#">https://www.123865.com/s/ipZ4jv-tQ7WA?pwd=mywy#</a></p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><p>有道词典笔一直都带有ADB开启入口，只需多次点击”法律监管”中的文本即可打开。</p>
-<h2 id="破解方案"><a href="#破解方案" class="headerlink" title="破解方案"></a>破解方案</h2><p>本文采用大佬SkySight-666的方案加以改进，靠中间人攻击劫持更新请求从而替换更新包。</p>
-<p><strong>参考链接：</strong></p>
-<ul>
-<li><a href="https://github.com/orgs/PenUniverse/discussions/250">https://github.com/orgs/PenUniverse/discussions/250</a></li>
-<li><a href="https://github.com/orgs/PenUniverse/discussions/277">https://github.com/orgs/PenUniverse/discussions/277</a></li>
-</ul>
-<p><strong>本文用到的全部工具：</strong></p>
-<p><a href="https://www.123684.com/s/sE1hjv-mklwd">https://www.123684.com/s/sE1hjv-mklwd</a> 提取码:0m8B</p>
-<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><h3 id="首先，通过抓包抓取系统全量包"><a href="#首先，通过抓包抓取系统全量包" class="headerlink" title="首先，通过抓包抓取系统全量包"></a>首先，通过抓包抓取系统全量包</h3><p>使用词典笔连接电脑热点，启用wireshark对热点所在连接进行抓包，词典笔检查更新，在wireshark中找到post请求，抓到后可以停止抓包。</p>
-<p><img src="/images/2.png"></p>
-<h3 id="重新发送更新请求，获取全量包链接"><a href="#重新发送更新请求，获取全量包链接" class="headerlink" title="重新发送更新请求，获取全量包链接"></a>重新发送更新请求，获取全量包链接</h3><p>找一个HTTP测试网站，这里我用的是SOJSON，将Header设置为，将你在获得的数据填入，发送如下请求：</p>
-<p>请将以下JSON数据用于HTTP请求：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">json</span><br><span class="line">&#123;</span><br><span class="line">    &quot;timestamp&quot;: &quot;这里你Wireshark获得的timestamp&quot;,</span><br><span class="line">    &quot;sign&quot;: &quot;这里你Wireshark获得的sign&quot;,</span><br><span class="line">    &quot;mid&quot;: &quot;这里你Wireshark获得的mid&quot;, </span><br><span class="line">    &quot;productId&quot;: &quot;这里你Wireshark获得的productID&quot;,</span><br><span class="line">    &quot;version&quot;: &quot;99.99.90&quot;,</span><br><span class="line">    &quot;networkType&quot;: &quot;WIFI&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/3.png"></p>
-<p>请求完毕我们会获得一个包含完整包链接的json</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   &quot;status&quot;: 1000,</span><br><span class="line">   &quot;msg&quot;: &quot;success&quot;,</span><br><span class="line">   &quot;data&quot;: &#123;</span><br><span class="line">      &quot;releaseNotes&quot;: &#123;</span><br><span class="line">            &quot;publishDate&quot;: &quot;2023-06-26&quot;,</span><br><span class="line">            &quot;version&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;content&quot;: &quot;[&#123;\&quot;country\&quot;:\&quot;zh_CN\&quot;,\&quot;content\&quot;:\&quot;1.优化系统.修复错误\&quot;&#125;]&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      //&quot;sha256&quot;: &quot;xxxxxxxxxx&quot;,</span><br><span class="line">      &quot;safe&quot;: &#123;</span><br><span class="line">            &quot;encKey&quot;: null,</span><br><span class="line">            &quot;isEncrypt&quot;: 0</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;version&quot;: &#123;</span><br><span class="line">            &quot;segmentMd5&quot;: &quot;[&#123;\&quot;num\&quot;:0,\&quot;startpos\&quot;:0,\&quot;md5\&quot;:\&quot;6afb51af609d5ab205620f2020ed964e\&quot;,\&quot;endpos\&quot;:104857600&#125;,&#123;\&quot;num\&quot;:1,\&quot;startpos\&quot;:104857600,\&quot;md5\&quot;:\&quot;42c6e6b88c0603783765c403b0ed7914\&quot;,\&quot;endpos\&quot;:209715200&#125;,&#123;\&quot;num\&quot;:2,\&quot;startpos\&quot;:209715200,\&quot;md5\&quot;:\&quot;a2d297d5cc33eca65777d2bdcbe98293\&quot;,\&quot;endpos\&quot;:314572800&#125;,&#123;\&quot;num\&quot;:3,\&quot;startpos\&quot;:314572800,\&quot;md5\&quot;:\&quot;5bb85fc4e9539131ff471cf7e1488718\&quot;,\&quot;endpos\&quot;:419430400&#125;,&#123;\&quot;num\&quot;:4,\&quot;startpos\&quot;:419430400,\&quot;md5\&quot;:\&quot;4c5f5f95d49719a23aef3d127f884c1f\&quot;,\&quot;endpos\&quot;:524288000&#125;,&#123;\&quot;num\&quot;:5,\&quot;startpos\&quot;:524288000,\&quot;md5\&quot;:\&quot;b6028cbf53490ff8a72d6b03da64bfdb\&quot;,\&quot;endpos\&quot;:629145600&#125;,&#123;\&quot;num\&quot;:6,\&quot;startpos\&quot;:629145600,\&quot;md5\&quot;:\&quot;4f6d7a683825afdb57291c651fcf0a4c\&quot;,\&quot;endpos\&quot;:734003200&#125;,&#123;\&quot;num\&quot;:7,\&quot;startpos\&quot;:734003200,\&quot;md5\&quot;:\&quot;51441a5ab6fc37076104de26d8d74092\&quot;,\&quot;endpos\&quot;:838860800&#125;,&#123;\&quot;num\&quot;:8,\&quot;startpos\&quot;:838860800,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:943718400&#125;,&#123;\&quot;num\&quot;:9,\&quot;startpos\&quot;:943718400,\&quot;md5\&quot;:\&quot;4c48a4078df31327fda7845123a4cb2b\&quot;,\&quot;endpos\&quot;:1048576000&#125;,&#123;\&quot;num\&quot;:10,\&quot;startpos\&quot;:1048576000,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1153433600&#125;,&#123;\&quot;num\&quot;:11,\&quot;startpos\&quot;:1153433600,\&quot;md5\&quot;:\&quot;2f282b84e7e608d5852449ed940bfc51\&quot;,\&quot;endpos\&quot;:1258291200&#125;,&#123;\&quot;num\&quot;:12,\&quot;startpos\&quot;:1258291200,\&quot;md5\&quot;:\&quot;c81029b9c4e0ecf7cbcf1d1afb881f20\&quot;,\&quot;endpos\&quot;:1363148800&#125;,&#123;\&quot;num\&quot;:13,\&quot;startpos\&quot;:1363148800,\&quot;md5\&quot;:\&quot;586c523c54bc9f1042bb92022ac87183\&quot;,\&quot;endpos\&quot;:1397088268&#125;]&quot;,</span><br><span class="line">            &quot;bakUrl&quot;: &quot;http://iotdownbak.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;versionAlias&quot;: &quot;&quot;,</span><br><span class="line">            &quot;deltaUrl&quot;: &quot;http://iotdown.mayitek.com/xxxxxxxxxx/xxxxxxx/5383b000-49c2-4d29-812e-42c52b075599.img&quot;,</span><br><span class="line">            &quot;deltaID&quot;: &quot;xxxxxxx&quot;,</span><br><span class="line">            &quot;fileSize&quot;: 1397088268,</span><br><span class="line">            &quot;md5sum&quot;: &quot;5c668394fa2779eada86601292ff877b&quot;,</span><br><span class="line">            &quot;versionName&quot;: &quot;99.99.91&quot;,</span><br><span class="line">            &quot;sha&quot;: &quot;6fdd26798679e5cb1e877051c7970a89307e303&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;policy&quot;: &#123;</span><br><span class="line">            &quot;download&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;wifi&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;仅wifi下载&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;optional&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;storageSize&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;存储空间不足&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1397088268&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;forceDownload&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;install&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;battery&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;电量不足，请充电后重试！&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;30&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;rebootUpgrade&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;false&quot;</span><br><span class="line">               &#125;,</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;force&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;&#123;\&quot;from\&quot;: \&quot;00:00\&quot;, \&quot;to\&quot;: \&quot;00:00\&quot;,\&quot;gap\&quot;: \&quot;00:00\&quot;&#125;&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ],</span><br><span class="line">            &quot;check&quot;: [</span><br><span class="line">               &#123;</span><br><span class="line">                  &quot;key_name&quot;: &quot;cycle&quot;,</span><br><span class="line">                  &quot;key_message&quot;: &quot;&quot;,</span><br><span class="line">                  &quot;key_value&quot;: &quot;1500&quot;</span><br><span class="line">               &#125;</span><br><span class="line">            ]</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
-
-<p>应该类似于以上这个文本 通过bakUrl或deltaUrl链接下载文件</p>
-<h2 id="使用winhex替换md5值"><a href="#使用winhex替换md5值" class="headerlink" title="使用winhex替换md5值"></a>使用winhex替换md5值</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开winhex并打开你的完整包img，开启搜索，搜索</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo $PASSWD | md5sum</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/4.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">千万注意，这里有一个网易挖的坑！！这边代码用的echo会在你输入密码之后加一个换行符 导致密码md5改变 最终校验失败这也是大部分升级成功却依旧密码错误的原因之一！因此我们需要想办法在自己的密码转为md5前也加上换行符。</span><br><span class="line">    总之我们把带换行符一起转换的md5用来替换原img中的md5 然后保存文件</span><br></pre></td></tr></table></figure>
-
-<p>注意：此时文件大小未发生改变 大小一个字节也没变！</p>
-<h2 id="计算修改后的文件校验码"><a href="#计算修改后的文件校验码" class="headerlink" title="计算修改后的文件校验码"></a>计算修改后的文件校验码</h2><p>编辑getnewmd5.py，使得segment_sizes数组中的值为前面抓包抓到的每一个endpos的值，有多少就加多少，</p>
-<p>每个机器值可能是不一样多的，然后在cmd中执行’python getnewmd5.py {修改后的img路径}’，并紧跟着执行’certutil -hashfile {修改后的img路径} md5’,<br>随后我们会获得分片md5和整体md5</p>
-<p>还需要计算一个img的sha256值 得到修改后的img的sha256值 留存备用</p>
-<h2 id="搭建更新服务器"><a href="#搭建更新服务器" class="headerlink" title="搭建更新服务器"></a>搭建更新服务器</h2><p>首先自行安装nodejs 然后编辑YDPen.js，将”JsonData”的内容全部替换为前面抓包抓到的内容，然后手动修改’segmentMd5’中每一个分块的md5值为前面计算得到的md5值，并修改bakUrl和deltaUrl为”http:&#x2F;&#x2F;{本机局域网ip}:14514&#x2F;你修改的完整包.img”，随后修改’md5sum’为前面计算的完整img的md5，sha修改为计算的sha256值</p>
-<p>下拉到js下方部分，修改’&#x2F;product&#x2F;1717746496&#x2F;*********&#x2F;ota&#x2F;checkVersion’为你自己抓到的请求url，保存文件。</p>
-<img src="/images/5.png" style="zoom:80%;" />
-
-<p><img src="/images/6.png"></p>
-<h2 id="更新自定义固件"><a href="#更新自定义固件" class="headerlink" title="更新自定义固件"></a>更新自定义固件</h2><p>在词典笔连接电脑热点的情况下检查更新，会检测到一个很大的更新包，直接更新即可</p>
-<p>**获得adb权限，美美折腾</p>
-<p>更新完毕后，待设备重启，再次去法律监管里面连击打开adb，此时连接电脑执行adb shell auth并输入前面转换为md5的密码明文，回车，见证奇迹</p>
-<p>**教程结束<br>本文转载于bilibili听秋念大佬的文章<a href="https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0">https://www.bilibili.com/opus/1041644000127221764?spm_id_from=333.1387.0.0</a><br>本文只是加以改进</p>
-<p>**结束！</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>科技</tag>
-        <tag>教程</tag>
-        <tag>有道词典笔</tag>
-        <tag>破解</tag>
-        <tag>ADB</tag>
       </tags>
   </entry>
   <entry>
