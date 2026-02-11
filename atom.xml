@@ -6,7 +6,7 @@
   <link href="https://flyblog.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://flyblog.qzz.io/"/>
-  <updated>2026-02-11T02:54:37.869Z</updated>
+  <updated>2026-02-11T03:41:05.750Z</updated>
   <id>https://flyblog.qzz.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客透明背景</title>
+    <link href="https://flyblog.qzz.io/posts/Transparent/"/>
+    <id>https://flyblog.qzz.io/posts/Transparent/</id>
+    <published>2026-02-11T03:41:02.929Z</published>
+    <updated>2026-02-11T03:41:05.750Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hexo博客透明背景设置&quot;&gt;&lt;a href=&quot;#Hexo博客透明背景设置&quot; class=&quot;headerlink&quot; title=&quot;Hexo博客透明背景设置&quot;&gt;&lt;/a&gt;Hexo博客透明背景设置&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术教程" scheme="https://flyblog.qzz.io/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="优化" scheme="https://flyblog.qzz.io/tags/%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="hexo" scheme="https://flyblog.qzz.io/tags/hexo/"/>
+    
+    <category term="网站" scheme="https://flyblog.qzz.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
   
   <entry>
     <title>Qexo的说说和友链配置</title>
@@ -192,7 +223,7 @@
     <link href="https://flyblog.qzz.io/posts/qexo/"/>
     <id>https://flyblog.qzz.io/posts/qexo/</id>
     <published>2025-09-13T16:13:14.136Z</published>
-    <updated>2025-09-13T17:00:17.082Z</updated>
+    <updated>2026-02-11T05:20:45.835Z</updated>
     
     
       
@@ -210,13 +241,13 @@
     
     <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="博客管理" scheme="https://flyblog.qzz.io/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
-    <category term="GitHub" scheme="https://flyblog.qzz.io/tags/GitHub/"/>
-    
     <category term="hexo" scheme="https://flyblog.qzz.io/tags/hexo/"/>
     
     <category term="网站" scheme="https://flyblog.qzz.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="博客管理" scheme="https://flyblog.qzz.io/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="Qexo" scheme="https://flyblog.qzz.io/tags/Qexo/"/>
     
   </entry>
   
@@ -237,11 +268,11 @@
     
     <category term="教程" scheme="https://flyblog.qzz.io/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="博客管理" scheme="https://flyblog.qzz.io/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
-    
     <category term="hexo" scheme="https://flyblog.qzz.io/tags/hexo/"/>
     
     <category term="网站" scheme="https://flyblog.qzz.io/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="博客管理" scheme="https://flyblog.qzz.io/tags/%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
