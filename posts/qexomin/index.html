@@ -1,0 +1,338 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Qexo的说说和友链配置 | min的小窝</title><meta name="author" content="min"><meta name="copyright" content="min"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Qexo 说说与友链功能配置一、环境准备1. Qexo 后端部署你需要先有一个可访问的Qexo服务端  二、说说功能配置 💬预览效果： 说说 | min的小窝 友情链接 | min的小窝 1. Qexo 后台准备在Qexo管理面板中：  进入 “说说” 功能模块 添加几条测试说说内容 确认说说已发布  2. 前端配置代码12345678910111213141516171819202122232">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qexo的说说和友链配置">
+<meta property="og:url" content="https://flyblog.qzz.io/posts/qexomin/index.html">
+<meta property="og:site_name" content="min的小窝">
+<meta property="og:description" content="Qexo 说说与友链功能配置一、环境准备1. Qexo 后端部署你需要先有一个可访问的Qexo服务端  二、说说功能配置 💬预览效果： 说说 | min的小窝 友情链接 | min的小窝 1. Qexo 后台准备在Qexo管理面板中：  进入 “说说” 功能模块 添加几条测试说说内容 确认说说已发布  2. 前端配置代码12345678910111213141516171819202122232">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://api.yppp.net/pc.php?5843">
+<meta property="article:published_time" content="2026-02-11T02:54:35.025Z">
+<meta property="article:modified_time" content="2026-02-11T02:54:37.869Z">
+<meta property="article:author" content="min">
+<meta property="article:tag" content="科技">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="网站">
+<meta property="article:tag" content="Qexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://api.yppp.net/pc.php?5843"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Qexo的说说和友链配置",
+  "url": "https://flyblog.qzz.io/posts/qexomin/",
+  "image": "https://api.yppp.net/pc.php?5843",
+  "datePublished": "2026-02-11T02:54:35.025Z",
+  "dateModified": "2026-02-11T02:54:37.869Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "min",
+      "url": "https://flyblog.qzz.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://djkl.qzz.io/file/1770081419896_头像.webp"><link rel="canonical" href="https://flyblog.qzz.io/posts/qexomin/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Qexo的说说和友链配置',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/1.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="min的小窝" type="application/atom+xml">
+</head><body><div class="bg-animation" id="web_bg" style="background-image: url(https://djkl.qzz.io/file/1770081398628_猫猫背景.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://djkl.qzz.io/file/1770081419896_头像.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://api.yppp.net/pc.php?5843);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://img.cdn1.vip/i/697706e55a48b_1769408229.webp" alt="Logo"><span class="site-name">min的小窝</span></a><a class="nav-page-title" href="/"><span class="site-name">Qexo的说说和友链配置</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Qexo的说说和友链配置</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-11T02:54:35.025Z" title="发表于 2026-02-11 10:54:35">2026-02-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-02-11T02:54:37.869Z" title="更新于 2026-02-11 10:54:37">2026-02-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Qexo-说说与友链功能配置"><a href="#Qexo-说说与友链功能配置" class="headerlink" title="Qexo 说说与友链功能配置"></a>Qexo 说说与友链功能配置</h1><h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><h3 id="1-Qexo-后端部署"><a href="#1-Qexo-后端部署" class="headerlink" title="1. Qexo 后端部署"></a>1. Qexo 后端部署</h3><p>你需要先有一个<strong>可访问的Qexo服务端</strong></p>
+<hr>
+<h2 id="二、说说功能配置-💬"><a href="#二、说说功能配置-💬" class="headerlink" title="二、说说功能配置 💬"></a>二、说说功能配置 💬</h2><p><strong>预览效果：</strong></p>
+<p><a href="https://flyblog.qzz.io/talks/">说说 | min的小窝</a></p>
+<p><a href="https://flyblog.qzz.io/friends/">友情链接 | min的小窝</a></p>
+<h3 id="1-Qexo-后台准备"><a href="#1-Qexo-后台准备" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
+<ul>
+<li>进入 <strong>“说说”</strong> 功能模块</li>
+<li>添加几条测试说说内容</li>
+<li>确认说说已发布</li>
+</ul>
+<h3 id="2-前端配置代码"><a href="#2-前端配置代码" class="headerlink" title="2. 前端配置代码"></a>2. 前端配置代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-CN&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>这里改成你的<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexoDaoDao&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    qexoDaodao?.init(&#123;</span><br><span class="line">      el: &quot;#qexoDaoDao&quot;,</span><br><span class="line">      avatar: &quot;你的头像链接&quot;,</span><br><span class="line">      name: &quot;你的名字&quot;,</span><br><span class="line">      limit: 10,</span><br><span class="line">      useLoadingImg: false,</span><br><span class="line">      baseURL: &quot;https://链接/&quot;, #这里改成你的Qexo的访问地址</span><br><span class="line">    &#125;).then(function ()&#123;</span><br><span class="line">      console.log(&quot;qexoDaodao加载完成&quot;);</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>el</code></td>
+<td>容器的CSS选择器</td>
+<td><code>&quot;#qexoDaoDao&quot;</code></td>
+</tr>
+<tr>
+<td><code>avatar</code></td>
+<td>说说发表者的头像</td>
+<td>任何可访问的图片URL</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>显示的名字</td>
+<td><code>&quot;min&quot;</code></td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>每次加载数量</td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>baseURL</code></td>
+<td><strong>Qexo的完整URL</strong></td>
+<td><code>&quot;https://example.com/&quot;</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、友链功能配置-🔗"><a href="#三、友链功能配置-🔗" class="headerlink" title="三、友链功能配置 🔗"></a>三、友链功能配置 🔗</h2><h3 id="1-Qexo-后台准备-1"><a href="#1-Qexo-后台准备-1" class="headerlink" title="1. Qexo 后台准备"></a>1. Qexo 后台准备</h3><p>在Qexo管理面板中：</p>
+<ul>
+<li>进入 <strong>“友链”</strong> 功能模块</li>
+<li>添加几个友链数据</li>
+</ul>
+<h3 id="2-显示已有友链"><a href="#2-显示已有友链" class="headerlink" title="2. 显示已有友链"></a>2. 显示已有友链</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链显示容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链显示脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,    <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址（不要斜杠）</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-友链申请表单"><a href="#3-友链申请表单" class="headerlink" title="3. 友链申请表单"></a>3. 友链申请表单</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 友链申请容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(</span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;friends-api&quot;</span>,          <span class="comment">// 容器ID</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;https://example.com&quot;</span>, <span class="comment">// Qexo地址</span></span></span><br><span class="line"><span class="language-javascript">        <span class="string">&quot;&quot;</span>                     <span class="comment">// 可选：自定义样式，留空则默认</span></span></span><br><span class="line"><span class="language-javascript">    );</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="四、完整配置示例"><a href="#四、完整配置示例" class="headerlink" title="四、完整配置示例"></a>四、完整配置示例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 显示已有友链 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;qexo-friend-link&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/gh/Uyoahz26/qexo-link@main/main.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">loadQexoFriends</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">id</span>: <span class="string">&quot;qexo-friend-link&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">url</span>: <span class="string">&quot;你的url&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 友链申请表单 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;friends-api&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/qexo-friends/friends-api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="title function_">qexo_friend_api</span>(<span class="string">&quot;friends-api&quot;</span>,<span class="string">&quot;你的url&quot;</span>,<span class="string">&quot;&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>至此，你将可以正常使用Qexo的友链与说说了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://flyblog.qzz.io">min</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://flyblog.qzz.io/posts/qexomin/">https://flyblog.qzz.io/posts/qexomin/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://flyblog.qzz.io" target="_blank">min的小窝</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%AB%99/">网站</a><a class="post-meta__tags" href="/tags/Qexo/">Qexo</a></div><div class="post-share"><div class="social-share" data-image="https://api.yppp.net/pc.php?5843" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>请我喝杯咖啡吧！</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://djkl.qzz.io/file/1770093407033_Wechat.jpeg" target="_blank"><img class="post-qr-code-img" src="https://djkl.qzz.io/file/1770093407033_Wechat.jpeg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://djkl.qzz.io/file/1770093395630_QR.jpeg" target="_blank"><img class="post-qr-code-img" src="https://djkl.qzz.io/file/1770093395630_QR.jpeg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/posts/AI/" title="让AI更懂你！AI使用的18个技巧"><img class="cover" src="https://api.yppp.net/pc.php?6811" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">让AI更懂你！AI使用的18个技巧</div></div><div class="info-2"><div class="info-item-1">不知道你有没有这种感觉：看别人用AI写得天花乱坠，自己上手一试——嚯，这写的是啥？前轱辘不转，后轱辘转思密达？正确的废话？ 我曾经也这样，差点给AI扣上“人工智障”的帽子。直到我意识到，问题可能不在它，而在我怎么跟它聊天。就像指挥一个知识渊博但有点死脑筋的实习生，指令模糊，它就会瞎蒙；指引清晰，它就能给你惊喜。 经过大半年的折腾，我攒下了一套“驯服”AI（尤其是DeepSeek）的私藏咒语。不是什么高深技术，就是沟通的方法。今天整理出最核心的30条，分成“入门-进阶-高阶”三阶，分享给你。保证你看完就能用，用了就见效。 🎮 基础必会8招1. 给它个人设笨问法：“这个游戏本怎么样？”聪明问法：“你现在是B站50万粉的电竞博主，刚测完ROG枪神7，用你的风格给粉丝说说打《永劫无间》的实际体验，重点聊聊散热和屏幕响应。”→ 给AI一个身份，它就知道该怎么说话了 2. 场景要具体笨问法：“介绍一下智能手表”聪明问法：“假如你是个初三学生，戴着小米手表8去上学，写写这一天里它帮你做了什么——早读提醒、课间测心率、体育课记运动数据、晚上写作业时的专注模式。”→ 场景越细，AI说得越有意思 ...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/posts/qexo/" title="Qexo的安装与配置"><img class="cover" src="https://api.yppp.net/pc.php?405" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-14</div><div class="info-item-2">Qexo的安装与配置</div></div><div class="info-2"><div class="info-item-1">Qexo的安装前言最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！ 安装Qexo可以通过docker或vercel来安装，我这边用的是vercel，你可以通过 Vercel 提供的免费数据库。但请注意这是个 Beta 功能 vercel一键部署 首次部署会报错, 请无视并进行接下来的步骤。 申请 Vercel 数据库进入Vercel Storage 界面 然后点击右上角的 Create Database 并选择 Postgres 创建免费 PostgreSQL 数据库, 在 Connect 页面获取数据库连接信息。请注意在地区选择的位置选择与你上一步项目对应的地区（通常为 Washington, D.C., USA (East) - iad1）。 绑定项目在左侧边栏选择 Proj...</div></div></div></a><a class="pagination-related" href="/posts/AI/" title="让AI更懂你！AI使用的18个技巧"><img class="cover" src="https://api.yppp.net/pc.php?6811" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-07</div><div class="info-item-2">让AI更懂你！AI使用的18个技巧</div></div><div class="info-2"><div class="info-item-1">不知道你有没有这种感觉：看别人用AI写得天花乱坠，自己上手一试——嚯，这写的是啥？前轱辘不转，后轱辘转思密达？正确的废话？ 我曾经也这样，差点给AI扣上“人工智障”的帽子。直到我意识到，问题可能不在它，而在我怎么跟它聊天。就像指挥一个知识渊博但有点死脑筋的实习生，指令模糊，它就会瞎蒙；指引清晰，它就能给你惊喜。 经过大半年的折腾，我攒下了一套“驯服”AI（尤其是DeepSeek）的私藏咒语。不是什么高深技术，就是沟通的方法。今天整理出最核心的30条，分成“入门-进阶-高阶”三阶，分享给你。保证你看完就能用，用了就见效。 🎮 基础必会8招1. 给它个人设笨问法：“这个游戏本怎么样？”聪明问法：“你现在是B站50万粉的电竞博主，刚测完ROG枪神7，用你的风格给粉丝说说打《永劫无间》的实际体验，重点聊聊散热和屏幕响应。”→ 给AI一个身份，它就知道该怎么说话了 2. 场景要具体笨问法：“介绍一下智能手表”聪明问法：“假如你是个初三学生，戴着小米手表8去上学，写写这一天里它帮你做了什么——早读提醒、课间测心率、体育课记运动数据、晚上写作业时的专注模式。”→ 场景越细，AI说得越有意思 ...</div></div></div></a><a class="pagination-related" href="/posts/YDpen%E7%9A%84adb%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9/" title="YDpen的adb密码修改"><img class="cover" src="https://api.yppp.net/pc.php?2230" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-21</div><div class="info-item-2">YDpen的adb密码修改</div></div><div class="info-2"><div class="info-item-1">前言有道的词典笔都不是安卓系统，而是基于Linux的词典笔OS。故即使开启有道词典笔的ADB依然无法实现安装APK等功能，仅限折腾着玩玩罢了。 ⚠️ 操作有风险，玩机需谨慎因任何操作造成的包括但不限于变砖、炸App等损失作者均不承担任何责任，也没有义务帮你修复。如有侵权联系删除。 自动替换密码来自langningchen大佬的paper，实现全自动替换密码。 『来自123云盘用户的分享』paper.exe链接：https://www.123865.com/s/ipZ4jv-tQ7WA?pwd=mywy# 基础知识有道词典笔一直都带有ADB开启入口，只需多次点击”法律监管”中的文本即可打开。 破解方案本文采用大佬SkySight-666的方案加以改进，靠中间人攻击劫持更新请求从而替换更新包。 参考链接：  https://github.com/orgs/PenUniverse/discussions/250 https://github.com/orgs/PenUniverse/discussions/277  本文用到的全部工具： https://www.123684.com/s...</div></div></div></a><a class="pagination-related" href="/posts/cloudflareKV/" title="Cloudflare图床缓存优化"><img class="cover" src="https://api.yppp.net/pc.php?861" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-07</div><div class="info-item-2">Cloudflare图床缓存优化</div></div><div class="info-2"><div class="info-item-1">📚 Cloudflare 图床缓存优化实战总结🎯 项目背景项目：Cloudflare-ImgBed（基于 Cloudflare Pages + Workers + KV + telegram 的自建图床）问题：免费 KV 存储的 10 万次&#x2F;日读取额度很快用完，需要付费目标：通过缓存优化，减少 80% 以上的 KV 读取，完全使用免费额度 🔍 问题分析 每次图片访问流程：Worker → 验证 → KV读取 → telegram读取 → 返回 重复访问浪费：同一张图片被多次访问时，每次都要走完整流程 核心问题：缺少缓存层，无法利用图片的静态特性  💡 解决方案核心思路：三级缓存策略12用户请求 → Cloudflare CDN缓存 → Worker内存缓存 → KV/telegram源站         (最快，免费用)    (次快)        (最慢，消耗额度)  技术实现：Cloudflare Cache API123456789101112131415161718192021222324// /functions/_middleware.jsexpo...</div></div></div></a><a class="pagination-related" href="/posts/Imgbed/" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"><img class="cover" src="https://api.yppp.net/pc.php?8181" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-02-02</div><div class="info-item-2">Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</div></div><div class="info-2"><div class="info-item-1">Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床 :📂: 第一步：Fork 项目 访问 CloudFlare ImgBed 项目 点击右上角的 “Fork” 按钮 选择您的 GitHub 账户 确认 Fork 完成  :🏗️: 第二步：创建 Pages 项目2.1 访问 Cloudflare Dashboard 登录 Cloudflare Dashboard 选择左侧菜单的 “Workers &amp; Pages” 点击 “创建应用程序” 选择 “Pages” 选项卡 点击 “连接到 Git”   2.2 连接 GitHub 仓库 如果首次使用，需要授权 Cloudflare 访问 GitHub 选择您 Fork 的 CloudFlare-ImgBed 仓库 点击 “开始设置”  2.3 配置项目设置   配置项 值 说明    项目名称 cloudflare-imgbed（或自定义） 项目标识符   生产分支 main 生产环境分支   构建命令 npm install 重要：v2.0 新构建命令   构建输出目录 / 保持默认    重要...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://djkl.qzz.io/file/1770081419896_头像.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">min</div><div class="author-info-description">一个热爱科技的初中生</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/djklmin"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:3139437826@qq.com" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://user.qzone.qq.com/3139437826" target="_blank" title="QQ空间"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://t.me/mindjkl" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本博客正在施工，随便逛逛吧</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Qexo-%E8%AF%B4%E8%AF%B4%E4%B8%8E%E5%8F%8B%E9%93%BE%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">Qexo 说说与友链功能配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">1.1.</span> <span class="toc-text">一、环境准备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Qexo-%E5%90%8E%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. Qexo 后端部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E8%AF%B4%E8%AF%B4%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE-%F0%9F%92%AC"><span class="toc-number">1.2.</span> <span class="toc-text">二、说说功能配置 💬</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Qexo-%E5%90%8E%E5%8F%B0%E5%87%86%E5%A4%87"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Qexo 后台准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%89%8D%E7%AB%AF%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%A0%81"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 前端配置代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.3.</span> <span class="toc-text">参数说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%8F%8B%E9%93%BE%E5%8A%9F%E8%83%BD%E9%85%8D%E7%BD%AE-%F0%9F%94%97"><span class="toc-number">1.3.</span> <span class="toc-text">三、友链功能配置 🔗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Qexo-%E5%90%8E%E5%8F%B0%E5%87%86%E5%A4%87-1"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. Qexo 后台准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%98%BE%E7%A4%BA%E5%B7%B2%E6%9C%89%E5%8F%8B%E9%93%BE"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 显示已有友链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8F%8B%E9%93%BE%E7%94%B3%E8%AF%B7%E8%A1%A8%E5%8D%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 友链申请表单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.</span> <span class="toc-text">四、完整配置示例</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/qexomin/" title="Qexo的说说和友链配置"><img src="https://api.yppp.net/pc.php?5843" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Qexo的说说和友链配置"/></a><div class="content"><a class="title" href="/posts/qexomin/" title="Qexo的说说和友链配置">Qexo的说说和友链配置</a><time datetime="2026-02-11T02:54:35.025Z" title="发表于 2026-02-11 10:54:35">2026-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/AI/" title="让AI更懂你！AI使用的18个技巧"><img src="https://api.yppp.net/pc.php?6811" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="让AI更懂你！AI使用的18个技巧"/></a><div class="content"><a class="title" href="/posts/AI/" title="让AI更懂你！AI使用的18个技巧">让AI更懂你！AI使用的18个技巧</a><time datetime="2026-02-07T04:01:51.344Z" title="发表于 2026-02-07 12:01:51">2026-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cloudflareKV/" title="Cloudflare图床缓存优化"><img src="https://api.yppp.net/pc.php?861" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cloudflare图床缓存优化"/></a><div class="content"><a class="title" href="/posts/cloudflareKV/" title="Cloudflare图床缓存优化">Cloudflare图床缓存优化</a><time datetime="2026-02-06T19:35:03.156Z" title="发表于 2026-02-07 03:35:03">2026-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/Imgbed/" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"><img src="https://api.yppp.net/pc.php?8181" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"/></a><div class="content"><a class="title" href="/posts/Imgbed/" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床">Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</a><time datetime="2026-02-02T03:03:04.161Z" title="发表于 2026-02-02 11:03:04">2026-02-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2025AS/" title="2025年度总结"><img src="https://api.yppp.net/pc.php?5149" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025年度总结"/></a><div class="content"><a class="title" href="/posts/2025AS/" title="2025年度总结">2025年度总结</a><time datetime="2026-02-01T04:52:36.753Z" title="发表于 2026-02-01 12:52:36">2026-02-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://djkl.qzz.io/file/1770081381054_变换色·.webp);"><div class="footer-flex"></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2026 By min</span></div><div class="footer_custom_text"><div class="footer-content">
+  <p>本站已稳定运行 <span id="runtime">0 天 0 小时 0 分钟 0 秒</span></p>
+  <p>
+    <a href="/about/">关于</a> · 
+    <a href="/archives/">归档</a> · 
+    <a href="/tags/">标签</a> · 
+    <a href="https://flyminos.qzz.io/login/?next=/" target="_blank">后台管理</a>
+  </p>
+  <p>遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议</p>
+</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const init = (el = document, path = location.pathname) => {
+    twikoo.init({
+      el: el.querySelector('#twikoo-wrap'),
+      envId: 'https://statuesque-gumdrop-a23a53.netlify.app/.netlify/functions/twikoo',
+      region: '',
+      onCommentLoaded: () => {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      },
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    
+
+    isShuoshuo && (window.shuoshuoComment.destroyTwikoo = () => {
+      if (el.children.length) {
+        el.innerHTML = ''
+        el.classList.add('no-comment')
+      }
+    })
+  }
+
+  const loadTwikoo = (el, path) => {
+    if (typeof twikoo === 'object') setTimeout(() => init(el, path), 0)
+    else btf.getScript('https://cdn.jsdelivr.net/npm/twikoo@1.6.44/dist/twikoo.all.min.js').then(() => init(el, path))
+  }
+
+  if (isShuoshuo) {
+    'Twikoo' === 'Twikoo'
+      ? window.shuoshuoComment = { loadComment: loadTwikoo }
+      : window.loadOtherComment = loadTwikoo
+    return
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script></div><script>
+(function() {
+  // 建站时间：2025年8月20日15时20分50秒
+  const SITE_START = new Date('2025-08-20T15:20:50');
+  
+  function updateRuntime() {
+    const now = new Date();
+    const diff = now - SITE_START;
+    
+    // 计算时间差
+    const totalSeconds = Math.floor(diff / 1000);
+    
+    const days = Math.floor(totalSeconds / (24 * 60 * 60));
+    const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+    
+    // 更新显示
+    const runtimeElement = document.getElementById('runtime');
+    if (runtimeElement) {
+      runtimeElement.textContent = 
+        `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+    }
+  }
+  
+  // 初始运行
+  updateRuntime();
+  
+  // 每秒更新一次
+  const timer = setInterval(updateRuntime, 1000);
+  
+  // 页面卸载时清理定时器
+  window.addEventListener('beforeunload', function() {
+    clearInterval(timer);
+  });
+})();
+</script>
+<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
