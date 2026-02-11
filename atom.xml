@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Fly的博客</title>
+  <title>min的小窝</title>
   <icon>https://flyblog.qzz.io/img/avatar.png</icon>
   
   <link href="https://flyblog.qzz.io/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://flyblog.qzz.io/</id>
   
   <author>
-    <name>Fly</name>
+    <name>min</name>
     
   </author>
   
