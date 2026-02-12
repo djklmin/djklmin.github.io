@@ -383,6 +383,40 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo博客添加评论系统</title>
+    <url>/posts/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<!-- 文章正文开头... -->
+
+<span id="more"></span>
+
+<h1 id="hexo博客添加评论系统"><a href="#hexo博客添加评论系统" class="headerlink" title="hexo博客添加评论系统"></a>hexo博客添加评论系统</h1><p>在Hexo框架下的博客有很多种实现评论系统的方式。我这里采用了Giscus实现评论系统，这是利用<a href="https://docs.github.com/en/discussions">GitHub Discussions</a>实现的评论系统，优点包括但不限于： - 开源、无广告、永久免费 - 无需自建数据库（数据储存在项目仓库的Discussions中） - 用户通过GitHub账户登录，简化注册流程，也增强了评论者的身份可信度、便于评论的及时回复与管理 - 支持自定义主题样式、评论排序、过滤等功能 - 配置简单，几分钟就能搞定</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>进入在GitHub账户中对Giscus的<a href="https://github.com/apps/giscus">安装界面</a>点击install进行安装。</p>
+<h3 id="官网配置"><a href="#官网配置" class="headerlink" title="官网配置"></a><a href="https://giscus.app/zh-CN">官网</a>配置</h3><p>选择一个GitHub仓库用于储存评论数据，可以是博客项目仓库，也可以是专门用于储存评论数据的仓库。但要确保仓库满足3个条件：</p>
+<ol>
+<li><p>该仓库是<strong>公开的</strong>，否则访客将无法查看评论信息；</p>
+</li>
+<li><p>giscus app 已安装，否则访客将无法评论和回应（上一步已完成这一条件）；</p>
+</li>
+<li><p>Discussions 功能<strong>已在你的仓库中启用</strong>。 进入对应的仓库，点击右上角的 <code>Settings</code>，往下翻到<code>Features</code>，勾选<code>Discussions</code>。</p>
+<p>输入仓库（用户名&#x2F;仓库名）后，系统会提示你该仓库是否满足所有条件</p>
+<blockquote>
+<p>有个小细节，我逐字母输入这个空的时候明明该仓库符合所有条件它还是会显示不可以使用，但我直接复制粘贴仓库地址时它就显示可以使用了。不知道算不算一个bug</p>
+</blockquote>
+<p>后面有一些个性化设置，比如： - 【页面 &lt;-&gt; Discussion映射关系】 这个决定你用于存储评论数据的仓库中Discussion如何分类显示，以及giscus如何筛选仓库Discussion中该页面的信息显示在网页上。如果使用<code>pathname</code>而你的博客标题是中文的话，Discussion界面会显示一串很长的码，不易分辨来自哪篇帖子。<strong>所以这里我选择了<code>title</code>，这样Discussion标题里的中文是可以正常显示的。</strong> - 【Discussion分类】 建议选择<code>Announcements</code>，并勾选下面的“只搜索该分类中的discussion” - 【特性】 建议勾选“启用主帖子上的反应（可以给博客文章贴表情）”“将评论框放在评论上方”和“懒加载评论（评论的加载将延迟到用户滚动到评论容器附近，有助于博客界面的快速加载，是一种前端显示的优化手段）” - 【主题】 建议勾选“用户偏好的色彩方案”，这个随意</p>
+<h3 id="启用giscus"><a href="#启用giscus" class="headerlink" title="启用giscus"></a>启用giscus</h3><p>完成上述设置之后，下面会自动生成对应的javascript代码。比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script src=&quot;https://giscus.app/client.js&quot;</span><br><span class="line">        data-repo=&quot;jachinzhang1/jachinzhang1.github.io&quot;</span><br><span class="line">        data-repo-id=&quot;R_kgDONy_q0w&quot;</span><br><span class="line">        data-category=&quot;Announcements&quot;</span><br><span class="line">        data-category-id=&quot;DIC_kwDONy_q084Cmo0P&quot;</span><br><span class="line">        data-mapping=&quot;title&quot;</span><br><span class="line">        data-strict=&quot;0&quot;</span><br><span class="line">        data-reactions-enabled=&quot;1&quot;</span><br><span class="line">        data-emit-metadata=&quot;0&quot;</span><br><span class="line">        data-input-position=&quot;top&quot;</span><br><span class="line">        data-theme=&quot;preferred_color_scheme&quot;</span><br><span class="line">        data-lang=&quot;zh-CN&quot;</span><br><span class="line">        data-loading=&quot;lazy&quot;</span><br><span class="line">        crossorigin=&quot;anonymous&quot;</span><br><span class="line">        async&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>如何应用于博客上的方式应该是因博客主题而异的，可以参考主题的使用文档（大多数可能是需要在<strong>对应主题</strong>的配置yml文件中设置的）。</p>
+<p>完成这些配置之后重新生成网页文件，应该就可以看到评论系统了。访客通过GitHub账号登录即可评论。来自本地服务器预览和域名访问的评论都会实时在仓库的Discussions中显示，并会通过邮件提醒仓库的所有者。<del>所以拒绝恶意刷屏从你我做起</del></p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>博客管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Qexo的安装与配置</title>
     <url>/posts/qexo/</url>
     <content><![CDATA[<h1 id="Qexo的安装"><a href="#Qexo的安装" class="headerlink" title="Qexo的安装"></a>Qexo的安装</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>最近我一直在配置这个博客，但由于我只是一个初中生，所以现在开学了后我的时间越来越少了，还有数不清的作业，且作者还是住读生，一周下来接触电脑的时间啄食可悲，于是想到给我的博客做一个管理后台，先前尝试了不少方案，无一例外，全都缺少一个美观的界面和博客配置管理，直到我发现了这个——Qexo，这个真是集结了我所有想要的功能，简直完美！好，废话不多说，开始配置！</strong></p>
@@ -472,40 +506,6 @@
         <tag>网站</tag>
         <tag>博客管理</tag>
         <tag>Qexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客添加评论系统</title>
-    <url>/posts/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<!-- 文章正文开头... -->
-
-<span id="more"></span>
-
-<h1 id="hexo博客添加评论系统"><a href="#hexo博客添加评论系统" class="headerlink" title="hexo博客添加评论系统"></a>hexo博客添加评论系统</h1><p>在Hexo框架下的博客有很多种实现评论系统的方式。我这里采用了Giscus实现评论系统，这是利用<a href="https://docs.github.com/en/discussions">GitHub Discussions</a>实现的评论系统，优点包括但不限于： - 开源、无广告、永久免费 - 无需自建数据库（数据储存在项目仓库的Discussions中） - 用户通过GitHub账户登录，简化注册流程，也增强了评论者的身份可信度、便于评论的及时回复与管理 - 支持自定义主题样式、评论排序、过滤等功能 - 配置简单，几分钟就能搞定</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>进入在GitHub账户中对Giscus的<a href="https://github.com/apps/giscus">安装界面</a>点击install进行安装。</p>
-<h3 id="官网配置"><a href="#官网配置" class="headerlink" title="官网配置"></a><a href="https://giscus.app/zh-CN">官网</a>配置</h3><p>选择一个GitHub仓库用于储存评论数据，可以是博客项目仓库，也可以是专门用于储存评论数据的仓库。但要确保仓库满足3个条件：</p>
-<ol>
-<li><p>该仓库是<strong>公开的</strong>，否则访客将无法查看评论信息；</p>
-</li>
-<li><p>giscus app 已安装，否则访客将无法评论和回应（上一步已完成这一条件）；</p>
-</li>
-<li><p>Discussions 功能<strong>已在你的仓库中启用</strong>。 进入对应的仓库，点击右上角的 <code>Settings</code>，往下翻到<code>Features</code>，勾选<code>Discussions</code>。</p>
-<p>输入仓库（用户名&#x2F;仓库名）后，系统会提示你该仓库是否满足所有条件</p>
-<blockquote>
-<p>有个小细节，我逐字母输入这个空的时候明明该仓库符合所有条件它还是会显示不可以使用，但我直接复制粘贴仓库地址时它就显示可以使用了。不知道算不算一个bug</p>
-</blockquote>
-<p>后面有一些个性化设置，比如： - 【页面 &lt;-&gt; Discussion映射关系】 这个决定你用于存储评论数据的仓库中Discussion如何分类显示，以及giscus如何筛选仓库Discussion中该页面的信息显示在网页上。如果使用<code>pathname</code>而你的博客标题是中文的话，Discussion界面会显示一串很长的码，不易分辨来自哪篇帖子。<strong>所以这里我选择了<code>title</code>，这样Discussion标题里的中文是可以正常显示的。</strong> - 【Discussion分类】 建议选择<code>Announcements</code>，并勾选下面的“只搜索该分类中的discussion” - 【特性】 建议勾选“启用主帖子上的反应（可以给博客文章贴表情）”“将评论框放在评论上方”和“懒加载评论（评论的加载将延迟到用户滚动到评论容器附近，有助于博客界面的快速加载，是一种前端显示的优化手段）” - 【主题】 建议勾选“用户偏好的色彩方案”，这个随意</p>
-<h3 id="启用giscus"><a href="#启用giscus" class="headerlink" title="启用giscus"></a>启用giscus</h3><p>完成上述设置之后，下面会自动生成对应的javascript代码。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script src=&quot;https://giscus.app/client.js&quot;</span><br><span class="line">        data-repo=&quot;jachinzhang1/jachinzhang1.github.io&quot;</span><br><span class="line">        data-repo-id=&quot;R_kgDONy_q0w&quot;</span><br><span class="line">        data-category=&quot;Announcements&quot;</span><br><span class="line">        data-category-id=&quot;DIC_kwDONy_q084Cmo0P&quot;</span><br><span class="line">        data-mapping=&quot;title&quot;</span><br><span class="line">        data-strict=&quot;0&quot;</span><br><span class="line">        data-reactions-enabled=&quot;1&quot;</span><br><span class="line">        data-emit-metadata=&quot;0&quot;</span><br><span class="line">        data-input-position=&quot;top&quot;</span><br><span class="line">        data-theme=&quot;preferred_color_scheme&quot;</span><br><span class="line">        data-lang=&quot;zh-CN&quot;</span><br><span class="line">        data-loading=&quot;lazy&quot;</span><br><span class="line">        crossorigin=&quot;anonymous&quot;</span><br><span class="line">        async&gt;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>如何应用于博客上的方式应该是因博客主题而异的，可以参考主题的使用文档（大多数可能是需要在<strong>对应主题</strong>的配置yml文件中设置的）。</p>
-<p>完成这些配置之后重新生成网页文件，应该就可以看到评论系统了。访客通过GitHub账号登录即可评论。来自本地服务器预览和域名访问的评论都会实时在仓库的Discussions中显示，并会通过邮件提醒仓库的所有者。<del>所以拒绝恶意刷屏从你我做起</del></p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>博客管理</tag>
       </tags>
   </entry>
   <entry>
