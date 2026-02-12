@@ -383,6 +383,41 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello world！</title>
+    <url>/posts/helloworld/</url>
+    <content><![CDATA[<h1 id="Hello-world！"><a href="#Hello-world！" class="headerlink" title="Hello world！"></a>Hello world！</h1><p><strong>你好，互联网。</strong></p>
+<p><strong>说来尴尬</strong></p>
+<p>域名？ DigitalPlat Domain 免费的。<br>托管？ GitHub Pages 不要钱。<br>主题？ GitHub 上 fork 的，感谢那位不知名大佬。</p>
+<p>完美闭环。零成本开站。</p>
+<hr>
+<h2 id="为什么折腾这个"><a href="#为什么折腾这个" class="headerlink" title="为什么折腾这个"></a>为什么折腾这个</h2><p>我想了想，这时的我，似乎没什么慰藉。</p>
+<p><strong>但至少——</strong><br>在浏览器地址栏敲一串字符，<br>就能敲开一个<strong>完全属于我自己的页面</strong>。<br>没有广告，没有审核，<br>没有“因违规内容无法查看”。</p>
+<h2 id="helloworld-是给谁看的"><a href="#helloworld-是给谁看的" class="headerlink" title="helloworld 是给谁看的"></a>helloworld 是给谁看的</h2><p>理论上，是给全世界看的。</p>
+<p>实际上，大概只有我自己，还有偶尔爬虫路过。</p>
+<p>没关系。我把这个页面当成一个<strong>数字基地</strong>。以后所有白嫖来的小玩意、自己写的烂代码、折腾三天三夜终于跑通的教程，都堆在这儿。</p>
+<p>等我老了（虽然现在才14），回头看这个暑假，除了补考数学，至少还干成过一件事。</p>
+<h2 id="希望一直走下去"><a href="#希望一直走下去" class="headerlink" title="希望一直走下去"></a>希望一直走下去</h2><p>其实不太敢说“一直”。</p>
+<p>我的持久度记录：我的世界存档玩了4个月，然后格式化硬盘，没备份，于是没了；洋葱学院APP打卡最长68天，然后开学了忘了买保持记录的玩意；这个博客……</p>
+<p>不知道。先活过初三下学期再说。</p>
+<p>但只要 GitHub 不倒闭，DigitalPlat Domain 不收回域名，这个页面就会一直挂在那里。哪怕我半年不更新，哪怕我跑去干别的事了。<br><strong>它像一个漂流瓶，漂在2025年的夏天。</strong></p>
+<p>保存，生成，部署，上传。</p>
+<p>等待1分钟，郑重地输入那串域名。</p>
+<p>从零到一，从空白到有字，从“我想”到“我做了”。</p>
+<p>花了整个下午，成本零元，成就感爆棚。</p>
+<p><strong>这个下午值得记住。不是因为建成了博客，是因为终于有件事，我让自己坚持到了“完成”。</strong></p>
+<hr>
+<p>不保证能写多久。</p>
+<p><strong>但至少，今天写了。</strong></p>
+<p>这一行，就是开始。</p>
+]]></content>
+      <categories>
+        <category>开始</category>
+      </categories>
+      <tags>
+        <tag>Hello world</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo博客添加评论系统</title>
     <url>/posts/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/</url>
     <content><![CDATA[<!-- 文章正文开头... -->

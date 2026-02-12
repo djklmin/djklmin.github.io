@@ -328,4 +328,29 @@
     
   </entry>
   
+  <entry>
+    <title>Hello world！</title>
+    <link href="https://flyblog.qzz.io/posts/helloworld/"/>
+    <id>https://flyblog.qzz.io/posts/helloworld/</id>
+    <published>2025-08-19T23:20:00.000Z</published>
+    <updated>2025-08-19T23:20:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Hello-world！&quot;&gt;&lt;a href=&quot;#Hello-world！&quot; class=&quot;headerlink&quot; title=&quot;Hello world！&quot;&gt;&lt;/a&gt;Hello</summary>
+        
+      
+    
+    
+    
+    <category term="开始" scheme="https://flyblog.qzz.io/categories/%E5%BC%80%E5%A7%8B/"/>
+    
+    
+    <category term="Hello world" scheme="https://flyblog.qzz.io/tags/Hello-world/"/>
+    
+  </entry>
+  
 </feed>
