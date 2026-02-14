@@ -6,7 +6,7 @@
   <link href="https://flyblog.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://flyblog.qzz.io/"/>
-  <updated>2026-02-11T03:41:05.750Z</updated>
+  <updated>2026-02-13T20:51:50.695Z</updated>
   <id>https://flyblog.qzz.io/</id>
   
   <author>
@@ -21,14 +21,16 @@
     <link href="https://flyblog.qzz.io/posts/Transparent/"/>
     <id>https://flyblog.qzz.io/posts/Transparent/</id>
     <published>2026-02-11T03:41:02.929Z</published>
-    <updated>2026-02-11T03:41:05.750Z</updated>
+    <updated>2026-02-13T20:51:50.695Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Hexo博客透明背景设置&quot;&gt;&lt;a href=&quot;#Hexo博客透明背景设置&quot; class=&quot;headerlink&quot; title=&quot;Hexo博客透明背景设置&quot;&gt;&lt;/a&gt;Hexo博客透明背景设置&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot;</summary>
+    <summary type="html">&lt;p&gt;一直觉得默认的纯白背景有点闷，想让背景图透出来看看。但又怕整太花哨影响看文章，就想了个折中的办法——让文章区域透明起来。&lt;/p&gt;
+&lt;p&gt;效果还行，分享下怎么搞的。&lt;/p&gt;
+&lt;h3 id=&quot;操作步骤&quot;&gt;&lt;a href=&quot;#操作步骤&quot; class=&quot;headerlink&quot;</summary>
         
       
     
