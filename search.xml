@@ -442,4 +442,31 @@
         <tag>Qexo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo在线编辑器——Qexo</title>
+    <url>/posts/qexo/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>博客也建立了十几天了，写文章一直都不方便，首先是编辑不方便（不熟悉markdown语法）然后又有网络问题，最恐怖的还是设备问题，我这电脑如果国庆后的月考没考好，那我的设备可就一命呜呼了，想写都写不了！于是我找啊找啊，尝试过那个netlify的什么编辑器，AI说是写后全自动部署……en，这体验就很难绷。于是我果断放弃这个方案。随后我便找到了本文的主角：<a href="https://oplog.cn/qexo/">Qexo</a>！</p>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>这个东东支持vercel和docker部署啊，当然docker部署就需要你有一台服务器了，en我没有money于是就只能白嫖vercel啦，然后部署<a href="https://oplog.cn/qexo/start/build.html">原文档</a>已经写的很清楚了，这里也不说了。</p>
+<h2 id="Qexo配置"><a href="#Qexo配置" class="headerlink" title="Qexo配置"></a>Qexo配置</h2><p>这里要把你的<strong>博客源文件</strong>给上传到Github啊，仓库名称随意，把你本地博客文件夹里面的东西，除了node_modules都上传到这个仓库啊，可以用<a href="https://hexoplusplus.cronfly.workers.dev/?step=start">HPP校验助手</a>来验证完整性，github密钥<a href="https://github.com/settings/tokens">Github 设置</a>这里生成，需要 Repo和Workflow下的权限啊，然后保管好你的token，填入页面。vercel配置在这里进行配置<a href="https://oplog.cn/qexo/configs/vercel.html">https://oplog.cn/qexo/configs/vercel.html</a>啊。</p>
+<h2 id="Github配置"><a href="#Github配置" class="headerlink" title="Github配置"></a>Github配置</h2><p>想要实现自动化部署还要配置github。在你的源码仓库中新增仓库秘密。</p>
+<blockquote>
+<p>&#x2F;settings&#x2F;secrets&#x2F;actions</p>
+</blockquote>
+<p>然后名称填 <code>PERSONAL_TOKEN</code>下面填你的Github的token</p>
+<p>然后在仓库的action界面新建action填写如下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">name: Deploy Hexo</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches: [main]</span><br><span class="line"></span><br><span class="line">jobs:</span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    permissions:</span><br><span class="line">      contents: write</span><br><span class="line">  </span><br><span class="line">    steps:</span><br><span class="line">    # Step 1: 检出代码，明确禁用子模块</span><br><span class="line">    - name: Checkout</span><br><span class="line">      uses: actions/checkout@v4</span><br><span class="line">      with:</span><br><span class="line">        token: $&#123;&#123; secrets.PERSONAL_TOKEN &#125;&#125;</span><br><span class="line">        # 关键设置：禁用子模块</span><br><span class="line">        submodules: false</span><br><span class="line">        # 可选：清理子模块残留配置</span><br><span class="line">        clean: true</span><br><span class="line"></span><br><span class="line">    # Step 2: 确保没有子模块残留配置</span><br><span class="line">    - name: Clean submodule configurations</span><br><span class="line">      run: |</span><br><span class="line">        echo &quot;清理可能的子模块配置...&quot;</span><br><span class="line">        # 删除 .gitmodules 文件（如果存在）</span><br><span class="line">        rm -f .gitmodules 2&gt;/dev/null || true</span><br><span class="line">        # 清理 Git 配置中的子模块设置</span><br><span class="line">        git config --local --remove-section submodule.themes/butterfly 2&gt;/dev/null || true</span><br><span class="line">        echo &quot;清理完成&quot;</span><br><span class="line">  </span><br><span class="line">        # 验证目录结构</span><br><span class="line">        echo &quot;验证目录结构...&quot;</span><br><span class="line">        ls -la themes/ || echo &quot;themes 目录不存在&quot;</span><br><span class="line">        echo &quot;=== 结束验证 ===&quot;</span><br><span class="line"></span><br><span class="line">    # Step 3: 设置 Node.js</span><br><span class="line">    - name: Setup Node.js</span><br><span class="line">      uses: actions/setup-node@v4</span><br><span class="line">      with:</span><br><span class="line">        node-version: &#x27;20&#x27;</span><br><span class="line">        cache: &#x27;npm&#x27;</span><br><span class="line"></span><br><span class="line">    # Step 4: 安装依赖</span><br><span class="line">    - name: Install dependencies</span><br><span class="line">      run: npm install</span><br><span class="line"></span><br><span class="line">    # Step 5: 生成静态文件</span><br><span class="line">    - name: Generate static files</span><br><span class="line">      run: npx hexo generate</span><br><span class="line"></span><br><span class="line">    # Step 6: 部署到 GitHub Pages</span><br><span class="line">    - name: Deploy to GitHub Pages</span><br><span class="line">      uses: peaceiris/actions-gh-pages@v4</span><br><span class="line">      with:</span><br><span class="line">        personal_token: $&#123;&#123; secrets.PERSONAL_TOKEN &#125;&#125;</span><br><span class="line">        publish_dir: ./public</span><br><span class="line">        publish_branch: main</span><br><span class="line">        external_repository: 你的github名称/你的静态文件仓库名(github.io那个)</span><br><span class="line">        user_name: &quot;你的名字&quot;</span><br><span class="line">        user_email: &quot;你的邮箱&quot;</span><br><span class="line">        keep_files: false</span><br><span class="line">        commit_message: &quot;Deploy: $&#123;&#123; github.sha &#125;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这就行了。</p>
+<h2 id="国内访问"><a href="#国内访问" class="headerlink" title="国内访问"></a>国内访问</h2><p>这个vercel自带的域名中国大陆用不了啊，你就需要把它绑定到你的域名上，当然我这个初中生肯定没域名，所以我们可以使用<strong>DigitalPlat Domain</strong>来注册免费域名。见下一篇文章</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>优化</tag>
+        <tag>Qexo</tag>
+        <tag>免费</tag>
+      </tags>
+  </entry>
 </search>
