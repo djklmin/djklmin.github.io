@@ -69,38 +69,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客透明背景</title>
-    <url>/posts/Transparent/</url>
-    <content><![CDATA[<p>一直觉得默认的纯白背景有点闷，想让背景图透出来看看。但又怕整太花哨影响看文章，就想了个折中的办法——让文章区域透明起来。</p>
-<p>效果还行，分享下怎么搞的。</p>
-<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p><strong>第一步：写个透明化的小样式</strong></p>
-<p>在 <code>themes\butterfly\source\css</code> 目录下新建个文件，我直接取名 <code>1.css</code> 了（名字随意），把下面这些扔进去：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* === 让背景透出来，但又不影响阅读 === */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 文章区域透明 */</span></span><br><span class="line"><span class="selector-id">#article-container</span>,</span><br><span class="line"><span class="selector-id">#post</span>,</span><br><span class="line"><span class="selector-id">#page</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 首页文章卡片也透一下 */</span></span><br><span class="line"><span class="selector-id">#recent-posts</span> &gt; <span class="selector-class">.recent-post-item</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 侧边栏别漏了 */</span></span><br><span class="line"><span class="selector-id">#aside-content</span> <span class="selector-class">.card-widget</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 代码块单独处理——这个得小心，别看不清了 */</span></span><br><span class="line"><span class="comment">/* 深色模式用深色半透明 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-id">#article-container</span> pre,</span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-id">#article-container</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">40</span>, <span class="number">44</span>, <span class="number">52</span>, <span class="number">0.85</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 浅色模式就用浅色半透明，加点细边框，不然和背景糊一起 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-id">#article-container</span> pre,</span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-id">#article-container</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">248</span>, <span class="number">249</span>, <span class="number">250</span>, <span class="number">0.9</span>) <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.06</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>第二步：让博客知道有这个文件</strong></p>
-<p>打开你的<strong>主题配置</strong>文件 <code>_config.yml</code>，找到 <code>inject</code> 配置，在 <code>head</code> 那里加上一行：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/1.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>第三步：重新部署</strong></p>
-<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 本地看看效果，没问题就部署上线。</p>
-<h3 id="几个小细节"><a href="#几个小细节" class="headerlink" title="几个小细节"></a>几个小细节</h3><ul>
-<li><strong>代码块稍微留了点背景</strong>，不然白底白字看不清。半透明够用，能透出背景图，又不影响看代码。</li>
-<li><strong>深色模式也照顾到了</strong>，<code>data-theme</code> 那个判断就是给深色模式用的。</li>
-<li>如果文章里用了某些特殊插件，可能需要额外调整。</li>
-</ul>
-<p>其实折腾这些就是图个乐，效果看得顺眼就行。要是觉得太花哨，回头再把透明度调低点也成。</p>
-]]></content>
-      <categories>
-        <category>技术教程</category>
-      </categories>
-      <tags>
-        <tag>教程</tag>
-        <tag>优化</tag>
-        <tag>hexo</tag>
-        <tag>网站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</title>
     <url>/posts/Imgbed/</url>
     <content><![CDATA[<h1 id="Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床"><a href="#Cloudflare部署CloudFlare-ImgBed实现无限空间网盘及图床" class="headerlink" title="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a>Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床</h1><p><a href="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg"><img src="https://www.sunbobo.com/wp-content/uploads/2025/07/SnowShot_2025-07-18_16-14-07.jpg" alt="Cloudflare部署CloudFlare ImgBed实现无限空间网盘及图床"></a></p>
@@ -214,6 +182,38 @@
         <tag>教程</tag>
         <tag>图床</tag>
         <tag>Cloudflare</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客透明背景</title>
+    <url>/posts/Transparent/</url>
+    <content><![CDATA[<p>一直觉得默认的纯白背景有点闷，想让背景图透出来看看。但又怕整太花哨影响看文章，就想了个折中的办法——让文章区域透明起来。</p>
+<p>效果还行，分享下怎么搞的。</p>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><p><strong>第一步：写个透明化的小样式</strong></p>
+<p>在 <code>themes\butterfly\source\css</code> 目录下新建个文件，我直接取名 <code>1.css</code> 了（名字随意），把下面这些扔进去：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* === 让背景透出来，但又不影响阅读 === */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 文章区域透明 */</span></span><br><span class="line"><span class="selector-id">#article-container</span>,</span><br><span class="line"><span class="selector-id">#post</span>,</span><br><span class="line"><span class="selector-id">#page</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 首页文章卡片也透一下 */</span></span><br><span class="line"><span class="selector-id">#recent-posts</span> &gt; <span class="selector-class">.recent-post-item</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.1</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 侧边栏别漏了 */</span></span><br><span class="line"><span class="selector-id">#aside-content</span> <span class="selector-class">.card-widget</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: transparent <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 代码块单独处理——这个得小心，别看不清了 */</span></span><br><span class="line"><span class="comment">/* 深色模式用深色半透明 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-id">#article-container</span> pre,</span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;dark&quot;</span>]</span> <span class="selector-id">#article-container</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">40</span>, <span class="number">44</span>, <span class="number">52</span>, <span class="number">0.85</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 浅色模式就用浅色半透明，加点细边框，不然和背景糊一起 */</span></span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-id">#article-container</span> pre,</span><br><span class="line"><span class="selector-attr">[data-theme=<span class="string">&quot;light&quot;</span>]</span> <span class="selector-id">#article-container</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">248</span>, <span class="number">249</span>, <span class="number">250</span>, <span class="number">0.9</span>) <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.06</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：让博客知道有这个文件</strong></p>
+<p>打开你的<strong>主题配置</strong>文件 <code>_config.yml</code>，找到 <code>inject</code> 配置，在 <code>head</code> 那里加上一行：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/1.css&quot;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第三步：重新部署</strong></p>
+<p><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo s</code> 本地看看效果，没问题就部署上线。</p>
+<h3 id="几个小细节"><a href="#几个小细节" class="headerlink" title="几个小细节"></a>几个小细节</h3><ul>
+<li><strong>代码块稍微留了点背景</strong>，不然白底白字看不清。半透明够用，能透出背景图，又不影响看代码。</li>
+<li><strong>深色模式也照顾到了</strong>，<code>data-theme</code> 那个判断就是给深色模式用的。</li>
+<li>如果文章里用了某些特殊插件，可能需要额外调整。</li>
+</ul>
+<p>其实折腾这些就是图个乐，效果看得顺眼就行。要是觉得太花哨，回头再把透明度调低点也成。</p>
+]]></content>
+      <categories>
+        <category>技术教程</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>优化</tag>
+        <tag>hexo</tag>
+        <tag>网站</tag>
       </tags>
   </entry>
   <entry>

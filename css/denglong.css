@@ -159,12 +159,22 @@
   background: rgba(216, 0, 15, 0.1);
 }
 
-/* 移动端隐藏 */
+/* 移动端：只保留deng-box1，隐藏其他3个 */
 @media screen and (max-width: 768px) {
-  .deng-box1,
   .deng-box2,
   .deng-box3,
   .deng-box4 {
     display: none !important;
+  }
+  
+  /* 调整deng-box1的位置到中间 */
+  .deng-box1 {
+    left: 50% !important;
+    transform: translateX(-50%);
+}
+/* 手机端隐藏文字 */
+@media screen and (max-width: 768px) {
+  .deng-box1 .deng-t {
+    display: none;
   }
 }
