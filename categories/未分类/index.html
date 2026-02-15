@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>分类: 未分类 | min的小窝</title><meta name="author" content="min"><meta name="copyright" content="min"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个热爱科技的初中生">
+<meta property="og:type" content="website">
+<meta property="og:title" content="min的小窝">
+<meta property="og:url" content="https://flyblog.qzz.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="min的小窝">
+<meta property="og:description" content="一个热爱科技的初中生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://djkl.qzz.io/file/1770081419896_%E5%A4%B4%E5%83%8F.webp">
+<meta property="article:author" content="min">
+<meta property="article:tag" content="科技,编程,学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://djkl.qzz.io/file/1770081419896_%E5%A4%B4%E5%83%8F.webp"><script type="application/ld+json"></script><link rel="shortcut icon" href="https://djkl.qzz.io/file/1770081419896_头像.webp"><link rel="canonical" href="https://flyblog.qzz.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"已切换为繁体中文","cht_to_chs":"已切换为简体中文","day_to_night":"已切换为深色模式","night_to_day":"已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '分类: 未分类',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'category'
+}</script><link rel="stylesheet" href="/css/1.css"><link rel="stylesheet" href="/css/denglong.css"><meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="min的小窝" type="application/atom+xml">
+</head><body><div class="denglong"><div class="deng-box1"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">平</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box2"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">安</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box3"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">如</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div><div class="deng-box4"><div class="deng"><div class="xian"></div><div class="deng-a"><div class="deng-b"><div class="deng-t">意</div></div></div><div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div></div></div></div><div class="bg-animation" id="web_bg" style="background-image: url(https://djkl.qzz.io/file/1770081398628_猫猫背景.webp);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://djkl.qzz.io/file/1770081419896_头像.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url(https://djkl.qzz.io/file/1770081412556_山.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="https://img.cdn1.vip/i/697706e55a48b_1769408229.webp" alt="Logo"><span class="site-name">min的小窝</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/web"><i class="fa-fw fas fa-user-circle"></i><span> 个人空间</span></a></div><div class="menus_item"><a class="site-page" href="/talks/"><i class="fa-fw fas fa-comments"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="page-site-info"><h1 id="site-title">未分类</h1></div></header><main class="layout" id="content-inner"><div id="category"><div class="article-sort-title">分类 - 未分类</div><div class="article-sort"><div class="article-sort-item year">2026</div><div class="article-sort-item"><a class="article-sort-item-img" href="/posts/1/" title="BlogsClub - 博客所有权认证"><img src="https://api.yppp.net/pc.php?7721" alt="BlogsClub - 博客所有权认证" onerror="this.onerror=null;this.src='/img/404.jpg'"></a><div class="article-sort-item-info"><div class="article-sort-item-time"><i class="far fa-calendar-alt"></i><time class="post-meta-date-created" datetime="2026-02-14T19:16:59.341Z" title="发表于 2026-02-15 03:16:59">2026-02-15</time></div><a class="article-sort-item-title" href="/posts/1/" title="BlogsClub - 博客所有权认证">BlogsClub - 博客所有权认证</a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://djkl.qzz.io/file/1770081419896_头像.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">min</div><div class="author-info-description">一个热爱科技的初中生</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/djklmin"><i class="fab fa-github"></i><span>Follow me</span></a><div class="card-info-social-icons"><a class="social-icon" href="mailto:3139437826@qq.com" target="_blank" title="邮箱"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://user.qzone.qq.com/3139437826" target="_blank" title="QQ空间"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://t.me/mindjkl" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本博客正在施工，随便逛逛吧</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/1/" title="BlogsClub - 博客所有权认证"><img src="https://api.yppp.net/pc.php?7721" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BlogsClub - 博客所有权认证"/></a><div class="content"><a class="title" href="/posts/1/" title="BlogsClub - 博客所有权认证">BlogsClub - 博客所有权认证</a><time datetime="2026-02-14T19:16:59.341Z" title="发表于 2026-02-15 03:16:59">2026-02-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/Transparent/" title="Hexo博客透明背景"><img src="https://api.yppp.net/pc.php?9329" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo博客透明背景"/></a><div class="content"><a class="title" href="/posts/Transparent/" title="Hexo博客透明背景">Hexo博客透明背景</a><time datetime="2026-02-11T03:41:02.929Z" title="发表于 2026-02-11 11:41:02">2026-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/qexomin/" title="Qexo的说说和友链配置"><img src="https://api.yppp.net/pc.php?450" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Qexo的说说和友链配置"/></a><div class="content"><a class="title" href="/posts/qexomin/" title="Qexo的说说和友链配置">Qexo的说说和友链配置</a><time datetime="2026-02-11T02:54:35.025Z" title="发表于 2026-02-11 10:54:35">2026-02-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/AI/" title="AI使用的18个小技巧"><img src="https://api.yppp.net/pc.php?5033" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AI使用的18个小技巧"/></a><div class="content"><a class="title" href="/posts/AI/" title="AI使用的18个小技巧">AI使用的18个小技巧</a><time datetime="2026-02-07T04:01:51.344Z" title="发表于 2026-02-07 12:01:51">2026-02-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/cloudflareKV/" title="Cloudflare图床缓存优化"><img src="https://api.yppp.net/pc.php?7168" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Cloudflare图床缓存优化"/></a><div class="content"><a class="title" href="/posts/cloudflareKV/" title="Cloudflare图床缓存优化">Cloudflare图床缓存优化</a><time datetime="2026-02-06T19:35:03.156Z" title="发表于 2026-02-07 03:35:03">2026-02-07</time></div></div></div></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">11</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-02-15T03:17:54.695Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://djkl.qzz.io/file/1770081381054_变换色·.webp);"><div class="footer-flex"></div><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2024 - 2026 By min</span></div><div class="footer_custom_text"><div class="footer-content">
+  <p>本站已稳定运行 <span id="runtime">0 天 0 小时 0 分钟 0 秒</span></p>
+  <p>
+    <a href="/about/">关于</a> · 
+    <a href="/archives/">归档</a> · 
+    <a href="/tags/">标签</a> · 
+    <a href="https://flyminos.qzz.io/login/?next=/" target="_blank">后台管理</a>
+  </p>
+  <p>遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 协议</p>
+</div>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar@0.1.16/dist/snackbar.min.js"></script><div class="js-pjax"></div><script>
+(function() {
+  // 建站时间：2025年8月20日15时20分50秒
+  const SITE_START = new Date('2025-08-20T15:20:50');
+  
+  function updateRuntime() {
+    const now = new Date();
+    const diff = now - SITE_START;
+    
+    // 计算时间差
+    const totalSeconds = Math.floor(diff / 1000);
+    
+    const days = Math.floor(totalSeconds / (24 * 60 * 60));
+    const hours = Math.floor((totalSeconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+    const seconds = totalSeconds % 60;
+    
+    // 更新显示
+    const runtimeElement = document.getElementById('runtime');
+    if (runtimeElement) {
+      runtimeElement.textContent = 
+        `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+    }
+  }
+  
+  // 初始运行
+  updateRuntime();
+  
+  // 每秒更新一次
+  const timer = setInterval(updateRuntime, 1000);
+  
+  // 页面卸载时清理定时器
+  window.addEventListener('beforeunload', function() {
+    clearInterval(timer);
+  });
+})();
+</script>
+<canvas class="fireworks" mobile="true"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/fireworks.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章..." type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
